@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>vlewrapper</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+  <servlet>
+    <servlet-name>author</servlet-name>
+    <servlet-class>vle.web.author.AuthorController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>author</servlet-name>
+    <url-pattern>/author.html</url-pattern>
+  </servlet-mapping>	
+  
+  <servlet>
+    <servlet-name>vlegetsvgdraw</servlet-name>
+    <servlet-class>vle.web.VLEGetSVGDraw</servlet-class>
+  </servlet>
+
+   <servlet-mapping>
+    <servlet-name>vlegetsvgdraw</servlet-name>
+    <url-pattern>/getsvg.svg</url-pattern>
+  </servlet-mapping>	
+  
+  <servlet>
+    <servlet-name>vlegetdata</servlet-name>
+    <servlet-class>vle.web.VLEGetData</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlegetdata</servlet-name>
+    <url-pattern>/getdata.html</url-pattern>
+  </servlet-mapping>	
+  
+  <servlet>
+    <servlet-name>vlepostdata</servlet-name>
+    <servlet-class>vle.web.VLEPostData</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>vlepostdata</servlet-name>
+    <url-pattern>/postdata.html</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>vlepostjournaldata</servlet-name>
+    <servlet-class>vle.web.VLEJournalController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlepostjournaldata</servlet-name>
+    <url-pattern>/journaldata.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>vlegetjournaldata</servlet-name>
+    <servlet-class>vle.web.VLEJournalController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlegetjournaldata</servlet-name>
+    <url-pattern>/journaldata.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>vleannotations</servlet-name>
+    <servlet-class>vle.web.VLEAnnotationController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vleannotations</servlet-name>
+    <url-pattern>/annotations.html</url-pattern>
+  </servlet-mapping>	
+  
+  <servlet>
+    <servlet-name>vlepeerreview</servlet-name>
+    <servlet-class>vle.web.VLEPeerReviewController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlepeerreview</servlet-name>
+    <url-pattern>/peerreview.html</url-pattern>
+  </servlet-mapping>	
+  
+  <servlet>
+    <servlet-name>vlegetxls</servlet-name>
+    <servlet-class>vle.web.VLEGetXLS</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlegetxls</servlet-name>
+    <url-pattern>/getxls.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>echopostdata</servlet-name>
+    <servlet-class>utils.EchoPostData</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>echopostdata</servlet-name>
+    <url-pattern>/vle/echo.html</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>filemanager</servlet-name>
+  	<servlet-class>utils.FileManager</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>filemanager</servlet-name>
+    <url-pattern>/vle/filemanager.html</url-pattern>
+  </servlet-mapping>
+
+  
+  <servlet>
+  	<servlet-name>assetmanager</servlet-name>
+  	<servlet-class>utils.AssetManager</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>assetmanager</servlet-name>
+  	<url-pattern>/vle/assetmanager.html</url-pattern>
+  </servlet-mapping>
+    
+  <servlet>
+  	<servlet-name>studentassetmanager</servlet-name>
+  	<servlet-class>utils.AssetManager</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>studentassetmanager</servlet-name>
+  	<url-pattern>/vle/studentassetmanager.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>vleview</servlet-name>
+    <servlet-class>vle.VLEView</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vleview</servlet-name>
+    <url-pattern>/view.html</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<servlet-name>TTS</servlet-name>
+  	<servlet-class>utils.TTS</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>TTS</servlet-name>
+  	<url-pattern>/vle/tts.html</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>vlegetstatistics</servlet-name>
+    <servlet-class>vle.web.VLEGetStatistics</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>vlegetstatistics</servlet-name>
+    <url-pattern>/getVLEStatistics.html</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<display-name>VLEConfig</display-name>
+  	<servlet-name>VLEConfig</servlet-name>
+  	<servlet-class>vle.VLEConfig</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>
+  	VLEGetUser</display-name>
+  	<servlet-name>VLEGetUser</servlet-name>
+  	<servlet-class>
+  	vle.VLEGetUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>AssetManager</display-name>
+  	<servlet-name>AssetManager</servlet-name>
+  	<servlet-class>
+  	utils.AssetManager</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>VLEConfig</servlet-name>
+  	<url-pattern>/VLEConfig</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>VLEGetUser</servlet-name>
+  	<url-pattern>/vle/VLEGetUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AssetManager</servlet-name>
+  	<url-pattern>/AssetManager</url-pattern>
+  </servlet-mapping>
+  	
+  	<!--  
+  <listener>
+      <listener-class>
+          utils.listener.AuthorSessionListener
+      </listener-class>
+  </listener>
+  -->
+  <!--  
+  <filter>
+  	<filter-name>Authoring Tool Main Filter</filter-name>
+  	<filter-class>utils.filter.AuthorMainFilter.java</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>Authoring Tool Main Filter</filter-name>
+  	<url-pattern>/vle/author.html</url-pattern>
+  </filter-mapping>
+	-->
+	
+	<filter>
+	    <filter-name>CharsetFilter</filter-name>
+    	<filter-class>utils.filters.CharsetFilter</filter-class>
+	      <init-param>
+    	    <param-name>requestEncoding</param-name>
+        	<param-value>UTF-8</param-value>
+	      </init-param>
+  	</filter>
+
+  	<filter-mapping>
+    	<filter-name>CharsetFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+	
+	
+	<servlet>
+  		<servlet-name>minifier</servlet-name>
+  		<servlet-class>utils.Minifier</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>minifier</servlet-name>
+		<url-pattern>/util/minifier.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>converter</servlet-name>
+		<servlet-class>utils.Converter</servlet-class>
+	</servlet>
+	  
+	<servlet-mapping>
+		<servlet-name>converter</servlet-name>
+		<url-pattern>/util/convert.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>modemaster</servlet-name>
+		<servlet-class>utils.ModeMaster</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>modemaster</servlet-name>
+		<url-pattern>/modemaster.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ideabasket</servlet-name>
+		<servlet-class>vle.web.VLEIdeaBasketController</servlet-class>
+	</servlet>
+  
+	<servlet-mapping>
+		<servlet-name>ideabasket</servlet-name>
+		<url-pattern>/ideaBasket.html</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+	</listener>
+</web-app>
