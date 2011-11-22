@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* Copyright (c) 2007 Encore Research Group, University of Toronto
+	* 
+	* This library is free software; you can redistribute it and/or
+	* modify it under the terms of the GNU Lesser General Public
+	* License as published by the Free Software Foundation; either
+	* version 2.1 of the License, or (at your option) any later version.
+	*
+	* This library is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+	* Lesser General Public License for more details.
+	*
+	* You should have received a copy of the GNU Lesser General Public
+	* License along with this library; if not, write to the Free Software
+	* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+-->
+
+<!-- $Id: pom.xml 2357 2011-08-31 18:50:25Z honchikun@gmail.com $ -->
+
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.sf.sail</groupId>
+	<artifactId>vlewrapper</artifactId>
+	<packaging>war</packaging>
+	<name>VLE Wrapper</name>
+	<version>5.0-SNAPSHOT</version>
+	<url>http://sail-web.googlecode.com/</url>
+	<developers>
+		<developer>
+			<id>hiroki</id>
+			<name>Hiroki Terashima</name>
+			<email>honchikun@gmail.com</email>
+			<organization>TELS</organization>
+			<organizationUrl>
+				http://www.telscenter.org/
+			</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-8</timezone>
+		</developer>
+	</developers>
+	<scm>
+	    <connection>scm:svn:http://sail-web.googlecode.com/svn</connection>
+        <developerConnection>scm:svn:http://sail-web.googlecode.com/svn</developerConnection>
+        <url>https://sail-web.googlecode.com/</url>
+	</scm>
+	<issueManagement>
+	    <system>Google Code</system>
+		<url>http://code.google.com/p/sail-web/issues/list/</url>
+	</issueManagement>
+	<build>
+		<finalName>vlewrapper</finalName>
+	    <resources outputDirectory="${project.build.outputDirectory}">
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/webapp/WEB-INF</directory>
+            </resource>
+		</resources>		
+		<plugins>
+		<!--  
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                  <execution>
+                    <id>clean</id>
+                    <phase>compile</phase>
+                    <configuration>
+                      <target>
+                          <property name="classfiles.path" value="WebContent/WEB-INF/classes" />
+                          <delete includeemptydirs="true">
+                              <fileset dir="${classfiles.path}" excludes="**/*.xml" includes="**/*" />
+                          </delete>
+                      </target>
+                    </configuration>
+                    <goals>
+                      <goal>run</goal>
+                    </goals>
+                  </execution>
+                  <execution>
+                    <id>make-jar</id>
+                    <phase>compile</phase>
+                    <configuration>
+                      <target>
+                        <property name="compile_classpath" refid="maven.compile.classpath"/>
+                        <property name="runtime_classpath" refid="maven.runtime.classpath"/>
+                        <property name="test_classpath" refid="maven.test.classpath"/>
+                        <property name="plugin_classpath" refid="maven.plugin.classpath"/>
+						<property name="build.compiler" value="extJavac"/>
+						
+                        <ant antfile="${basedir}/build.xml">
+                          <target name="make-jar"/>
+                        </ant>
+                      </target>
+                    </configuration>
+                    <goals>
+                      <goal>run</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>
+			-->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>			
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>src/main/webapp/WEB-INF</directory>
+							<filtering>true</filtering>
+							<includes>
+								<include>web.xml</include>
+							</includes>					
+							<targetPath>WEB-INF</targetPath>		
+						</resource>
+					</webResources>
+					<archive>
+		            	<manifest>
+        		      		<addClasspath>true</addClasspath>
+            			</manifest>
+          			</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>eclipse-repo</id>
+			<name>oaw-eclipse-repo</name>
+			<url>http://www.openarchitectureware.org/m2</url>
+		</repository>
+		<repository>
+			<id>tels-repo-internal-snapshot</id>
+			<name>TELS internal repository snapshot</name>
+			<url>http://repo.telscenter.org/internal_snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>concord-repo-internal-snapshot</id>
+			<name>concord internal repository snapshot</name>
+			<url>
+				http://source.concord.org/maven2/internal_snapshot/
+			</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>java.net-maven2-repository</id>
+			<name>javanettasks maven repository</name>
+			<url>		
+		         http://download.java.net/maven/2
+			</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jboss-maven2-repository</id>
+			<name>jboss maven repository</name>
+			<url>		
+		         http://repository.jboss.org/maven2
+			</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>		
+	</repositories>
+	<pluginRepositories>
+	</pluginRepositories>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.17</version>
+</dependency>
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-log4j12</artifactId>
+		  <version>1.5.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+    		<artifactId>poi</artifactId>
+    		<version>3.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+    		<artifactId>poi-ooxml</artifactId>
+    		<version>3.7</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.apache.poi</groupId>
+   			<artifactId>poi-ooxml-schemas</artifactId>
+    		<version>3.7</version>
+		</dependency>		
+		<dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-commons-annotations</artifactId>
+           <version>3.1.0.GA</version>
+       </dependency>
+       <!--
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.0.Final</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.3.1.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>	
+<dependency>
+    <groupId>javassist</groupId>
+    <artifactId>javassist</artifactId>
+    <version>3.12.1.GA</version>
+</dependency>
+	    <dependency>
+	        <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.0.1</version>
+        </dependency>    
+		<dependency>
+	    	<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>1.3.2</version>
+		</dependency>       
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+   	 		<groupId>com.yahoo.platform.yui</groupId>
+    		<artifactId>yuicompressor</artifactId>
+    		<version>2.4.6</version>
+		</dependency>		
+		<dependency>
+  			<groupId>com.sun.speech.freetts</groupId>
+			  <artifactId>freetts</artifactId>
+			  <version>0.9.2</version>
+			  <scope>system</scope>
+			  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/freetts.jar</systemPath>			
+		</dependency> 			
+	</dependencies>
+	<reporting>
+	</reporting>
+</project>
