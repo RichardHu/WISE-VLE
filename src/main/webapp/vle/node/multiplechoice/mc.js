@@ -1,4 +1,4 @@
-
+﻿
 /**
  * @constructor
  * @param node
@@ -166,10 +166,10 @@ MC.prototype.render = function() {
 		// if there is no correct answer to this question (ie, when they're filling out a form),
 		// change button to say "save answer" and "edit answer" instead of "check answer" and "try again"
 		// and don't show the number of attempts.
-		document.getElementById("checkAnswerButton").innerHTML = "Save Answer";
-		document.getElementById("tryAgainButton").innerHTML = "Edit Answer";
+		document.getElementById("checkAnswerButton").innerHTML = "儲存答案";
+		document.getElementById("tryAgainButton").innerHTML = "編輯答案";
 	} else {
-		displayNumberAttempts("This is your", "attempt", this.attempts);
+		displayNumberAttempts("這是你的", "次嘗試", this.attempts);
 	};
 	
 	//get the latest state
