@@ -669,7 +669,8 @@ View.prototype.initializeAssetEditorDialog = function(){
 	};
 	
 	// set default buttons for asset editor dialog
-	this.assetEditorButtons = {'Close': done, 'Remove Selected File': remove};
+	// Modified by Richard 2011/12/12
+	this.assetEditorButtons = {'關閉': done, '移除選取的檔案': remove};
 	$('#assetEditorDialog').dialog({autoOpen:false, draggable:true, modal:true, width:600, title: 'Project Files', buttons: this.assetEditorButtons, close: cancel, open:show});
 };
 
@@ -1030,13 +1031,14 @@ View.prototype.copyProject = function(){
 View.prototype.toggleProjectMode = function(){
 	this.projectStructureViolation = false;
 	
-	//toggle modes and set associated text
+	//toggle modes and set associated text 
+	// modified by Richard 2011/12/7
 	if(this.simpleProject){
 		this.simpleProject = false;
-		$('#projectModeDiv > span').text('Advanced Mode');
+		$('#projectModeDiv > span').text('進階模式');
 	} else {
 		this.simpleProject = true;
-		$('#projectModeDiv > span').text('Simple Mode');
+		$('#projectModeDiv > span').text('簡易模式');
 	};
 	//regenerate authoring if a project is open
 	if(this.project){
