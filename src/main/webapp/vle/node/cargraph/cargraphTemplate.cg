@@ -1,9 +1,9 @@
 {
    "graphParams": {
-      "xlabel": "Time (min)",
+      "xlabel": "時間 (min)",
       "xmin": "0",
       "xmax": "60",
-      "ylabel": "Position (km)",
+      "ylabel": "位置 (km)",
       "ymin": "0",
       "ymax": "21",
       "xUnits": "min",
@@ -15,7 +15,7 @@
    "dynamicImages": [
       {
          "id": "greenCar",
-         "graphLabel": "Green Car",
+         "graphLabel": "綠車",
          "graphColor": "green",
          "graphName": "G",
          "img": "assets/car-green.png",
@@ -23,7 +23,7 @@
       },
       {
          "id": "yellowCar",
-         "graphLabel": "Yellow Car",
+         "graphLabel": "黃車",
          "graphColor": "yellow",
          "graphName": "Y",
          "img": "assets/car-yellow.png",
@@ -33,7 +33,7 @@
    "staticImages": [
       {
          "id": "school",
-         "label": "School",
+         "label": "學校",
          "tickIndex": 0,
          "img": "assets/school.png"
       },
@@ -45,7 +45,7 @@
       },
       {
          "id": "cafe",
-         "label": "Coffee Shop",
+         "label": "咖啡店",
          "tickIndex": 7,
          "img": "assets/cafe.png"
       },
@@ -62,8 +62,8 @@
          "img": "assets/house-red.png"
       }
    ],
-   "graphTitle": "title",
-   "prompt": "Draw two graphs and hit play.  Then write your thoughts in the following reflection step.",
+   "graphTitle": "標題",
+   "prompt": "畫出兩張圖片發生碰撞過程，並在接下來的回應步驟中寫下您的想法。",
    "expectedResults": [
    	{  
         "id": "greenCar",

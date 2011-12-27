@@ -1,10 +1,10 @@
-/**
+﻿/**
  * Challenge Node
  */
 ChallengeNode.prototype = new MultipleChoiceNode();
 ChallengeNode.prototype.constructor = ChallengeNode;
 ChallengeNode.prototype.parent = MultipleChoiceNode.prototype;
-ChallengeNode.authoringToolName = "Challenge Question";
+ChallengeNode.authoringToolName = "挑戰問題";
 ChallengeNode.authoringToolDescription = "Students answer a multiple choice question. If they get the answer wrong, they will need to revisit a previous step before trying again.";
 
 /**

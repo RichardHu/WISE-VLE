@@ -116,7 +116,7 @@ MC.prototype.getChoiceByIdentifier = function(identifier) {
  */
 MC.prototype.render = function() {
 	/* set the question type title */
-	$('#questionType').html((this.node.getType()=='ChallengeNode') ? 'Challenge Question' : 'Multiple Choice');
+	$('#questionType').html((this.node.getType()=='ChallengeNode') ? '挑戰問題' : '多選題');
 	
 	/* render the prompt */
 	$('#promptDiv').html(this.content.assessmentItem.interaction.prompt);
@@ -169,7 +169,7 @@ MC.prototype.render = function() {
 		document.getElementById("checkAnswerButton").innerHTML = "儲存答案";
 		document.getElementById("tryAgainButton").innerHTML = "編輯答案";
 	} else {
-		displayNumberAttempts("這是你的", "次嘗試", this.attempts);
+		displayNumberAttempts("這是您的", "次填答", this.attempts);
 	};
 	
 	//get the latest state
@@ -560,13 +560,13 @@ MC.prototype.getResultMessage = function(isCorrect){
 	
 	/* if this attempt is correct, then we only need to return a msg */
 	if(isCorrect){
-		return "You have successfully completed this question!";
+		return "恭喜您答對了！";
 	} else {
 		/* this is not correct, so we need to set up a linkTo and constraint
 		 * and return a message with the linkTo if a step has been specified
 		 * to navigate to otherwise, we need to return an empty string */
 		if(attempt.navigateTo && attempt.navigateTo != ''){
-			var msg = 'Please review ';
+			var msg = '請重新瀏覽 ';
 			var position = this.node.view.getProject().getPositionById(attempt.navigateTo);
 			var linkNode = this.node.view.getProject().getNodeById(attempt.navigateTo);
 			var stepNumberAndTitle = this.node.view.getProject().getStepNumberAndTitle(attempt.navigateTo);
@@ -574,7 +574,7 @@ MC.prototype.getResultMessage = function(isCorrect){
 			/* create the linkTo and add it to the message */
 			var linkTo = {key:this.node.utils.generateKey(),nodePosition:position};
 			this.node.addLink(linkTo);
-			msg += '<a style=\"color:blue;text-decoration:underline;font-weight:bold;cursor:pointer\" onclick=\"node.linkTo(\'' + linkTo.key + '\')\">Step ' + stepNumberAndTitle + '</a> before trying again.';
+			msg += '<a style=\"color:blue;text-decoration:underline;font-weight:bold;cursor:pointer\" onclick=\"node.linkTo(\'' + linkTo.key + '\')\">Step ' + stepNumberAndTitle + '</a> 才能再次填答';
 			
 			//create the message that will display in the alert
 			var optsMsg = 'You must visit "Step ' + stepNumberAndTitle + '" before trying this step again.';

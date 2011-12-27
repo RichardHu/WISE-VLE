@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ext-connector.js
  *
  * Licensed under the Apache License, Version 2
@@ -303,7 +303,7 @@ svgEditor.addExtension("Connector", function(S) {
 			id: "mode_connect",
 			type: "mode",
 			icon: "images/cut.png",
-			title: "Connect two objects",
+			title: "連結2個物件",
 			key: "Shift+3",
 			/*includeWith: {
 				button: '#tool_line',

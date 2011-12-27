@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the MWNode type as an object of this view
  * 
  * TODO: rename MWNode
@@ -66,11 +66,11 @@ View.prototype.MWNode.generatePage = function(view){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 
 	//create the label for the textarea that the author will write the prompt in
-	var promptText = document.createTextNode("Prompt for Student:");
+	var promptText = document.createTextNode("給學生的提示：");
 
 	var promptTextArea = createElement(document, 'textarea', {id: 'promptTextArea', rows:'20', cols:'85', onkeyup:"eventManager.fire('mwUpdatePrompt')"});
 
-	var cmlUrlLabel = document.createTextNode("CML URL:");
+	var cmlUrlLabel = document.createTextNode("CML網址：");
 	var cmlUrlInput = createElement(document, 'input', {id: 'cmlUrlInput', type:'text', size:'50', onchange:"eventManager.fire('mwUpdateCmlUrlInput')"});
 
 	//add the authoring components to the page

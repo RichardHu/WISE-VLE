@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the BrainstormNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -30,7 +30,7 @@ View.prototype.BrainstormNode.generatePage = function(view){
 	this.generateOptions();
 	pageDiv.appendChild(createElement(document, 'div', {id: 'studentResponseBoxSizeContainer'}));
 	pageDiv.appendChild(createElement(document, 'div', {id: 'starterSentenceAuthoringContainer'}));
-	pageDiv.appendChild(document.createTextNode("Edit/Enter prompt"));
+	pageDiv.appendChild(document.createTextNode("編輯/輸入 提示"));
 	pageDiv.appendChild(createElement(document, 'div', {id:'promptContainer'}));
 	pageDiv.appendChild(createElement(document, 'div', {id:'cannedResponsesDiv'}));
 	this.generateCannedResponses();
@@ -57,7 +57,8 @@ View.prototype.BrainstormNode.generateOptions = function(){
 	
 	//create new options elements
 	var optionsDiv = createElement(document, 'div', {id:'optionsDiv'});
-	var optionsText = document.createTextNode('Available Options:');
+	//var optionsText = document.createTextNode('Available Options:');
+	var optionsText = document.createTextNode('可利用之選項：');
 	var optionsTable = createElement(document, 'table', {id:'optionsTable'});
 	var optionsRow1 = createElement(document, 'tr', {id:'optionsRow1'});
 	var optionsRow2 = createElement(document, 'tr', {id:'optionsRow2'});
@@ -77,7 +78,7 @@ View.prototype.BrainstormNode.generateOptions = function(){
 	optionsTable.appendChild(optionsRow2);
 	
 	var titleTD = createElement(document, 'td', {id: 'titleTD'});
-	var titleText = document.createTextNode('Title: ');
+	var titleText = document.createTextNode('標題： ');
 	var titleInput = createElement(document, 'input', {type: 'text', id: 'titleInput', onkeyup: 'eventManager.fire("brainstromUpdateTitle")', value: this.content.title});
 	
 	optionsRow1.appendChild(titleTD);
@@ -86,32 +87,32 @@ View.prototype.BrainstormNode.generateOptions = function(){
 	titleTD.appendChild(titleInput);
 	
 	var gatedTD = createElement(document, 'td', {id: 'gatedTD'});
-	var gatedText = document.createTextNode('Is Brainstorm gated?');
-	var gatedYesText = document.createTextNode('Yes. Student must post a response before seing peer responses');
-	var gatedNoText = document.createTextNode('No. Student sees peer responses immediately');
+	var gatedText = document.createTextNode('是否有回答關卡？');
+	var gatedYesText = document.createTextNode('是。學生必須先回應才能看到其他人的回應');
+	var gatedNoText = document.createTextNode('否。學生馬上看到其他人的回應');
 	var gatedYesRadio = createElement(document, 'input', {type: 'radio', name: 'isGated', onclick: 'eventManager.fire("brainstormUpdateGated","true")'});
 	var gatedNoRadio = createElement(document, 'input', {type: 'radio', name: 'isGated', onclick: 'eventManager.fire("brainstormUpdateGated","false")'});
 	
 	var displayNameTD = createElement(document, 'td', {id: 'displayNameTD'});
-	var displayNameText = document.createTextNode('When response is submitted by student, how is it labeled?');
-	var displayNameUserOnlyText = document.createTextNode('Username');
-	var displayNameAnonymousOnlyText = document.createTextNode('Anonymous');
-	var displayNameUserOrAnonymousText = document.createTextNode('Student selects Username or Anonymous');
+	var displayNameText = document.createTextNode('當學生送出回應時如何標記？');
+	var displayNameUserOnlyText = document.createTextNode('使用者名稱');
+	var displayNameAnonymousOnlyText = document.createTextNode('匿名');
+	var displayNameUserOrAnonymousText = document.createTextNode('學生選擇使用者名稱或匿名');
 	var displayNameUserOnlyRadio = createElement(document, 'input', {type: 'radio', name: 'displayName', onclick: 'eventManager.fire("brainstormUpdateDisplayName","0")'});
 	var displayNameAnonymousOnlyRadio = createElement(document, 'input', {type: 'radio', name: 'displayName', onclick: 'eventManager.fire("brainstormUpdateDisplayName","1")'});
 	var displayNameUserOrAnonymousRadio = createElement(document, 'input', {type: 'radio', name: 'displayName', onclick: 'eventManager.fire("brainstormUpdateDisplayName","2")'});
 	
 	var richTextEditorTD = createElement(document, 'td', {id: 'richTextEditorTD'});
-	var richTextEditorText = document.createTextNode('Rich Text Editor');
-	var richTextEditorYesText = document.createTextNode('Rich editor visible to student');
-	var richTextEditorNoText = document.createTextNode('Rich 	editor not visible');
+	var richTextEditorText = document.createTextNode('完整文字編輯器');
+	var richTextEditorYesText = document.createTextNode('對學生顯示完整文字編輯器');
+	var richTextEditorNoText = document.createTextNode('不顯示完整文字編輯器');
 	var richTextEditorYesRadio = createElement(document, 'input', {type: 'radio', name: 'richText', onclick: 'eventManager.fire("brainstormUpdateRichText","true")'});
 	var richTextEditorNoRadio = createElement(document, 'input', {type: 'radio', name: 'richText', onclick: 'eventManager.fire("brainstormUpdateRichText","false")'});
 	
 	var pollEndedTD = createElement(document, 'td', {id: 'pollEndedTD'});
-	var pollEndedText = document.createTextNode('Is poll ended');
-	var pollEndedYesText = document.createTextNode('poll is ended');
-	var pollEndedNoText = document.createTextNode('poll is not ended');
+	var pollEndedText = document.createTextNode('回應的限制');
+	var pollEndedYesText = document.createTextNode('有限回應');
+	var pollEndedNoText = document.createTextNode('無限回應');
 	var pollEndedYesRadio = createElement(document, 'input', {type: 'radio', name: 'pollEnded', onclick: 'eventManager.fire("brainstormUpdatePollEnded","true")'});
 	var pollEndedNoRadio = createElement(document, 'input', {type: 'radio', name: 'pollEnded', onclick: 'eventManager.fire("brainstormUpdatePollEnded","false")'});
 	
@@ -123,9 +124,9 @@ View.prototype.BrainstormNode.generateOptions = function(){
 	var instantPollNoRadio = createElement(document, 'input', {type: 'radio', name: 'instantPoll', onclick: 'eventManager.fire("brainstormUpdateInstantPoll","false")'});
 
 	var useServerTD = createElement(document, 'td', {id: 'gatedTD'});
-	var useServerText = document.createTextNode('Can students see peer responses?');
-	var useServerYesText = document.createTextNode('Yes. Student can see peer responses');
-	var useServerNoText = document.createTextNode('No. Student is working alone and should not see peer responses');
+	var useServerText = document.createTextNode('學生是否看到彼此的回應？');
+	var useServerYesText = document.createTextNode('是。學生能看到彼此的回應');
+	var useServerNoText = document.createTextNode('否。學生獨自實作而且不能看到彼此的回應');
 	var useServerYesRadio = createElement(document, 'input', {type: 'radio', name: 'useServer', onclick: 'eventManager.fire("brainstormUseServerUpdated","true")'});
 	var useServerNoRadio = createElement(document, 'input', {type: 'radio', name: 'useServer', onclick: 'eventManager.fire("brainstormUseServerUpdated","false")'});
 
@@ -264,8 +265,8 @@ View.prototype.BrainstormNode.generateCannedResponses = function(){
 		parent.removeChild(parent.firstChild);
 	};
 	
-	var createButton = createElement(document, 'input', {type: 'button', 'class':'button', value: 'Create New Response', onclick: 'eventManager.fire("brainstormCreateNewResponse")'});
-	var removeButton = createElement(document, 'input', {type: 'button', 'class':'button', value: 'Remove Response', onclick: 'eventManager.fire("brainstormRemoveResponse")'});
+	var createButton = createElement(document, 'input', {type: 'button', 'class':'button', value: '新增回應', onclick: 'eventManager.fire("brainstormCreateNewResponse")'});
+	var removeButton = createElement(document, 'input', {type: 'button', 'class':'button', value: '移除回應', onclick: 'eventManager.fire("brainstormRemoveResponse")'});
 	var responses = this.content.cannedResponses;
 	
 	for(var t=0;t<responses.length;t++){
@@ -274,9 +275,9 @@ View.prototype.BrainstormNode.generateCannedResponses = function(){
 			responses[t].identifier = this.nodeUtils.generateKey();
 		}
 		
-		var responseTitleText = document.createTextNode('Name: ');
+		var responseTitleText = document.createTextNode('姓名： ');
 		var responseTitleInput = createElement(document, 'input', {type: 'text', id: 'responseInput_' + responses[t].identifier, value: responses[t].name, onkeyup: 'eventManager.fire("brainstormResponseNameChanged","' + responses[t].identifier + '")', onclick: 'eventManager.fire("brainstormResponseSelected","' + responses[t].identifier + '")'});
-		var responseValueText = document.createTextNode('Response: ');
+		var responseValueText = document.createTextNode('回應： ');
 		var responseValueInput = createElement(document, 'textarea', {id: 'responseValue_' + responses[t].identifier, onkeyup: 'eventManager.fire("brainstormResponseValueChanged","' + responses[t].identifier + '")', onclick: 'eventManager.fire("brainstormResponseSelected","' + responses[t].identifier + '")'});
 		responseValueInput.value = responses[t].response;
 		
@@ -437,7 +438,7 @@ View.prototype.BrainstormNode.removeResponse = function(){
  * Creates a new canned response
  */
 View.prototype.BrainstormNode.createNewResponse = function(){
-	this.content.cannedResponses.push({identifier:this.nodeUtils.generateKey(),name:'Enter name',response:''});
+	this.content.cannedResponses.push({identifier:this.nodeUtils.generateKey(),name:'輸入姓名',response:''});
 	this.generateCannedResponses();
 	
 	/* fire source updated event */

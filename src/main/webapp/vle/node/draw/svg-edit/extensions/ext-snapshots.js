@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ext-snapshots.js
  *
  * Licensed under the Apache License, Version 2
@@ -47,7 +47,7 @@ svgEditor.addExtension("Snapshots", function(S) {
 	};
 	
 	function setupPanel(){
-		var paneltxt = '<div id="snapshotpanel"><div id="snapshot_header"><h3>Frames</h3>' +
+		var paneltxt = '<div id="snapshotpanel"><div id="snapshot_header"><h3>影格</h3>' +
 			'<a id="close_snapshots" title="Close">X</a></div>' +
 			'<div id="play_controls" style="display:none;"><div id="playback">' +
 			'<img id="loop" class="snap_controls" src="'+extPath+'loop.png" alt="loop" title="Play (Loop)" />' +
@@ -59,8 +59,8 @@ svgEditor.addExtension("Snapshots", function(S) {
 			'<img id="previous" class="snap_controls" src="'+extPath+'next.png" alt="forward" title="Forward" />' +
 			'</div> hide forward/back buttons for now, TODO: see whether users want them --></div></div>' +
 			'<div id="snapshots"><div id="snapshot_tools">' +
-			'<img class="snapshot_new" src="'+extPath+'camera.png" alt="camera" title="Add New Frame" />' +
-			'<a class="label snapshot_new" title="Add a new frame">Add New Frame</a><hr /></div><div id="snap_images"></div></div></div>';
+			'<img class="snapshot_new" src="'+extPath+'camera.png" alt="camera" title="新增影格" />' +
+			'<a class="label snapshot_new" title="新增一個影格">新增影格</a><hr /></div><div id="snap_images"></div></div></div>';
 		
 		$('#sidepanels').append(paneltxt);
 		
@@ -81,9 +81,9 @@ svgEditor.addExtension("Snapshots", function(S) {
 	
 	function addLink(){
 		var linktext = '<div id="tool_snapshot" class="extension_link">' +
-			'<a class="label tool_snapshot" title="Show/Hide Frames">Frames (Snapshots)</a>' +
+			'<a class="label tool_snapshot" title="顯示/隱藏 影格">影格 (快照)</a>' +
 			'<img class="tool_snapshot" src="'+extPath+'snapshot.png" ' + // image path edited for wise4
-			'title="Show Frames" alt="icon" />' +
+			'title="顯示影格" alt="icon" />' +
 			'</div>';
 		
 		$('#tools_top').append(linktext);

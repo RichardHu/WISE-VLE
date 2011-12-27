@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 * Copyright (c) 2009 Regents of the University of California (Regents). Created
 * by TELS, Graduate School of Education, University of California at Berkeley.
 *
@@ -139,7 +139,7 @@
             </table>
             <div id="questionTable">   
                 <div id="questionType">
-                    Data Grapher
+                    資料圖表
                 </div>
             </div>
         </div>
@@ -158,37 +158,37 @@
     			</div>
     		</div>
     		<div id='buttonsDiv'>
-    			<input type='button' value='SAVE DATA' onclick='save()' id='saveButt'/>
-    			<div style="display:none;"><input style="display:none;" type='button' value='restore original data' onclick='restore()' id='restoreButt'/> </div>
-    			<input type='button' value='switch to graph view' onclick='switchView()' id='switchButt'/>
+    			<input type='button' value='儲存資料' onclick='save()' id='saveButt'/>
+    			<div style="display:none;"><input style="display:none;" type='button' value='恢復原始資料' onclick='restore()' id='restoreButt'/> </div>
+    			<input type='button' value='轉換到圖表畫面' onclick='switchView()' id='switchButt'/>
     		</div><br/>
     		<div id='editablesDiv'>
 	    		<div id='editableTitleDiv'>
-	    			Title: <input type='text' id='editTitleInput' onkeyup='fieldChanged("title")'/><br/>
+	    			標題： <input type='text' id='editTitleInput' onkeyup='fieldChanged("title")'/><br/>
 	    		</div>
 	    		<div id='editableXLabelDiv'>
-	    			X-axis Label: <input type='text' id='editXLabelInput' onkeyup='fieldChanged("xLabel")'/><br/>
+	    			X軸標記： <input type='text' id='editXLabelInput' onkeyup='fieldChanged("xLabel")'/><br/>
 	    		</div>
 	    		<div id='editableYLabelDiv'>
-	    			Y-axis Label: <input type='text' id='editYLabelInput' onkeyup='fieldChanged("yLabel")'/>
+	    			Y軸標記： <input type='text' id='editYLabelInput' onkeyup='fieldChanged("yLabel")'/>
 	    		</div>
     		</div><br/>
     		<div id='graphOptions' style='display:none;'>
     			<table id='rangeTable'>
     				<tr id='yRangeRow'>
-    					<td>Display Y axis from:</td>
+    					<td>顯示Y軸從：</td>
     					<td><input type='text' id='yFromRange' size='5'></input></td>
-    					<td>to:</td>
+    					<td>到：</td>
     					<td><input type='text' id='yToRange' size='5'></input></td>
     				</tr>
     				<tr id='xRangeRow'>
-    					<td>Display X axis from:</td>
+    					<td>顯示X軸從：</td>
     					<td><input type='text' id='xFromRange' size='5'></input></td>
-    					<td>to:</td>
+    					<td>到：</td>
     					<td><input type='text' id='xToRange' size='5'></input></td>
     				</tr>
     			</table><br/>
-    			<input type='button' value='Redraw graph' onclick='redrawGraph()'></input><br/>
+    			<input type='button' value='重繪圖表' onclick='redrawGraph()'></input><br/>
     			<select id='graphTypeSelect' onchange='graphTypeChanged()' style='display:none;'>
     			</select>
     		</div>

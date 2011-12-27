@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This is a template step object that developers can use to create new
  * step types.
  * 
@@ -485,7 +485,7 @@ ExplanationBuilder.prototype.add = function(text,source,tags,flag) {
 };
 
 ExplanationBuilder.prototype.addRow = function(idea,load){
-	var title = 'Click and drag to add to idea space, Double click to edit';
+	var title = '按住左鍵並拖曳到您的想法組織空間，雙擊左鍵可以編輯';
 	var text = idea.text.replace(new RegExp("(\\w{" + 25 + "})(?=\\w)", "g"), "$1<wbr>");
 	/*if(idea.tags && idea.tags != 'undefined'){
 		var tags = idea.tags;

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the FlashNode type as an object of this view
  * @constructor
  * TODO: rename FlashNode
@@ -68,7 +68,7 @@ View.prototype.FlashNode.generatePage = function(view){
 	var promptDiv = $(document.createElement('div')).addClass('authorComponent');
 	
 	//create the label for the textarea that the author will write the prompt in
-	var promptLabel = $(document.createElement('div')).text('Introductory Content (optional):');
+	var promptLabel = $(document.createElement('div')).text('介紹的內容 (選擇性)：');
 	//create the textarea that the author will write the prompt in
 	var promptTextArea = $(createElement(document, 'textarea', {id: 'promptTextArea', name: 'promptTextArea', onkeyup:"eventManager.fire('flashPromptChanged')"})).css({'width':'100%','min-height':'100px'});
 	
@@ -76,7 +76,7 @@ View.prototype.FlashNode.generatePage = function(view){
 	var richtextToggleDiv = $(document.createElement('div'));
 	
 	//create rich text hide and show links
-	var richtextShow = $(createElement(document, 'a', {id: 'showRichText', title: 'Rich Text', onclick:"eventManager.fire('flashShowRichText')"})).text('Rich Text').addClass('richTextToggle');
+	var richtextShow = $(createElement(document, 'a', {id: 'showRichText', title: '完整文字編輯器', onclick:"eventManager.fire('flashShowRichText')"})).text('文字編輯器').addClass('richTextToggle');
 	var richtextHide = $(createElement(document, 'a', {id: 'hideRichText', title: 'HTML', onclick:"eventManager.fire('flashHideRichText')"})).text('HTML').addClass('richTextToggle');
 	
 	richtextToggleDiv.append(richtextShow).append(richtextHide);
@@ -86,26 +86,26 @@ View.prototype.FlashNode.generatePage = function(view){
 	var swfUrlDiv = $(document.createElement('div')).addClass('authorComponent');
 	
 	//create the label for the textarea that the author will write the swf url in
-	var swfUrlLabel = $(document.createElement('span')).text('Flash (swf) URL:');
+	var swfUrlLabel = $(document.createElement('span')).text('Flash (swf) 網址：');
 	//create the textarea that the author will write the swf url in
 	var swfUrlInput = $(createElement(document, 'input', {id: 'swfUrlInput', type:'text', size:'50', onchange:"eventManager.fire('flashSwfUrlChanged')"}));
 	//create the browse button that allows author to choose swf from project assets
-	var swfBrowseButton = $(createElement(document, 'button', {id: 'swfBrowseButton', onclick:'eventManager.fire("flashBrowseClicked")'})).text('Browse');
+	var swfBrowseButton = $(createElement(document, 'button', {id: 'swfBrowseButton', onclick:'eventManager.fire("flashBrowseClicked")'})).text('瀏覽');
 	
 	swfUrlDiv.append(swfUrlLabel).append(swfUrlInput).append(swfBrowseButton);
 	
 	var swfDimensionsDiv = $(document.createElement('div')).addClass('authorComponent');
 	
 	//create the label for the dimensions section
-	var swfDimensionsLabel = $(document.createElement('div')).text('Dimensions (px):');
+	var swfDimensionsLabel = $(document.createElement('div')).text('大小 (px)：');
 	//create the label for the textarea that the author will write the height in
-	var swfHeightLabel = $(document.createElement('span')).text('Height:');
+	var swfHeightLabel = $(document.createElement('span')).text('高度：');
 	//create the textarea that the author will write the height in
 	// TODO: add validation (only allow digits)
 	var swfHeightInput = createElement(document, 'input', {id: 'swfHeightInput', type:'text', size:'4', onchange:"eventManager.fire('flashSwfHeightChanged')"});
 	
 	//create the label for the textarea that the author will write the width in
-	var swfWidthLabel = $(document.createElement('span')).text('Width:');
+	var swfWidthLabel = $(document.createElement('span')).text('寬度：');
 	//create the textarea that the author will write the width in
 	// TODO: add validation (only allow digits)
 	var swfWidthInput = createElement(document, 'input', {id: 'swfWidthInput', type:'text', size:'4', onchange:"eventManager.fire('flashSwfWidthChanged')"});
@@ -115,14 +115,14 @@ View.prototype.FlashNode.generatePage = function(view){
 	var advancedDiv = $(document.createElement('div')).addClass('authorSection');
 	
 	//create the label for the advanced section
-	var advancedLabel = $(document.createElement('div')).text('Advanced Options:');
+	var advancedLabel = $(document.createElement('div')).text('進階選項');
 	
 	var flashvarsDiv = $(document.createElement('div')).addClass('authorComponent');
 	
 	//create the label for the flashvars section
-	var flashvarsLabel = $(document.createElement('div')).text('Optional Load Parameters (flashvars)');
+	var flashvarsLabel = $(document.createElement('div')).text('選擇性載入參數 (flashvars)');
 	//create add flashvar button
-	var flashvarButton = $(createElement(document, 'button', {id: 'addFlashvar', onclick: 'eventManager.fire("flashAddFlashvar")'})).text('Add new flashvar');
+	var flashvarButton = $(createElement(document, 'button', {id: 'addFlashvar', onclick: 'eventManager.fire("flashAddFlashvar")'})).text('新增flashv參數');
 	
 	flashvarsDiv.append(flashvarsLabel).append(flashvarButton);
 	
@@ -133,7 +133,7 @@ View.prototype.FlashNode.generatePage = function(view){
 		eventManager.fire('flashEnableDataChanged');
 	});
 	//create the label for the checkbox that the author will use to enable/disable data logging
-	var enableDataLabel = $(document.createElement('span')).text('Enable student data logging');
+	var enableDataLabel = $(document.createElement('span')).text('學生資料記錄');
 	
 	dataDiv.append(enableDataCbx).append(enableDataLabel);
 	
@@ -144,18 +144,18 @@ View.prototype.FlashNode.generatePage = function(view){
 		eventManager.fire('flashEnableGradingChanged');
 	});
 	//create the label for the checkbox that the author will use to enable/disable grading
-	var enableGradingLabel = $(document.createElement('span')).text('Enable grading');
+	var enableGradingLabel = $(document.createElement('span')).text('評分');
 	
 	gradingDiv.append(enableGradingCbx).append(enableGradingLabel);
 	
 	var gradingTypeDiv = $(document.createElement('div')).addClass('authorComponent').css('display','none').attr('id','gradingTypeDiv');
 	
 	//create the label for the radio buttons that the author will use to select the grading format
-	var gradingTypeLabel = $(document.createElement('div')).text('Grading Mode:');
+	var gradingTypeLabel = $(document.createElement('div')).text('評分模式：');
 	//create the radio buttons and labels for each grading type
-	var gradingLabelFlash = $(document.createElement('span')).text('Flash Display');
+	var gradingLabelFlash = $(document.createElement('span')).text('Flash顯示');
 	var gradingRadioFlash = $(createElement(document, 'input', {id: 'flashGradingType', type: 'radio', name: 'gradingType', value: 'flashDisplay'})).prop('checked',true);
-	var gradingLabelData = $(document.createElement('span')).text('Student Data String');
+	var gradingLabelData = $(document.createElement('span')).text('學生資料字串');
 	var gradingRadioData = $(createElement(document, 'input', {id: 'dataGradingType', type: 'radio', name: 'gradingType', value: 'data'}));
 	var gradingLabelCustom = $(document.createElement('span')).text('Custom');
 	var gradingRadioCustom = $(createElement(document, 'input', {id: 'customGradingType', type: 'radio', name: 'gradingType', value: 'custom'}));

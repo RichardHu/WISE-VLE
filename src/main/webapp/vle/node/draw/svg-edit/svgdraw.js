@@ -1,4 +1,4 @@
-// TODO: Comment me more thoroughly!
+﻿// TODO: Comment me more thoroughly!
 
 /**
  * @constructor
@@ -316,7 +316,7 @@ SVGDRAW.prototype.initDisplay = function(data,context) {
 					$('#description').show();
 				});
 				
-				$('.description_header_text span.panel_title').text('Frame Description:');
+				$('.description_header_text span.panel_title').text('影格描述：');
 				
 				$('#description_collapse').hide();
 				

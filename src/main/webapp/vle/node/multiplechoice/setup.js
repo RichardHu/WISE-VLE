@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/multiplechoice/MultipleChoiceNode.js',
 	'vle/node/multiplechoice/ChallengeNode.js',
 	'vle/node/multiplechoice/multipleChoiceEvents.js'
@@ -52,7 +52,7 @@ var multipleChoiceNodeClasses = [
 ];
 
 var challengeNodeClasses = [
-	{nodeClass:'challengequestion', nodeClassText:'Challenge Question'}
+	{nodeClass:'challengequestion', nodeClassText:'挑戰問題'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

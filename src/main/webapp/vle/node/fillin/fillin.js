@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @constructor
  * @param node
  * @returns
@@ -66,7 +66,7 @@ FILLIN.prototype.generateInteractiveDivHtml = function(textInteractionEntryIndex
 		var responseId = textInteractionEntry.textInteraction.responseIdentifier;
 		var expectedLength = textInteractionEntry.textInteraction.expectedLength;
 		var humanIndex = parseInt(textInteractionEntryIndex)+1;
-		return "<b>Answer for blank #"+humanIndex+": </b><input maxLength=\""+expectedLength+"\" id=\"responseBox\" type=\"text\"></input>";
+		return "<b>回答空格 #"+humanIndex+": </b><input maxLength=\""+expectedLength+"\" id=\"responseBox\" type=\"text\"></input>";
 		this.html += "<script type=\"text/javascript\">document.getElementById(\"responseBox\").focus();</script>";
 	};
 };
@@ -177,13 +177,13 @@ FILLIN.prototype.checkAnswer = function() {
 			$('#nextButton').parent().removeClass('ui-state-disabled');
 			//removeClassFromElement("nextButton", "disabledLink");
 			
-			feedbackDiv.innerHTML = "Correct.";
+			feedbackDiv.innerHTML = "正確。";
 			document.getElementsByName("activeBlank")[0].value = studentAnswerText;   // display activeBlank with correctAnswer
 			if (currentTextEntryInteractionIndex+1 < this.textEntryInteractions.length) {
 			} else {
 				$('#nextButton').parent().addClass('ui-state-disabled');
 				//addClassToElement("nextButton", "disabledLink");
-				feedbackDiv.innerHTML += " You successfully filled all of the blanks.  Impressive work!";			
+				feedbackDiv.innerHTML += " 您成功填完所有的空格 真棒！";			
 				feedbackDiv.innerHTML += this.getCorrectText(this.textEntryInteractions.length, this.states.length);			
 			};
 		} else {
@@ -191,7 +191,7 @@ FILLIN.prototype.checkAnswer = function() {
 			//removeClassFromElement("feedbackDiv", "correct");
 			$('#feedbackDiv').removeClass('incorrect');
 			//addClassToElement("feedbackDiv", "incorrect");		
-			feedbackDiv.innerHTML = "Not correct or misspelled";
+			feedbackDiv.innerHTML = "不正確";
 		};
 	};
 };
@@ -201,18 +201,18 @@ FILLIN.prototype.checkAnswer = function() {
  * given number of blanks and tries
  */
 FILLIN.prototype.getCorrectText = function(blanks, tries){
-	var outStr = " You successfully filled ";
+	var outStr = " 您成功填答 ";
 	
 	if(blanks==1){
-		outStr += "1 blank in ";
+		outStr += "1 空格 ";
 	} else {
-		outStr += blanks + " blanks in ";
+		outStr += blanks + " 空格 ";
 	};
 	
 	if(tries==1){
-		outStr += "1 try.";
+		outStr += "1 次";
 	} else {
-		outStr += tries + " tries.";
+		outStr += tries + " 次";
 	};
 	
 	return outStr;

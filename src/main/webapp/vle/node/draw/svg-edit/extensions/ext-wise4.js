@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ext-wise4.js
  *
  * Licensed under the Apache License, Version 2
@@ -181,7 +181,7 @@ svgEditor.addExtension("WISE4", function(S) {
             id: "tool_erase",
             type: "context",
             panel: "editor_panel",
-            title: "Erase Current Drawing",
+            title: "擦去目前的繪圖",
             icon: '/vlewrapper/vle/node/draw/svg-edit/images/erase.png',
             events: {
                 'click': function() {

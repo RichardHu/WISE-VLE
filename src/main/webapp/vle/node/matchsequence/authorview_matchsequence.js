@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the MatchSequenceNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -40,44 +40,44 @@ View.prototype.MatchSequenceNode.buildPage = function(){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	//var promptDiv = createElement(document, 'div', {id:'promptDiv'});
 	//var prompt = createElement(document, 'textarea', {id: 'promptInput', rows: '10', cols: '75', wrap: 'hard', onchange: 'eventManager.fire("msUpdatePrompt")'});
-	var promptText = document.createTextNode('Edit prompt:');
+	var promptText = document.createTextNode('編輯提示：');
 	var orderingDiv = createElement(document, 'div', {id: 'orderingOptions'});
 	var order = createElement(document, 'input', {type: 'radio', id: 'ordered', name: 'ordered', value: true, onclick: 'eventManager.fire("msUpdateOrdered","true")'});
 	var notOrder = createElement(document, 'input', {type: 'radio', id: 'notOrdered', name: 'ordered', value: false, onclick: 'eventManager.fire("msUpdateOrdered","false")'});
-	var orderedText = document.createTextNode('Select ordering option:');
-	var orderText = document.createTextNode('Choices have a specific sequential order per Target');
-	var notOrderText = document.createTextNode('Choices are unordered per Target');
-	var addNewButton = createElement(document, 'input', {type: 'button', id: 'addContainerButton', onclick: 'eventManager.fire("msAddContainer")', value: 'Add Container'});
- 	var createNew = createElement(document, 'input', {id: 'addChoiceButton', type: 'button', value: 'Create New Choice', onclick: 'eventManager.fire("msAddChoice")'});
-	var removeChoice = createElement(document, 'input', {id: 'removeChoiceButton', type: 'button', value: 'Remove Choice', onclick: 'eventManager.fire("msRemoveChoice")'});
-	var removeContainerButton = createElement(document, 'input', {type: 'button', id: 'removeContainerButton', onclick: 'eventManager.fire("msRemoveContainer")', value: 'Remove Container'});
-	var editFeedback = createElement(document, 'input', {id: 'editFeedbackButton', type: 'button', value: 'Edit/Create Feedback', onclick: 'eventManager.fire("msEditFeedback")'});
+	var orderedText = document.createTextNode('選擇填答順序特性：');
+	var orderText = document.createTextNode('填答選項有特定的順序');
+	var notOrderText = document.createTextNode('填答選項沒有順序');
+	var addNewButton = createElement(document, 'input', {type: 'button', id: 'addContainerButton', onclick: 'eventManager.fire("msAddContainer")', value: '新增容器'});
+ 	var createNew = createElement(document, 'input', {id: 'addChoiceButton', type: 'button', value: '新增選項', onclick: 'eventManager.fire("msAddChoice")'});
+	var removeChoice = createElement(document, 'input', {id: 'removeChoiceButton', type: 'button', value: '移除選項', onclick: 'eventManager.fire("msRemoveChoice")'});
+	var removeContainerButton = createElement(document, 'input', {type: 'button', id: 'removeContainerButton', onclick: 'eventManager.fire("msRemoveContainer")', value: '移除容器'});
+	var editFeedback = createElement(document, 'input', {id: 'editFeedbackButton', type: 'button', value: '編輯/新增 回饋', onclick: 'eventManager.fire("msEditFeedback")'});
 	var shuffle = createElement(document, 'input', {type: 'checkbox', id: 'shuffled', onclick: 'eventManager.fire("msShuffleChanged")'});
-	var shuffleText = document.createTextNode('Shuffle Choices');
+	var shuffleText = document.createTextNode('選項洗牌');
 	
 	//will contain the displayLayout, loglevel, and showFeedback options
 	var advancedOptionsDiv = createElement(document, 'div', {id: 'advancedOptions'});
 	
 	//the displayLayout radio option
-	var displayLayoutText = document.createTextNode('Select display layout:');
+	var displayLayoutText = document.createTextNode('選擇呈現輪廓：');
 	var displayLayoutVertical = createElement(document, 'input', {type: 'radio', id: 'displayLayoutVertical', name: 'displayLayout', value: 'vertical', onclick: 'eventManager.fire("msUpdateDisplayLayout","vertical")'});
-	var displayLayoutVerticalText = document.createTextNode('Vertical (Default)');
+	var displayLayoutVerticalText = document.createTextNode('垂直 (預設)');
 	var displayLayoutHorizontal = createElement(document, 'input', {type: 'radio', id: 'displayLayoutHorizontal', name: 'displayLayout', value: 'horizontal', onclick: 'eventManager.fire("msUpdateDisplayLayout","horizontal")'});
-	var displayLayoutHorizontalText = document.createTextNode('Horizontal');
+	var displayLayoutHorizontalText = document.createTextNode('水平');
 	
 	//the logLevel radio option
-	var logLevelText = document.createTextNode('Select log level:');
+	var logLevelText = document.createTextNode('選擇記錄等級');
 	var logLevelRegular = createElement(document, 'input', {type: 'radio', id: 'logLevelRegular', name: 'logLevel', value: 'regular', onclick: 'eventManager.fire("msUpdateLogLevel","regular")'});
-	var logLevelRegularText = document.createTextNode('Regular (Default)');
+	var logLevelRegularText = document.createTextNode('標準 (預設)');
 	var logLevelHigh = createElement(document, 'input', {type: 'radio', id: 'logLevelHigh', name: 'logLevel', value: 'high', onclick: 'eventManager.fire("msUpdateLogLevel","high")'});
-	var logLevelHighText = document.createTextNode('High');
+	var logLevelHighText = document.createTextNode('高');
 	
 	//the showFeedback radio option
-	var showFeedbackText = document.createTextNode('Show feedback:');
+	var showFeedbackText = document.createTextNode('顯示回饋：');
 	var showFeedbackEnabled = createElement(document, 'input', {type: 'radio', id: 'showFeedbackEnabled', name: 'showFeedback', value: 'enabled', onclick: 'eventManager.fire("msUpdateShowFeedback", "true")'});
-	var showFeedbackEnabledText = document.createTextNode('True (Default)');
+	var showFeedbackEnabledText = document.createTextNode('是 (預設)');
 	var showFeedbackDisabled = createElement(document, 'input', {type: 'radio', id: 'showFeedbackDisabled', name: 'showFeedback', value: 'disabled', onclick: 'eventManager.fire("msUpdateShowFeedback","false")'});
-	var showFeedbackDisabledText = document.createTextNode('False');
+	var showFeedbackDisabledText = document.createTextNode('否');
 	
 	shuffle.checked = this.getShuffle();
 	
@@ -169,7 +169,7 @@ View.prototype.MatchSequenceNode.buildPage = function(){
 	pageDiv.appendChild(createBreak());
 	
 	//create the authoring section to enable challenge question
-	var challengeText = document.createTextNode('Challenge Question Setup');
+	var challengeText = document.createTextNode('挑戰問題設定');
 	pageDiv.appendChild(challengeText);
 	pageDiv.appendChild(this.generateChallengeSetup());
 	
@@ -204,11 +204,11 @@ View.prototype.MatchSequenceNode.buildPage = function(){
  */
 View.prototype.MatchSequenceNode.generateFeedback = function(){
 	var feedbackDiv = createElement(document, 'div', {id:'feedbackDiv'});
-	var instructions = document.createTextNode('Click any colored field to add/edit its text. Click "Hide Feedback" when finished.');
-	var hideFeedbackButt = createElement(document, 'input', {type:'button', value:'Hide Feedback', onclick:'eventManager.fire("msHideFeedback")'});
+	var instructions = document.createTextNode('點選任何有顏色的區域以 新增/編輯 文字。當完成時點選 "隱藏回饋"');
+	var hideFeedbackButt = createElement(document, 'input', {type:'button', value:'隱藏回饋', onclick:'eventManager.fire("msHideFeedback")'});
 	var feedbackEditDiv = createElement(document, 'div', {id:'feedbackEditDiv', style:'display:none;'});
 	var feedbackEditInput = createElement(document, 'textarea', {id:'feedbackEditInput', cols:'85', rows:'10'});
-	var feedbackEditSave = createElement(document,'input',{type:'button', value:'Save', onclick:'eventManager.fire("msSaveFeedback")'});
+	var feedbackEditSave = createElement(document,'input',{type:'button', value:'儲存', onclick:'eventManager.fire("msSaveFeedback")'});
 	
 	feedbackDiv.appendChild(createBreak());
 	feedbackDiv.appendChild(instructions);
@@ -247,8 +247,8 @@ View.prototype.MatchSequenceNode.generateFeedbackTable = function(){
  	var containerLabelDiv = createElement(document, 'div', {id: 'containerLabelDiv', align: 'right'});
  	var choiceLabelDiv = createElement(document, 'div', {id: 'choiceLabelDiv'});
 				 	
- 	containerLabelDiv.innerHTML = 'Containers:';
- 	choiceLabelDiv.innerHTML = 'Choices';
+ 	containerLabelDiv.innerHTML = '容器：';
+ 	choiceLabelDiv.innerHTML = '選項';
  	
  	headerLabel.appendChild(containerLabelDiv);
  	headerLabel.appendChild(choiceLabelDiv);
@@ -381,8 +381,8 @@ View.prototype.MatchSequenceNode.generateContainer = function(field,index){
 	var radioContainer = createElement(document, 'input', {type: 'radio', name: 'radioContainer', id: 'radioContainer_' + identifier, onfocus: 'eventManager.fire("msContainerSelected","radioContainer_' + identifier + '")', value: identifier});
 	var textContainer = createElement(document, 'input', {type: 'text', id: 'textContainer_' + identifier, onfocus: 'eventManager.fire("msContainerSelected","radioContainer_' + identifier + '")', onchange: 'eventManager.fire("msContainerTextUpdated","' + identifier + '")'});
 	var choiceDiv = createElement(document, 'div', {id: 'choiceDiv_' + identifier});
-	var titleText = document.createTextNode('Title: ');
-	var targetText = document.createTextNode('Target Box ' + index);
+	var titleText = document.createTextNode('標題： ');
+	var targetText = document.createTextNode('目標填答欄位 ' + index);
 	
 	textContainer.value = field.name;
 	
@@ -425,7 +425,7 @@ View.prototype.MatchSequenceNode.generateChoice = function(choice,fieldIdentifie
 	var radioChoice = createElement(document, 'input', {type: 'radio', name: 'radioChoice_' + fieldIdentifier, onfocus: 'eventManager.fire("msChoiceSelected",["' + identifier + '", "' + fieldIdentifier + '"])', value: identifier});
 	var textChoice = createElement(document, 'input', {type: 'text', id: 'textChoice_' + identifier, onfocus: 'eventManager.fire("msChoiceSelected",["' + identifier + '", "' + fieldIdentifier + '"])', onchange: 'eventManager.fire("msChoiceTextUpdated","' + identifier + '")'});
 	var ordered = createElement(document, 'input', {type: 'text', size: '1', id: 'orderChoice_' + identifier, onfocus: 'eventManager.fire("msChoiceSelected",["' + identifier + '", "' + fieldIdentifier + '"])', onkeyup: 'eventManager.fire("msOrderUpdated","' + identifier + '")'});
-	var textOrder = document.createTextNode('order pos:');
+	var textOrder = document.createTextNode('位置排序：');
 	
 	textChoice.value = choice.value;
 	
@@ -780,7 +780,7 @@ View.prototype.MatchSequenceNode.generateUniqueIdentifier = function(type){
  * Adds a new container to this content and refreshes
  */
 View.prototype.MatchSequenceNode.addContainer = function(){
-	var field = {identifier: this.generateUniqueIdentifier('field'), numberOfEntries: '0', ordinal: false, name:'Enter Title Here'};
+	var field = {identifier: this.generateUniqueIdentifier('field'), numberOfEntries: '0', ordinal: false, name:'在這裡輸入標題'};
 	this.content.assessmentItem.interaction.fields.push(field);
 	
 	this.setIncorrectExistingChoices(field.identifier);
@@ -833,8 +833,8 @@ View.prototype.MatchSequenceNode.addChoice = function(){
 		return;
 	};
 	
-	var choice = {matchMax:'1', value: 'Enter Choice', identifier: this.generateUniqueIdentifier('choice')};
-	var correct = {choiceIdentifier: choice.identifier, fieldIdentifier: identifier, feedback:'Correct.', isCorrect:true, isDefault:false, order:'0'};
+	var choice = {matchMax:'1', value: '輸入選項', identifier: this.generateUniqueIdentifier('choice')};
+	var correct = {choiceIdentifier: choice.identifier, fieldIdentifier: identifier, feedback:'正確', isCorrect:true, isDefault:false, order:'0'};
 	this.content.assessmentItem.interaction.choices.push(choice);
 	this.content.assessmentItem.responseDeclaration.correctResponses.push(correct);
 	
@@ -858,7 +858,7 @@ View.prototype.MatchSequenceNode.setIncorrectOtherContainers = function(choiceId
 		var identifier = containers[o].identifier;
 		if(identifier!=containerId){
 			this.createNewFeedback(choiceId, identifier);
-			this.updateFeedback(choiceId, identifier, 'Incorrect');
+			this.updateFeedback(choiceId, identifier, '不正確');
 		};
 	};
 };
@@ -872,7 +872,7 @@ View.prototype.MatchSequenceNode.setIncorrectExistingChoices = function(containe
 	
 	for(var a=0;a<choices.length;a++){
 		this.createNewFeedback(choices[a].identifier, containerId);
-		this.updateFeedback(choices[a].identifier, containerId, 'Incorrect');
+		this.updateFeedback(choices[a].identifier, containerId, '不正確');
 	};
 };
 
@@ -1108,7 +1108,7 @@ View.prototype.MatchSequenceNode.generateChallengeSetup = function(){
 	challengeDiv.appendChild(attemptsDiv);
 	
 	/* create the navigateTo elements */
-	var navToText = document.createTextNode('Select the step that students should review before being allowed to try again.');
+	var navToText = document.createTextNode('選擇讓學生在重新填答以前重新瀏覽的步驟');
 	var navToSelect = createElement(document,'select', {id:'navigateToSelect', onchange:'eventManager.fire("matchSequenceChallengeNavigateToChanged")'});
 	var nodeIds = this.view.getProject().getNodeIds();
 	var noneOption = createElement(document, 'option', {value:''});
@@ -1138,15 +1138,15 @@ View.prototype.MatchSequenceNode.generateChallengeSetup = function(){
 	challengeDiv.appendChild(createBreak());
 	
 	/* create the attempts elements */
-	var attemptsText = document.createTextNode('Specify the score for each attempt by the student.');
+	var attemptsText = document.createTextNode('指定學生每次測試的分數');
 	var attemptsTable = createElement(document, 'table', {id:'scoreAttemptsTable'});
 	var ath = createElement(document, 'thead', {id:'scoreAttemptsTableHead'});
 	var athRow = createElement(document, 'tr', {id:'scoreAttemptsHeaderRow'});
 	var attemptTH = createElement(document, 'th', {id:'attemptTH'});
 	var scoreTH = createElement(document, 'th', {id:'scoreHeadTH'});
 	var atb = createElement(document, 'tbody', {id:'scoreAttemtpsTableBody'});
-	var addNewButton = createElement(document, 'input', {type:'button', value:'Add new attempt/score', onclick:'eventManager.fire("matchSequenceChallengeAddNew")'});
-	var removeLastButton = createElement(document, 'input', {type:'button', value:'Remove last attempt/score', onclick:'eventManager.fire("matchSequenceChallengeRemoveLast")'});
+	var addNewButton = createElement(document, 'input', {type:'button', value:'新增 測試/分數', onclick:'eventManager.fire("matchSequenceChallengeAddNew")'});
+	var removeLastButton = createElement(document, 'input', {type:'button', value:'移除 測試/分數', onclick:'eventManager.fire("matchSequenceChallengeRemoveLast")'});
 	
 	challengeDiv.appendChild(attemptsText);
 	challengeDiv.appendChild(createBreak());
@@ -1160,8 +1160,8 @@ View.prototype.MatchSequenceNode.generateChallengeSetup = function(){
 	athRow.appendChild(attemptTH);
 	athRow.appendChild(scoreTH);
 	
-	attemptTH.innerHTML = 'Attempt #';
-	scoreTH.innerHTML = 'Score';
+	attemptTH.innerHTML = '測試 #';
+	scoreTH.innerHTML = '分數';
 	
 	if(this.content.assessmentItem.interaction.attempts != null) {
 		/* add attempts/scores that are specified in the content */

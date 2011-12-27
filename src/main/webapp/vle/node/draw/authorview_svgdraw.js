@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the SVGDrawNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -37,7 +37,7 @@ View.prototype.SVGDrawNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(descriptionOptionDiv);
 	pageDiv.appendChild(createBreak());
-	pageDiv.appendChild(document.createTextNode('Enter instructions for students (optional):'));
+	pageDiv.appendChild(document.createTextNode('輸入給予學生的教學或說明(選擇性)：'));
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createElement(document, 'div', {id: 'promptContainer'}));
 	pageDiv.appendChild(createBreak());
@@ -67,15 +67,15 @@ View.prototype.SVGDrawNode.getCommonComponents = function() {
 View.prototype.SVGDrawNode.generateToolbarOptions = function(){
 	var parent = document.getElementById('toolbarOptionsDiv');
 	
-	var toolbarHtml = 'Select which drawing tools to enable:<br />';
+	var toolbarHtml = '選擇可用的繪圖工具：<br />';
 	toolbarHtml += '<form>';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="pencilCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="pencil" src="node/draw/svg-edit/images/fhpath.png" /> Pencil (freehand)*<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="lineCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="line" src="node/draw/svg-edit/images/line.png" /> Line<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="connectorCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <object data="node/draw/svg-edit/images/conn.svg" type="image/svg+xml" style="width:24px; height:24px;"></object> Connector<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="rectangleCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="rectangle" src="node/draw/svg-edit/images/rect.png" /> Rectangle/Square<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="ellipseCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="ellipse" src="node/draw/svg-edit/images/ellipse.png" /> Ellipse/Circle<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="polygonCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="polygon" src="node/draw/svg-edit/images/path.png" /> Polygon<br />';
-	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="textCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="text" src="node/draw/svg-edit/images/text.png" /> Text<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="pencilCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="pencil" src="node/draw/svg-edit/images/fhpath.png" /> 鉛筆 (手繪的)*<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="lineCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="line" src="node/draw/svg-edit/images/line.png" /> 線條<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="connectorCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <object data="node/draw/svg-edit/images/conn.svg" type="image/svg+xml" style="width:24px; height:24px;"></object> 連接工具<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="rectangleCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="rectangle" src="node/draw/svg-edit/images/rect.png" /> 矩形/正方形<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="ellipseCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="ellipse" src="node/draw/svg-edit/images/ellipse.png" /> 橢圓/圓形<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="polygonCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="polygon" src="node/draw/svg-edit/images/path.png" /> 多邊形<br />';
+	toolbarHtml += '<input type="checkbox" name="toolbarCbx" id="textCbx" checked="checked" onclick="eventManager.fire(\'svgdrawToolbarOptionsChanged\')"/> <img alt="text" src="node/draw/svg-edit/images/text.png" /> 文字<br />';
 	toolbarHtml += '</form>';
 	
 	parent.innerHTML = toolbarHtml;
@@ -126,13 +126,13 @@ View.prototype.SVGDrawNode.generateToolbarOptions = function(){
 View.prototype.SVGDrawNode.generateSnapshotOption = function(){
 	var parent = document.getElementById('snapshotOptionDiv');
 	
-	var snapshotHtml = 'Enable Flipbook Animator (frames)?<br/>';
+	var snapshotHtml = '動畫(影格)功能？<br/>';
 	if(this.content.snapshots_active){
-		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioTrue" value="true" CHECKED onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> Yes<br/>';
-		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioFalse" value="false" onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> No<br/>';
+		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioTrue" value="true" CHECKED onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> 是<br/>';
+		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioFalse" value="false" onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> 否<br/>';
 	} else {
-		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioTrue" value="true" onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> Yes<br/>';
-		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioFalse" value="false" CHECKED onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> No<br/>';
+		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioTrue" value="true" onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> 是<br/>';
+		snapshotHtml += '<input type="radio" name="snapshotRadio" id="sRadioFalse" value="false" CHECKED onclick="eventManager.fire(\'svgdrawSnapshotOptionChanged\')"/> 否<br/>';
 	};
 	
 	parent.innerHTML = snapshotHtml;
@@ -144,7 +144,7 @@ View.prototype.SVGDrawNode.generateSnapshotOption = function(){
 View.prototype.SVGDrawNode.generateSnapshotMaxOption = function(){
 	var parent = document.getElementById('snapMaxDiv');
 	
-	var snapshotMaxHtml = 'What is the maximum number of frames (snapshots) students can create?<br/>';
+	var snapshotMaxHtml = '學生可以建立的最大影格(快照)數量？<br/>';
 	snapshotMaxHtml += '<select id="snapMaxInput" disabled="disabled" onchange="eventManager.fire(\'svgdrawSnapshotMaxOptionChanged\')">' + 
 		'<option value="2">2</option>' +
 		'<option value="3">3</option>' +
@@ -193,10 +193,10 @@ View.prototype.SVGDrawNode.generateDescriptionOption = function(){
 	parent.innerHTML = '';
 	
 	/* create new */
-	var	descriptionHtml = 'Allow students to write descriptions of their drawings?<br/>';
-	descriptionHtml += '<input type="radio" name="descriptionRadio" id="dRadioTrue" value="true" onclick="eventManager.fire(\'svgdrawDescriptionOptionChanged\')"/> Yes<br/>';
-	descriptionHtml += '<input type="radio" name="descriptionRadio" id="dRadioFalse" value="false" CHECKED onclick="eventManager.fire(\'svgdrawDescriptionOptionChanged\')"/> No<br/>';
-	descriptionHtml += 'Default description (optional): <input type="text" size="45" id="defaultDescriptionInput" disabled="disabled" onkeyup="eventManager.fire(\'svgdrawDefaultDescriptionChanged\')" onclick="eventManager.fire(\'svgdrawDescriptionClicked\')"/>';
+	var	descriptionHtml = '是否讓學生撰寫關於繪圖的描述？<br/>';
+	descriptionHtml += '<input type="radio" name="descriptionRadio" id="dRadioTrue" value="true" onclick="eventManager.fire(\'svgdrawDescriptionOptionChanged\')"/> 是<br/>';
+	descriptionHtml += '<input type="radio" name="descriptionRadio" id="dRadioFalse" value="false" CHECKED onclick="eventManager.fire(\'svgdrawDescriptionOptionChanged\')"/> 否<br/>';
+	descriptionHtml += '預設描述(選擇性)： <input type="text" size="45" id="defaultDescriptionInput" disabled="disabled" onkeyup="eventManager.fire(\'svgdrawDefaultDescriptionChanged\')" onclick="eventManager.fire(\'svgdrawDescriptionClicked\')"/>';
 	
 	parent.innerHTML = descriptionHtml;
 	
@@ -224,7 +224,7 @@ View.prototype.SVGDrawNode.generateBackground = function(){
 	};
 	
 	/* create new */
-	var text = document.createTextNode('Enter svg xml string to specify a background image. If no background image is desired, leave blank.');
+	var text = document.createTextNode('輸入svg xml字串以指定背景圖。如果不需要背景圖，保持空白即可。');
 	var backgroundPathInput = createElement(document, 'input', {type:'text', size:'30', id:'backgroundPathInput', onchange:'eventManager.fire("svgdrawBackgroundChanged")'});
 	
 	if(this.content.svg_background){
@@ -250,22 +250,22 @@ View.prototype.SVGDrawNode.generateStamps = function(){
 	};
 	
 	/* create new */
-	var addStampButt = createElement(document, 'input', {type:'button', id:'addStampButton', value:'Add New Stamp', onclick:'eventManager.fire("svgdrawAddNewStamp")'});
+	var addStampButt = createElement(document, 'input', {type:'button', id:'addStampButton', value:'新增圖章', onclick:'eventManager.fire("svgdrawAddNewStamp")'});
 	parent.appendChild(addStampButt);
 	parent.appendChild(createBreak());
 	
 	/* generate stamp elements for each stamp that is specified in the content */
 	for(var o=0;o<this.content.stamps.length;o++){
 		var sText = document.createTextNode('# ' + (o + 1) + ' ');
-		var sLabelText = document.createTextNode('Title: ');
-		var sValueText = document.createTextNode('URI: ');
-		var sWidthText = document.createTextNode('Width: ');
-		var sHeightText = document.createTextNode('Height: ');
+		var sLabelText = document.createTextNode('標題： ');
+		var sValueText = document.createTextNode('網址： ');
+		var sWidthText = document.createTextNode('寬度： ');
+		var sHeightText = document.createTextNode('高度： ');
 		var sLabelInput = createElement(document, 'input', {type:'text', size:'10', id:'stampLabelInput_' + o, value:this.content.stamps[o].title, onchange:'eventManager.fire("svgdrawStampLabelChanged","' + o + '")', onclick:'eventManager.fire("svgdrawStampTitleClicked","' + o + '")'});
 		var sInput = createElement(document, 'input', {type:'text', size:'15', id:'stampInput_' + o, value:this.content.stamps[o].uri, onchange:'eventManager.fire("svgdrawStampValueChanged","' + o + '")'});
 		var sWidthInput = createElement(document, 'input', {type:'text', size:'5', id:'stampWidthInput_' + o, value:this.content.stamps[o].width, onchange:'eventManager.fire("svgdrawStampWidthChanged","' + o + '")', onclick:'eventManager.fire("svgdrawStampWidthClicked","' + o + '")'});
 		var sHeightInput = createElement(document, 'input', {type:'text', size:'5', id:'stampHeightInput_' + o, value:this.content.stamps[o].height, onchange:'eventManager.fire("svgdrawStampHeightChanged","' + o + '")', onclick:'eventManager.fire("svgdrawStampHeightClicked","' + o + '")'});
-		var removeButt = createElement(document, 'input', {type:'button', id:'removeButt_' + o, value:'remove stamp', onclick:'eventManager.fire("svgdrawRemoveStamp","' + o + '")'});
+		var removeButt = createElement(document, 'input', {type:'button', id:'removeButt_' + o, value:'移除圖章', onclick:'eventManager.fire("svgdrawRemoveStamp","' + o + '")'});
 		parent.appendChild(sText);
 		parent.appendChild(sLabelText);
 		parent.appendChild(sLabelInput);
@@ -432,7 +432,7 @@ View.prototype.SVGDrawNode.backgroundChanged = function(){
  * Adds a new stamp to the content then refreshes the stamps and updates the preview
  */
 View.prototype.SVGDrawNode.addNewStamp = function(){
-	this.content.stamps.push({title:'enter title', uri:'', width:0, height:0});
+	this.content.stamps.push({title:'輸入標題', uri:'', width:0, height:0});
 	
 	this.generateStamps();
 	
@@ -540,7 +540,7 @@ View.prototype.SVGDrawNode.stampTitleClicked = function(ndx){
  */
 View.prototype.SVGDrawNode.descriptionClicked = function(){
 	var desc = document.getElementById('defaultDescriptionInput');
-	if(desc.value=='Enter description here.'){
+	if(desc.value=='在這裡輸入描述'){
 		desc.value = '';
 	};
 };

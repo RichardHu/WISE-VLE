@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the SensorNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -58,9 +58,9 @@ View.prototype.SensorNode.generatePage = function(view){
 	
 	//create new
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
-	var promptText = document.createTextNode("Prompt for Student:");
-	var linesText = document.createTextNode("Size of Student Response Box (# rows):");
-	var richTextEditorText = document.createTextNode("Use Rich Text Editor");
+	var promptText = document.createTextNode("給予學生的提示：");
+	var linesText = document.createTextNode("學生回應欄位大小 (# 列):");
+	var richTextEditorText = document.createTextNode("使用完整文字編輯器");
 	
 	pageDiv.appendChild(promptText);
 	pageDiv.appendChild(createBreak());
@@ -68,13 +68,13 @@ View.prototype.SensorNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//create the choose sensor authoring elements
-	var chooseSensorTypeText = document.createTextNode('Choose the sensor type:');
+	var chooseSensorTypeText = document.createTextNode('選擇感測器類型：');
 	var chooseMotionRadioButton = createElement(document, 'input', {type: 'radio', id: 'motionRadioButton', name: 'chooseSensorType', value: 'motion', onclick: 'eventManager.fire("sensorUpdateSensorType","motion")'});
-	var chooseMotionRadioButtonText = document.createTextNode('Motion Sensor');
+	var chooseMotionRadioButtonText = document.createTextNode('移動感測器');
 	var chooseTemperatureRadioButton = createElement(document, 'input', {type: 'radio', id: 'temperatureRadioButton', name: 'chooseSensorType', value: 'temperature', onclick: 'eventManager.fire("sensorUpdateSensorType","temperature")'});
-	var chooseTemperatureRadioButtonText = document.createTextNode('Temperature Sensor');
+	var chooseTemperatureRadioButtonText = document.createTextNode('溫度感測器');
 	var chooseNoneRadioButton = createElement(document, 'input', {type: 'radio', id: 'noneRadioButton', name: 'chooseSensorType', value: 'none', onclick: 'eventManager.fire("sensorUpdateSensorType","none")'});
-	var chooseNoneRadioButtonText = document.createTextNode('None');
+	var chooseNoneRadioButtonText = document.createTextNode('無');
 	
 	var sensorType = this.getSensorType();
 	if(sensorType == 'motion') {
@@ -106,7 +106,7 @@ View.prototype.SensorNode.generatePage = function(view){
 	}
 	
 	//create the graph title input
-	var graphTitleText = document.createTextNode("Graph Title:");
+	var graphTitleText = document.createTextNode("圖形標題：");
 	var graphTitleInput = createElement(document, 'input', {type: 'input', id: 'graphTitleInput', name: 'graphTitleInput', value: graphTitleValue, size: 60, onchange: 'eventManager.fire("sensorUpdateGraphTitle")'});
 	
 	//insert the graph title input
@@ -117,19 +117,19 @@ View.prototype.SensorNode.generatePage = function(view){
 	
 	//create the check box to enable create prediction
 	var enableCreatePredictionCheckBox = createElement(document, 'input', {id: 'enableCreatePredictionCheckBox', type: 'checkbox', onclick: 'eventManager.fire("sensorUpdateEnableCreatePrediction")'});
-	var enableCreatePredictionText = document.createTextNode("Enable Create Prediction");
+	var enableCreatePredictionText = document.createTextNode("建立預測");
 	
 	//create the check box to enable sensor
 	var enableSensorCheckBox = createElement(document, 'input', {id: 'enableSensorCheckBox', type: 'checkbox', onclick: 'eventManager.fire("sensorUpdateEnableSensor")'});
-	var enableSensorText = document.createTextNode("Enable Sensor");
+	var enableSensorText = document.createTextNode("感測器");
 	
 	//create the check box to require prediction before enter
 	var requirePredictionBeforeEnterCheckBox = createElement(document, 'input', {id: 'requirePredictionBeforeEnterCheckBox', type: 'checkbox', onclick: 'eventManager.fire("sensorUpdateRequirePredictionBeforeEnter")'});
-	var requirePredictionBeforeEnterText = document.createTextNode('Require Prediction Before Enter (You must specify a "Show Previous Work" step for this to work)');
+	var requirePredictionBeforeEnterText = document.createTextNode('輸入前需要預測 (您必須指定"Show Previous Work"步驟)');
 	
 	//create the check box to lock the prediction on collection start
 	var lockPredictionOnCollectionStartCheckBox = createElement(document, 'input', {id: 'lockPredictionOnCollectionStartCheckBox', type: 'checkbox', onclick: 'eventManager.fire("sensorUpdateLockPredictionOnCollectionStart")'});
-	var lockPredictionOnCollectionStartText = document.createTextNode('Lock Prediction On Collection Start ("Enable Create Prediction" must be checked)');
+	var lockPredictionOnCollectionStartText = document.createTextNode('在連結開始時鎖住預測 ("建立預測"必須選取)');
 	
 	//insert the create prediction and enable sensor checkboxes
 	pageDiv.appendChild(enableCreatePredictionCheckBox);
@@ -167,9 +167,9 @@ View.prototype.SensorNode.generatePage = function(view){
 	}
 	
 	//create the input for data collection time out
-	var dataCollectionTimeOutText = document.createTextNode('Data Collection Time Limit: ');
+	var dataCollectionTimeOutText = document.createTextNode('資料連結時間限制： ');
 	var dataCollectionTimeOutInput = createElement(document, 'input', {type: 'input', id: 'dataCollectionTimeLimitInput', name: 'dataCollectionTimeLimitInput', value: dataCollectionTimeLimit, size: 10, onchange: 'eventManager.fire("sensorUpdateDataCollectionTimeLimit")'});
-	var dataCollectionTimeOutSecondsText = document.createTextNode(' seconds');
+	var dataCollectionTimeOutSecondsText = document.createTextNode(' 秒');
 	
 	//insert the data collection time out input
 	pageDiv.appendChild(dataCollectionTimeOutText);
@@ -179,11 +179,11 @@ View.prototype.SensorNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//create the x axis authoring elements
-	var xUnitsText = document.createTextNode('X Axis Units: ');
+	var xUnitsText = document.createTextNode('X軸單位： ');
 	var xUnitsInput = createElement(document, 'input', {type: 'input', id: 'xUnitsInput', name: 'xLabelInput', value: xLabel, onchange: 'eventManager.fire("sensorUpdateXUnits")'});
-	var xMinText = document.createTextNode('Min X: ');
+	var xMinText = document.createTextNode('X最小： ');
 	var xMinInput = createElement(document, 'input', {type: 'input', id: 'xMinInput', name: 'xMinInput', value: xMin, onchange: 'eventManager.fire("sensorUpdateXMin")'});
-	var xMaxText = document.createTextNode('Max X: ');
+	var xMaxText = document.createTextNode('X最大： ');
 	var xMaxInput = createElement(document, 'input', {type: 'input', id: 'xMaxInput', name: 'xMaxInput', value: xMax, onchange: 'eventManager.fire("sensorUpdateXMax")'});
 	
 	//insert the x axis graph parameters
@@ -199,11 +199,11 @@ View.prototype.SensorNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//create the y axis authoring elements
-	var yUnitsText = document.createTextNode('Y Axis Units: ');
+	var yUnitsText = document.createTextNode('Y軸單位： ');
 	var yUnitsInput = createElement(document, 'input', {type: 'input', id: 'yUnitsInput', name: 'yLabelInput', value: yLabel, onchange: 'eventManager.fire("sensorUpdateYUnits")'});
-	var yMinText = document.createTextNode('Min Y: ');
+	var yMinText = document.createTextNode('Y最小： ');
 	var yMinInput = createElement(document, 'input', {type: 'input', id: 'yMinInput', name: 'yMinInput', value: yMin, onchange: 'eventManager.fire("sensorUpdateYMin")'});
-	var yMaxText = document.createTextNode('Max Y: ');
+	var yMaxText = document.createTextNode('Y最大： ');
 	var yMaxInput = createElement(document, 'input', {type: 'input', id: 'yMaxInput', name: 'yMaxInput', value: yMax, onchange: 'eventManager.fire("sensorUpdateYMax")'});
 	
 	//insert the y axis graph parameters
@@ -219,7 +219,7 @@ View.prototype.SensorNode.generatePage = function(view){
 	
 	//create the check box to allow the student to change the axis limits
 	var allowUpdateAxisRangeCheckBox = createElement(document, 'input', {id: 'allowUpdateAxisRangeCheckBox', type: 'checkbox', onclick: 'eventManager.fire("sensorUpdateAllowUpdateAxisRange")'});
-	var allowUpdateAxisRangeText = document.createTextNode("Allow Student to Change Axis Limits");
+	var allowUpdateAxisRangeText = document.createTextNode("讓學生改變軸的範圍");
 	
 	//insert the allow student to change axis limit check box
 	pageDiv.appendChild(allowUpdateAxisRangeCheckBox);
@@ -233,16 +233,16 @@ View.prototype.SensorNode.generatePage = function(view){
 	}
 	
 	//create the show graph options elements
-	var showGraphOptionsText = document.createTextNode(' Show Graph Options');
+	var showGraphOptionsText = document.createTextNode(' 顯示圖選項');
 	var showGraphOptionsCheckBox = createElement(document, 'input', {type: 'checkbox', id: 'showGraphOptions', onclick: 'eventManager.fire("sensorUpdateShowGraphOptions")'});
 	
 	//create the show velocity check box
 	var showVelocityCheckBox = createElement(document, 'input', {type: 'checkbox', id: 'showVelocityCheckBox', onclick: 'eventManager.fire("sensorUpdateShowVelocity")'});
-	var showVelocityText = document.createTextNode('Show Velocity ("Show Graph Options" must be checked)');
+	var showVelocityText = document.createTextNode('顯示速率 ("顯示圖選項"必須選取)');
 	
 	//create the show acceleration check box
 	var showAccelerationCheckBox = createElement(document, 'input', {type: 'checkbox', id: 'showAccelerationCheckBox', onclick: 'eventManager.fire("sensorUpdateShowAcceleration")'});
-	var showAccelerationText = document.createTextNode('Show Acceleration ("Show Graph Options" must be checked)');
+	var showAccelerationText = document.createTextNode('顯示加速度 ("顯示圖選項"必須選取)');
 	
 	//insert the show graph options
 	pageDiv.appendChild(showGraphOptionsText);
@@ -330,10 +330,10 @@ View.prototype.SensorNode.generateStarter = function(){
 	var starterOnClickInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio', onclick: 'eventManager.fire("openResponseStarterOptionChanged")', value: '1'});
 	var starterImmediatelyInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio', onclick: 'eventManager.fire("openResponseStarterOptionChanged")', value: '2'});
 	var starterSentenceInput = createElement(document, 'textarea', {id: 'starterSentenceInput', cols: '60', rows: '4', wrap: 'soft', onchange: 'eventManager.fire("openResponseStarterSentenceUpdated")'});
-	var noStarterInputText = document.createTextNode('Do not use starter sentence');
-	var starterOnClickInputText = document.createTextNode('Starter sentence available upon request');
-	var starterImmediatelyInputText = document.createTextNode('Starter sentence shows immediately');
-	var starterSentenceText = document.createTextNode('Starter sentence: ');
+    var noStarterInputText = document.createTextNode('不要使用起始句');
+	var starterOnClickInputText = document.createTextNode('在要求時顯示起始句');
+	var starterImmediatelyInputText = document.createTextNode('立即顯示起始句');
+	var starterSentenceText = document.createTextNode('起始句： ');
 	
 	starterDiv.appendChild(noStarterInput);
 	starterDiv.appendChild(noStarterInputText);

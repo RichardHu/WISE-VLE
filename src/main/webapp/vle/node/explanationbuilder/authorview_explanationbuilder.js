@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the TemplateNode type as an object of this view
  * @constructor
  * xTODO: rename TemplateNode
@@ -65,7 +65,7 @@ View.prototype.ExplanationBuilderNode.generatePage = function(view){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	
 	//create the label for the textarea that the author will write the prompt in
-	var promptText = document.createTextNode("Prompt for Student:");
+	var promptText = document.createTextNode("給學生的提示：");
 	
 	/*
 	 * create the textarea that the author will write the prompt in
@@ -83,7 +83,7 @@ View.prototype.ExplanationBuilderNode.generatePage = function(view){
 	var promptTextArea = createElement(document, 'textarea', {id: 'promptTextArea', rows:'10', cols:'85', onkeyup:"eventManager.fire('explanationBuilderUpdatePrompt')"});
 	
 	//create the label for the textarea that the author will write the instructions in
-	var instructionsText = document.createTextNode("Instructions for Student:");
+	var instructionsText = document.createTextNode("給學生的教學或說明：");
 	
 	//get the instructions
 	var instructionsValue = this.content.instructions;
@@ -103,10 +103,10 @@ View.prototype.ExplanationBuilderNode.generatePage = function(view){
 	var background = this.content.background;
 	
 	//the label for the background url input
-	var backgroundImageUrlLabel = document.createTextNode("Background Image Url");
-	var localImageLabel = document.createTextNode(" - image you have uploaded to the project, e.g. assets/image.jpg");
-	var absoluteImageLabel = document.createTextNode(" - image from the internet, e.g. http://www.website.com/image.jpg");
-	var maxImageSizeLabel = document.createTextNode(" - max image size that you will be able to view is 485x315");
+	var backgroundImageUrlLabel = document.createTextNode("背景圖片網址");
+	var localImageLabel = document.createTextNode(" - 自行上傳到此專案的圖片， e.g. assets/image.jpg");
+	var absoluteImageLabel = document.createTextNode(" - 網路的圖片， e.g. http://www.website.com/image.jpg");
+	var maxImageSizeLabel = document.createTextNode(" - 您可以瀏覽的最大圖片尺寸是 485x315");
 	
 	//the text input for the background url
 	var backgroundImageUrl = createElement(document, 'input', {type: 'text', id: 'backgroundImageUrl', name: 'backgroundImageUrl', value: background, size:60, onchange: 'eventManager.fire("explanationBuilderUpdateBackgroundImageUrl")'});

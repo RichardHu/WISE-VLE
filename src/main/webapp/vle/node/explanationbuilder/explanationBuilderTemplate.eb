@@ -1,6 +1,6 @@
 {
    "background": "",
-   "prompt": "Enter prompt here",
-   "instructions": "Enter instructions here",
+   "prompt": "",
+   "instructions": "",
    "type": "ExplanationBuilder"
 }

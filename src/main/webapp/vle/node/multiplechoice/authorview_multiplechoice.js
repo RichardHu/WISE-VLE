@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the MultipleChoiceNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -21,10 +21,10 @@ View.prototype.MultipleChoiceNode.generatePage = function(view){
 	
 	//create new
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
-	var answerText = document.createTextNode('Answers & Feedback:');
-	var shuffleText = document.createTextNode('Shuffle answers before next try');
-	var feedbackText = document.createTextNode('Feedback Options');
-	var challengeText = document.createTextNode('Challenge Question Setup');
+	var answerText = document.createTextNode('答案 & 回饋：');
+	var shuffleText = document.createTextNode('下次回答前將答案選項洗牌');
+	var feedbackText = document.createTextNode('回饋選擇');
+	var challengeText = document.createTextNode('挑戰問題設定');
 	var branchText = document.createTextNode('Branching Setup');
 	
 	pageDiv.appendChild(shuffleText);
@@ -44,7 +44,7 @@ View.prototype.MultipleChoiceNode.generatePage = function(view){
 	
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createBreak());
-	pageDiv.appendChild(document.createTextNode("Edit prompt:"));
+	pageDiv.appendChild(document.createTextNode("編輯提示："));
 	pageDiv.appendChild(createElement(document, 'div', {id:'promptContainer'}));
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createBreak());
@@ -60,8 +60,8 @@ View.prototype.MultipleChoiceNode.generatePage = function(view){
 	pageDiv.appendChild(answerText);
 	pageDiv.appendChild(this.generateAnswers());
 	pageDiv.appendChild(createBreak());
-	pageDiv.appendChild(createElement(document, 'input', {type: "button", id: "createNewButton", value: "Create New Answer", onclick: 'eventManager.fire("mcCreateNewChoice")'}));
-	pageDiv.appendChild(createElement(document, 'input', {type: "button", value: "Reset Correct Answer selection", onclick: 'eventManager.fire("mcClearCorrectChoice")'}));
+	pageDiv.appendChild(createElement(document, 'input', {type: "button", id: "createNewButton", value: "新增答案", onclick: 'eventManager.fire("mcCreateNewChoice")'}));
+	pageDiv.appendChild(createElement(document, 'input', {type: "button", value: "重設正確答案選項", onclick: 'eventManager.fire("mcClearCorrectChoice")'}));
 	
 	parent.appendChild(pageDiv);
 	
@@ -90,9 +90,9 @@ View.prototype.MultipleChoiceNode.generateShuffle = function(){
 	var shuffleTrue = createElement(document, 'input', {type: 'radio', name: 'shuffleOption', value: "true", onclick: 'eventManager.fire("mcShuffleChange","true")'});
 	var shuffleFalse = createElement(document, 'input', {type: 'radio', name: 'shuffleOption', value: "false", onclick: 'eventManager.fire("mcShuffleChange","false")'});
 	var trueText = createElement(document, 'label');
-	trueText.innerHTML = 'shuffle choices';
+	trueText.innerHTML = '洗牌選項';
 	var falseText = createElement(document, 'label');
-	falseText.innerHTML = 'do NOT shuffle choices';
+	falseText.innerHTML = '不洗牌選項';
 
 	shuffleDiv.appendChild(shuffleTrue);
 	shuffleDiv.appendChild(trueText);
@@ -116,9 +116,9 @@ View.prototype.MultipleChoiceNode.generateFeedbackOptions = function(){
 	var feedbackOptionTrue = createElement(document, 'input', {type: 'radio', name: 'feedbackOption', value: "true", onclick: 'eventManager.fire("mcFeedbackOptionChange","true")'});
 	var feedbackOptionFalse = createElement(document, 'input', {type: 'radio', name: 'feedbackOption', value: "false", onclick: 'eventManager.fire("mcFeedbackOptionChange","false")'});
 	var trueText = createElement(document, 'label');
-	trueText.innerHTML = 'has inline feedback';
+	trueText.innerHTML = '有線上回饋';
 	var falseText = createElement(document, 'label');
-	falseText.innerHTML = 'does NOT have inline feedback';
+	falseText.innerHTML = '無線上回饋';
 	
 	feedbackOptionDiv.appendChild(feedbackOptionTrue);
 	feedbackOptionDiv.appendChild(trueText);
@@ -141,7 +141,7 @@ View.prototype.MultipleChoiceNode.generateFeedbackOptions = function(){
  */
 View.prototype.MultipleChoiceNode.generateNumChoiceOption = function(){
 	var numChoiceDiv = createElement(document, 'div', {id: 'numChoiceDiv'});
-	var numChoiceText = document.createTextNode('Enter the number of answers the student is allowed to choose as correct. Enter \'0\' to allow the student to choose as many as they want.');
+	var numChoiceText = document.createTextNode('輸入學生可以選擇正確答案的數目。輸入 \'0\' 可以讓學生選擇無限個答案。');
 	var numChoiceInput = createElement(document, 'input', {type: "text", id: 'numChoiceInput', onchange: 'eventManager.fire("mcNumChoiceChanged")'});
 	
 	numChoiceInput.value = this.content.assessmentItem.interaction.maxChoices;
@@ -165,8 +165,8 @@ View.prototype.MultipleChoiceNode.generateAnswers = function(){
 	var answers = this.content.assessmentItem.interaction.choices;
 	for(var h=0;h<answers.length;h++){
 		var answerText = answers[h].text;
-		var answerTextLabel = document.createTextNode('Answer: ');
-		var feedbackTextLabel = document.createTextNode('Feedback:');
+		var answerTextLabel = document.createTextNode('答案： ');
+		var feedbackTextLabel = document.createTextNode('回饋：');
 		feedback = this.generateFeedback(answers[h], h);
 		options = this.generateOptions(h, answers.length);
 		var answerLI = createElement(document, 'li', {id: 'answerLI_' + h, name: 'answerLI', 'class': 'draggable'});
@@ -208,12 +208,12 @@ View.prototype.MultipleChoiceNode.generateOptions = function(index, length){
 	var options = createElement(document, 'div');
 	
 	if(this.isCorrect(this.content.assessmentItem.interaction.choices[index].identifier)){
-		var outStr = '<input CHECKED type="checkbox" name="correctRadio" id="radio_' + index + '" value="' + index + '" onclick="eventManager.fire(\'mcCorrectChoiceChange\',\'' + index + '\')">This is a correct Choice ';
+		var outStr = '<input CHECKED type="checkbox" name="correctRadio" id="radio_' + index + '" value="' + index + '" onclick="eventManager.fire(\'mcCorrectChoiceChange\',\'' + index + '\')">這是正確選項 ';
 	} else {
-		var outStr = '<input type="checkbox" name="correctRadio" id="radio_' + index + '" value="' + index + '" onclick="eventManager.fire(\'mcCorrectChoiceChange\',\'' + index + '\')">This is a correct Choice ';
+		var outStr = '<input type="checkbox" name="correctRadio" id="radio_' + index + '" value="' + index + '" onclick="eventManager.fire(\'mcCorrectChoiceChange\',\'' + index + '\')">這是正確選項 ';
 	}
 	
-	outStr = outStr + '<a href="#" onclick="eventManager.fire(\'mcRemoveChoice\',\'' + index + '\')">Remove Choice</a>';
+	outStr = outStr + '<a href="#" onclick="eventManager.fire(\'mcRemoveChoice\',\'' + index + '\')">移除選項</a>';
 	
 	options.innerHTML = outStr;
 	return options;
@@ -282,7 +282,7 @@ View.prototype.MultipleChoiceNode.removeChoice = function(index){
  * Creates a new choice object in the content and updates page
  */
 View.prototype.MultipleChoiceNode.createNewChoice = function(){
-	var choice = {feedback:'Enter feedback',fixed:true,identifier:this.nodeUtils.generateKey(),text:''};
+	var choice = {feedback:'輸入回饋',fixed:true,identifier:this.nodeUtils.generateKey(),text:''};
 	
 	this.content.assessmentItem.interaction.choices.push(choice);
 	
@@ -458,7 +458,7 @@ View.prototype.MultipleChoiceNode.generateChallengeSetup = function(){
 	challengeDiv.appendChild(attemptsDiv);
 	
 	/* create the navigateTo elements */
-	var navToText = document.createTextNode('Select the step that students should review before being allowed to try again.');
+	var navToText = document.createTextNode('選擇讓學生在重新填答以前重新瀏覽的步驟');
 	var navToSelect = createElement(document,'select', {id:'navigateToSelect', onchange:'eventManager.fire("challengeNavigateToChanged")'});
 	var nodeIds = this.view.getProject().getNodeIds();
 	var noneOption = createElement(document, 'option', {value:''});
@@ -486,15 +486,15 @@ View.prototype.MultipleChoiceNode.generateChallengeSetup = function(){
 	challengeDiv.appendChild(createBreak());
 	
 	/* create the attempts elements */
-	var attemptsText = document.createTextNode('Specify the score for each attempt by the student.');
+	var attemptsText = document.createTextNode('指定學生每次測試的分數');
 	var attemptsTable = createElement(document, 'table', {id:'scoreAttemptsTable'});
 	var ath = createElement(document, 'thead', {id:'scoreAttemptsTableHead'});
 	var athRow = createElement(document, 'tr', {id:'scoreAttemptsHeaderRow'});
 	var attemptTH = createElement(document, 'th', {id:'attemptTH'});
 	var scoreTH = createElement(document, 'th', {id:'scoreHeadTH'});
 	var atb = createElement(document, 'tbody', {id:'scoreAttemtpsTableBody'});
-	var addNewButton = createElement(document, 'input', {type:'button', value:'Add new attempt/score', onclick:'eventManager.fire("challengeAddNew")'});
-	var removeLastButton = createElement(document, 'input', {type:'button', value:'Remove last attempt/score', onclick:'eventManager.fire("challengeRemoveLast")'});
+	var addNewButton = createElement(document, 'input', {type:'button', value:'新增 測試/分數', onclick:'eventManager.fire("challengeAddNew")'});
+	var removeLastButton = createElement(document, 'input', {type:'button', value:'移除 測試/分數', onclick:'eventManager.fire("challengeRemoveLast")'});
 	
 	challengeDiv.appendChild(attemptsText);
 	challengeDiv.appendChild(createBreak());
@@ -508,8 +508,8 @@ View.prototype.MultipleChoiceNode.generateChallengeSetup = function(){
 	athRow.appendChild(attemptTH);
 	athRow.appendChild(scoreTH);
 	
-	attemptTH.innerHTML = 'Attempt #';
-	scoreTH.innerHTML = 'Score';
+	attemptTH.innerHTML = '測試 #';
+	scoreTH.innerHTML = '分數';
 	
 	/* add attempts/scores that are specified in the content */
 	for(var attempt in this.content.assessmentItem.interaction.attempts.scores){

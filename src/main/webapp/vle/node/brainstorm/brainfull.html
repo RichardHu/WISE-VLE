@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 * Copyright (c) 2009 Regents of the University of California (Regents). Created
 * by TELS, Graduate School of Education, University of California at Berkeley.
 *
@@ -21,9 +21,11 @@
 * REGENTS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * @author: patrick lawler
+  Modified by Richard 2011/12/19
 -->
 <html>
     <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" type="text/css" href="node/brainstorm/brainstorm.css">
         <script type="text/javascript">
             var brainstorm;
@@ -67,18 +69,18 @@
    <body>
 	<div id='main'>
 		<div id='previousWorkDiv'></div>
-		<div id="brain_title">Student Brainstorm: Server Based</div>
-		<p id="brain_instructions">Read the brainstorm topic below, then write your response in the blank box.<br/>
-		Click <em>Save</em> to save your work and review responses from other students.<p>
+		<div id="brain_title">腦力激盪<!--Student Brainstorm: Server Based--></div>
+		<p id="brain_instructions">閱讀以下標題，然後在空格欄位中寫下您的回應。<!--Read the brainstorm topic below, then write your response in the blank box.--><br/>
+		按下 <em>儲存</em> 將您的輸入存檔，並可瀏覽其他學生的回應。<!--to save your work and review responses from other students.--><p>
 		<div id="questionPrompt"></div>
 		
 		<div id="studentResponseDiv">
-			<br/>My Response:  <div id='starterParent'><div id='starterSentenceDiv' class="starterSentence"><a onclick="showStarter()">Show Starter Sentence</a></div></div></br>
+			<br/>我的回應：  <div id='starterParent'><div id='starterSentenceDiv' class="starterSentence"><a onclick="showStarter()">顯示起始句</a></div></div></br>
 			<textarea id='studentResponse' rows='5' cols = '100'></textarea><br/>
-			<input id='butt' type='button' value='save' onclick='save()'/><div id='saveMsg'></div>
+			<input id='butt' type='button' value='儲存' onclick='save()'/><div id='saveMsg'></div>
 		</div>
 		<br>
-		Other Student Responses: <input id="refreshResponsesButton" style="margin:0px 0 10px 10px;font-size:80%;" type="button" value="check for new responses" onClick="refreshResponses()" disabled="true">
+		其他學生的回應： <input id="refreshResponsesButton" style="margin:0px 0 10px 10px;font-size:80%;" type="button" value="更新回應" onClick="refreshResponses()" disabled="true">
 		<div id="responses">
 		</div>
 	</div>

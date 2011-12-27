@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 	<head>
 		<script type="text/javascript">
 		var cargraph;                  // cargraph object reference
@@ -139,7 +139,7 @@
 			    numSignificantDigits = cargraph.content.gatherXNumSignificantDigits;
 			      
 			    animationIntervalId = setInterval("doOneFrame()",200);
-				$("#startButton").val("Pause");
+				$("#startButton").val("暫停");
 				
 				/*
 				Armin: Do some check within the run
@@ -155,7 +155,7 @@
 			    // pause animation
 			    clearInterval(animationIntervalId);		    
 			    animationIntervalId = -1;
-		    	$("#startButton").val("Start");		    
+		    	$("#startButton").val("開始");		    
 		    }
 	    }
 	    
@@ -166,7 +166,7 @@
 		    clearInterval(animationIntervalId);
 		    animationIntervalId = -1;
 		    animationFrameIndex = 0;        // reset animationframeindex to beginning			    
-	    	$("#startButton").val("Start");		    
+	    	$("#startButton").val("開始");		    
 	    	cargraph.clearCrosshair();     // hide crosshair
 	    };
 
@@ -216,11 +216,11 @@
 	      <table>
 	      	<tr>
 	      		<td>
-			      <input id="startButton" type="button" value="Start" onclick="startPauseAnimation();" />
-			      <input id="stopButton" type="button" value="Stop" onclick="stopAnimation();" />
-			      <input id="clearPredictionButton" type="button" value="Clear Prediction" onclick="clearPrediction();" />
-			      <input id="resetDefaultAxisLimitsButton" type="button" value="Reset Default Axis Limits" onclick="resetDefaultAxisRange();" />
-			      <input id="startButton" type="button" value="Show table" onclick="showDialog();" />
+			      <input id="startButton" type="button" value="開始" onclick="startPauseAnimation();" />
+			      <input id="stopButton" type="button" value="停止" onclick="stopAnimation();" />
+			      <input id="clearPredictionButton" type="button" value="清除預測" onclick="clearPrediction();" />
+			      <input id="resetDefaultAxisLimitsButton" type="button" value="重設軸線範圍" onclick="resetDefaultAxisRange();" />
+			      <input id="startButton" type="button" value="顯示表格" onclick="showDialog();" />
 			      <input id="smartsButton" type="button" value="smarts" onclick="smarts();" style="visibility:hidden;" />
 			      <div id='dynamicImageRadioDiv'></div>
 	      		</td>

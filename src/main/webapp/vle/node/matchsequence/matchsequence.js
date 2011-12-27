@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2009 Regents of the University of California (Regents). Created
  * by TELS, Graduate School of Education, University of California at Berkeley.
  *
@@ -726,10 +726,11 @@ MS.prototype.checkAnswer = function() {
 			}
 			
 			//display which attempt number was just attempted
+			//Modifiey by Richard 2011/12/22
 			this.displayPreviousAttemptNumber();
 			
 			var totalNumChoices = numCorrectChoices + numWrongChoices;
-			feedbackDiv.innerHTML = "You have correctly placed "+ numCorrectChoices +" out of "+ totalNumChoices +" choices.";
+			feedbackDiv.innerHTML = "您已經從 "+ totalNumChoices +" 選項中成功放置 "+ numCorrectChoices + " 個正確的選項";
 			
 			if(this.challengeEnabled()) {
 				//display the linkto so the student can visit the associated step
@@ -908,13 +909,13 @@ MS.prototype.checkBucketAnswers = function(initialRenderCheck) {
  */
 MS.prototype.displayCompletionMessage = function() {
 	var resultMessageDiv = document.getElementById("resultMessageDiv");
-	var resultMessage = "Congratulations! You've completed this question.";
+	var resultMessage = "恭喜！ 您已經完成這個問題。";
 	
 	//check if scoring is enabled
 	if(this.isChallengeScoringEnabled()) {
 		//display the score they received
 		var currentScore = this.getScore(this.attempts.length);
-		resultMessage += " You received " + currentScore + " point(s).";
+		resultMessage += " 您得到 " + currentScore + " 分";
 	}
 	
 	//set the message into the div
@@ -1111,7 +1112,7 @@ MS.prototype.enableCheckAnswerButton = function() {
 	$('#checkAnswerButton').parent().removeClass('ui-state-disabled');
 	
 	if(this.showFeedback) {
-		displayNumberAttempts("This is your", "attempt", this.attempts);
+		displayNumberAttempts("這是您的第", "次嘗試", this.attempts);
 	}
 };
 
@@ -1132,7 +1133,7 @@ MS.prototype.canSubmitButtonBeEnabled = function() {
  */
 MS.prototype.displayCurrentAttemptNumber = function() {
 	var numAttempts = this.attempts.length + 1;
-	displayNumberAttemptsMessage("This is your", "attempt", numAttempts);
+	displayNumberAttemptsMessage("這是您的第", "次嘗試", numAttempts);
 };
 
 /**
@@ -1142,7 +1143,7 @@ MS.prototype.displayCurrentAttemptNumber = function() {
  */
 MS.prototype.displayPreviousAttemptNumber = function() {
 	var numAttempts = this.attempts.length;
-	displayNumberAttemptsMessage("This was your", "attempt", numAttempts);
+	displayNumberAttemptsMessage("這是您的第", "次嘗試", numAttempts);
 };
 
 /**

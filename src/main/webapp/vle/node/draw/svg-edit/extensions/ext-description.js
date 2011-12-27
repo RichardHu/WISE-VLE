@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ext-description.js
  *
  * Licensed under the Apache License, Version 2
@@ -19,10 +19,10 @@ svgEditor.addExtension("Description", function(S) {
 		
 		var displaytext = '<div id="description"><div id="description_wrapper">'+
 			'<div class="description_header"><div class="description_header_text"><span class="panel_title">Description:</span>'+
-			' <span class="maximized">(Enter your text in the box below)</span><span class="minimized"></span>'+
+			' <span class="maximized">(在以下的空白欄位輸入您的文字)</span><span class="minimized"></span>'+
 			'</div><div class="description_buttons">'+
-			'<a id="description_edit" title="Edit Description">Edit</a>'+
-			'<button id="description_collapse" style="display:none" title="Save">Save</button></div></div>'+
+			'<a id="description_edit" title="編輯描述內容">編輯</a>'+
+			'<button id="description_collapse" style="display:none" title="儲存">儲存</button></div></div>'+
 			'<textarea id="description_content" class="description_input"></textarea></div></div>';
 		
 		$('#workarea').append(displaytext);

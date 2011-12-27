@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the FillinNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -44,14 +44,14 @@ View.prototype.FillinNode.regeneratePage = function(){
 	/* create new elements */
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	var promptDiv = createElement(document,'div', {id:'promptDiv'});
-	var questionText = document.createTextNode('QUESTION');
-	var questionText2 = document.createTextNode('Type your question below. To create fill-in blanks, highlight a section of text and click the TRANSFORM button. To edit or remove existing fillins, select the matching radio button.');
+	var questionText = document.createTextNode('問題');
+	var questionText2 = document.createTextNode('在以下輸入您的問題。欲新增填空格，將文字選取反白並按下轉換按鈕。欲編輯或移除現有的填空格，選擇該填空格並按下移除或新增按鈕。');
 	var questionInput = createElement(document, 'textarea', {id: 'promptInput', cols: '90', rows: '30', wrap: 'hard', onkeyup: 'eventManager.fire("fillinTextUpdated")'});
-	var fillinText = document.createTextNode('Edit/Remove existing fillins');
+	var fillinText = document.createTextNode('編輯/移除 現有的填空格');
 	questionInput.innerHTML = this.fullText;
 	this.charCount = questionInput.value.length;
 	
-	var createFillin = createElement(document, 'input', {type: 'button', onclick: 'eventManager.fire("fillinCreateFillin")', value: 'Transform Highlighted Text into Fill-Blank'});
+	var createFillin = createElement(document, 'input', {type: 'button', onclick: 'eventManager.fire("fillinCreateFillin")', value: '轉換反白文字為填空格'});
 	
 	promptDiv.appendChild(questionInput);
 	
@@ -135,8 +135,8 @@ View.prototype.FillinNode.generateFillins = function(){
 	/* cycle through existing fillins and create and append the appropriate elements to the the fillinTD */
 	for(var g=0;g<this.fillin.length;g++){
 		var endStart = this.fillinIndexes[g].split('|');
-		var text = document.createTextNode('Blank #' + (g + 1) + ':');
-		var removeButton = createElement(document, 'input', {type: 'button', value: 'Remove Fillin', onclick: 'eventManager.fire("fillinRemoveFillin")'});
+		var text = document.createTextNode('空格 #' + (g + 1) + ':');
+		var removeButton = createElement(document, 'input', {type: 'button', value: '移除填空', onclick: 'eventManager.fire("fillinRemoveFillin")'});
 		var radio = createElement(document, 'input', {type: 'radio', id: 'radio_' + g, value: this.fillin[g], name: 'fillinRadio', onclick: 'eventManager.fire("fillinClick",["' + this.fillin[g] + '","' + g + '"])'});
 		var input = createElement(document, 'input', {type: 'text', id: 'input_' + g, name: 'input_' + g, onclick: 'eventManager.fire("fillinClick",["' + this.fillin[g] + '","' + g + '"])', onkeyup: 'eventManager.fire("fillinChangeSelected","' + g + '")', value: this.fullText.substring(endStart[0], endStart[1])});
 		
@@ -289,15 +289,15 @@ View.prototype.FillinNode.retrieveInteractionText = function(identifier){
  */
 View.prototype.FillinNode.generateAllowableAnswers = function(identifier){
 	var allowableTD = createElement(document, 'td', {id: 'allowableTable'});
-	var allowableText = document.createTextNode('Edit/add allowable answers for blank #' + this.getLineNumber(identifier));
+	var allowableText = document.createTextNode('編輯/新增 空格的答案 #' + this.getLineNumber(identifier));
 	var declaration = this.getDeclaration(identifier);
-	var addButton = createElement(document, 'input', {type: 'button', value: 'Add New', onclick: 'eventManager.fire("fillinAddNewAllowable","' + identifier + '")'});
+	var addButton = createElement(document, 'input', {type: 'button', value: '新增', onclick: 'eventManager.fire("fillinAddNewAllowable","' + identifier + '")'});
 	
 	allowableTD.appendChild(allowableText);
 	for(var i=0;i<declaration.correctResponses.length;i++){
 		var entryInput = createElement(document, 'input', {type: 'text', id: 'entryInput_' + i, onkeyup: 'eventManager.fire("fillinEntryChanged","' + i + '")'});
 		entryInput.value = declaration.correctResponses[i].response;
-		var removeButton = createElement(document, 'input', {type: 'button', id: 'entryButton_' + i, value: 'remove', onclick: 'eventManager.fire("fillinRemoveAllowable",["' + identifier + '","' + i + '"])'});
+		var removeButton = createElement(document, 'input', {type: 'button', id: 'entryButton_' + i, value: '移除', onclick: 'eventManager.fire("fillinRemoveAllowable",["' + identifier + '","' + i + '"])'});
 		allowableTD.appendChild(createBreak());
 		allowableTD.appendChild(entryInput);
 		if(i!=0){

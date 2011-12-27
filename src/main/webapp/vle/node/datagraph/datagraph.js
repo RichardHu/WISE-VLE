@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @constructor
  * @param node
  * @returns
@@ -64,9 +64,9 @@ DATAGRAPH.prototype.renderData = function(both){
 	
 	/* set toggle button with correct text */
 	if(this.content.options.display.which=='2'){
-		$('#switchButt').val('Display Graph View');
+		$('#switchButt').val('顯示圖表畫面');
 	} else if(this.content.options.display.which=='3') {
-		$('#switchButt').val('Display Table with Graph View');
+		$('#switchButt').val('圖表畫面顯示表格');
 	}
 	
 	if(!(this.content.options.display.which == '2' || this.content.options.display.which == '3')){
@@ -110,7 +110,7 @@ DATAGRAPH.prototype.renderGraph = function(both){
 	}
 	
 	/* set toggle button with correct text */
-	$('#switchButt').val('Display Data Table View');
+	$('#switchButt').val('顯示資料表格畫面');
 	
 	/* make toggle invisible if only one mode specified */
 	if(!(this.content.options.display.which == '2' || this.content.options.display.which == '3')){
