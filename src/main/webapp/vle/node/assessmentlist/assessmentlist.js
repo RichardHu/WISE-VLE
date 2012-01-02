@@ -1,4 +1,4 @@
-
+﻿
 /**
  * @constructor
  * @param node
@@ -302,7 +302,7 @@ ASSESSMENTLIST.prototype.displayTeacherWork = function() {
  */
 ASSESSMENTLIST.prototype.render = function() {
 	//create the submit button
-	$("#submitButtonDiv").html('<input id="submitButton" type="button" onclick="submit()" value="Submit the Questionnaire"></input>');
+	$("#submitButtonDiv").html('<input id="submitButton" type="button" onclick="submit()" value="送出問卷"></input>');
 	
 	if(this.node.peerReview == 'annotate' || this.node.teacherReview == 'annotate') {
 		/*

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @constructor
  * @param node
  * @param view
@@ -272,7 +272,7 @@ OPENRESPONSE.prototype.saveAndLock = function() {
  */
 OPENRESPONSE.prototype.responseEdited = function() {
 	this.setSaveAvailable();
-	displayNumberAttempts("This is your", "revision", this.states);
+	displayNumberAttempts("這是您的第", "次修改", this.states);
 };
 
 /**
@@ -775,12 +775,12 @@ OPENRESPONSE.prototype.displayTeacherReview = function() {
 			//set their previous revision to when they last worked on this step
 			document.getElementById('responseBox').value = this.states[this.states.length - 1].response;
 			this.setSaveUnavailable();
-			displayNumberAttempts("This is your", "revision", this.states);
+			displayNumberAttempts("這是您的第", "次修改", this.states);
 			
 			//tell the node that the student has completed it
 			this.node.setCompleted();
 		} else {
-			document.getElementById("numberAttemptsDiv").innerHTML = "This is your first revision.";
+			document.getElementById("numberAttemptsDiv").innerHTML = "這是您的第一次修改";
 			
 			if(latestWorkForassociatedStartNode != null && latestWorkForassociatedStartNode != '') {
 				//set the latest work from the original step in the responseBox so the student can revise it
@@ -1110,12 +1110,12 @@ OPENRESPONSE.prototype.retrieveAnnotationAndWorkCallback = function(text, xml, a
 		if (thisOr.states!=null && thisOr.states.length > 0) {
 			document.getElementById('responseBox').value = thisOr.states[thisOr.states.length - 1].response;
 			thisOr.setSaveUnavailable();
-			displayNumberAttempts("This is your", "revision", thisOr.states);
+			displayNumberAttempts("這是您的第", "次修改", thisOr.states);
 			
 			//tell the node that the student has completed it
 			thisOr.node.setCompleted();
 		} else {
-			document.getElementById("numberAttemptsDiv").innerHTML = "This is your first revision.";
+			document.getElementById("numberAttemptsDiv").innerHTML = "這是您的第一次修改";
 			
 			if(latestWork != null && latestWork != '') {
 				if(thisOr.richTextEditor != null) {
@@ -1239,7 +1239,7 @@ OPENRESPONSE.prototype.showDefaultValues = function() {
 	
 	/* set html prompt element values */
 	document.getElementById('orPromptDiv').innerHTML=this.content.assessmentItem.interaction.prompt;
-	document.getElementById('promptLabelDiv').innerHTML = 'question';
+	document.getElementById('promptLabelDiv').innerHTML = '問題';
 	
 	/* set text area size: set row based on expectedLines */
 	document.getElementById('responseBox').setAttribute('rows', this.content.assessmentItem.interaction.expectedLines);
@@ -1268,9 +1268,9 @@ OPENRESPONSE.prototype.setResponse = function() {
 	if (this.states!=null && this.states.length > 0) {
 		document.getElementById('responseBox').value = this.states[this.states.length - 1].response;
 		this.setSaveUnavailable();
-		displayNumberAttempts("This is your", "revision", this.states);
+		displayNumberAttempts("這是您的第", "次修改", this.states);
 	} else {
-		document.getElementById("numberAttemptsDiv").innerHTML = "This is your first revision.";
+		document.getElementById("numberAttemptsDiv").innerHTML = "這是您的第一次修改";
 		document.getElementById('responseBox').value = "";
 	 	this.setSaveAvailable();
 	 	

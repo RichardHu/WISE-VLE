@@ -35,7 +35,7 @@ public class AssetManager extends HttpServlet implements Servlet{
 	
 	private final static String FAILED = "failed";
 	
-	private final static Long MAX_SIZE = 10485760l; //10MB
+	private final static Long MAX_SIZE = 52428800l; //10MB
 	
 	private final static Long STUDENT_MAX_UPLOAD_SIZE = 2097152l;  // 2 MB
 

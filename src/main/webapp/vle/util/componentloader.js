@@ -1,4 +1,4 @@
-/**
+﻿/**
  * The componentloader object manages the loading of the components.
  * This includes loading variables, scripts, events, styling and 
  * methods into the view as well as initializing necessary variables.
@@ -73,7 +73,7 @@ var componentloader = function(em, sl){
 					$('#notePanel').dialog({
 						autoOpen:false,
 						width:noteWidth,
-						title:'Reflection Note',
+						title:'反思筆記',
 						resizable:false,
 						position: [noteXPos, 45],
 						closeOnEscape: false,
@@ -297,8 +297,8 @@ var componentloader = function(em, sl){
 				portalProjectId:undefined, 
 				portalCurriculumBaseDir:undefined, 
 				excludedPrevWorkNodes:['HtmlNode', 'OutsideUrlNode', 'MySystemNode', 'SVGDrawNode', 'MWNode', 'DrawNode','DuplicateNode'], 
-				allowedAssetExtensions:['jpg', 'jpeg', 'gif', 'png', 'swf', 'flv', 'bmp', 'tif', 'pdf', 'nlogo', 'jar', 'cml', 'mml', 'otml', 'mov', 'mp4', 'avi', 'wmv', 'mpg', 'mpeg', 'ogg'],
-				MAX_ASSET_SIZE:10485760, 
+				allowedAssetExtensions:['jpg', 'jpeg', 'gif', 'png', 'swf', 'flv', 'bmp', 'tif', 'pdf', 'nlogo', 'jar', 'cml', 'mml', 'otml', 'mov', 'mp4', 'avi', 'wmv', 'mpg', 'mpeg', 'ogg', 'jnlp'],
+				MAX_ASSET_SIZE:52428800, 
 				currentStepNum:undefined, 
 				activeNode:undefined, 
 				tab:'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',

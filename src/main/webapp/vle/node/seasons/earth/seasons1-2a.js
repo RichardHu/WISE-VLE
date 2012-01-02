@@ -794,7 +794,7 @@ var city_data_table = document.getElementById("city-data-table");
 var city_data_table_body = document.getElementById("city-data-table-body");
 
 var month_data = {
-    "jan": { index:  0, num:   1, short_name: 'Jan', long_name: 'January' },
+    "jjj": { index:  0, num:   1, short_name: 'Jan', long_name: 'January' },
     "feb": { index:  1, num:   2, short_name: 'Feb', long_name: 'February' },
     "mar": { index:  2, num:   3, short_name: 'Mar', long_name: 'March' },
     "apr": { index:  3, num:   4, short_name: 'Apr', long_name: 'April' },
@@ -946,7 +946,7 @@ var graph_degree_string = "deg C";
 
 if (use_fahrenheit) {
     graph_degree_string = "deg F"
-    y_axis.title = 'Temperature deg F';
+    y_axis.title = '溫度(度F)';
     y_axis.min = y_axis.min * 9 / 5 + 32;
     y_axis.max = y_axis.max * 9 / 5 + 32;
 }
@@ -958,12 +958,12 @@ function plotCityData() {
         xaxis:{ 
           labelsAngle: 60, 
           ticks: city_x_axis_tics,
-          title: 'Month', 
+          title: '月份', 
           noTics: city_x_axis_tics.length,
           min: 0, max: city_x_axis_tics.length - 1,
         },
         yaxis: y_axis,
-        title: "Average Monthly Temperatures",
+        title: "月平均溫度",
         grid:{ verticalLines: true, backgroundColor: 'white' },
         HtmlText: false,
         legend: { position: 'nw', margin: 1, backgroundOpacity: 0.1 },

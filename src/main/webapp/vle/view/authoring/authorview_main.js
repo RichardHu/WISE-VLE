@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Functions related to the main layout of the project in the authoring view
  * 
  * @author patrick lawler
@@ -62,12 +62,12 @@ View.prototype.generateAuthoring = function(){
 	uSeqTR.appendChild(uSeqTD);
 	
 	var unusedSeqDiv = createElement(document, 'div', {id: 'uSeq', 'class': 'uSeq', onclick: 'eventManager.fire("selectClick","uSeq")', onMouseOver: 'eventManager.fire("checkAndSelect","uSeq")', onMouseOut: 'eventManager.fire("checkAndDeselect","uSeq")'});
-	var unusedSeqText = document.createTextNode('Inactive Activities');
+	var unusedSeqText = document.createTextNode('不活躍活動');
 	var unusedSeqs = this.project.getUnattached('sequence');
 	
 	uSeqTD.appendChild(unusedSeqDiv);
 	unusedSeqDiv.appendChild(unusedSeqText);
-	unusedSeqDiv.innerHTML += ' <span>(Not Shown in Project)</span>';
+	unusedSeqDiv.innerHTML += ' <span>(不顯示在專案中)</span>';
 	for(var d=0;d<unusedSeqs.length;d++){
 		this.generateNodeElement(unusedSeqs[d], null, uSeqTB, 0, 0);
 	};
@@ -87,12 +87,12 @@ View.prototype.generateAuthoring = function(){
 	uNodeTR.appendChild(uNodeTD);
 	
 	var unusedNodeDiv = createElement(document, 'div', {id: 'uNode', onclick: 'eventManager.fire("selectClick","uNode")', onMouseOver: 'eventManager.fire("checkAndSelect","uNode")', onMouseOut: 'eventManager.fire("checkAndDeselect","uNode")'});
-	var unusedNodesText = document.createTextNode('Inactive Steps');
+	var unusedNodesText = document.createTextNode('不活躍步驟');
 	var unusedNodes = this.project.getUnattached('node');
 	
 	uNodeTD.appendChild(unusedNodeDiv);
 	unusedNodeDiv.appendChild(unusedNodesText);
-	unusedNodeDiv.innerHTML += ' <span>(Not Shown in Project)</span>';
+	unusedNodeDiv.innerHTML += ' <span>(不顯示在專案中)</span>';
 	for(var e=0;e<unusedNodes.length;e++){
 		this.generateNodeElement(unusedNodes[e], null, uNodeTB, 0, 0);
 	};
@@ -115,9 +115,9 @@ View.prototype.generateAuthoring = function(){
 			numNodes++;
 		});
 		if(numNodes==1){
-			$(this).append('<div id="'+ sequenceId +'_count" class="nodeCount">'+ numNodes +' Step<span class="selectCount"></span></div>');
+			$(this).append('<div id="'+ sequenceId +'_count" class="nodeCount">'+ numNodes +' 個步驟<span class="selectCount"></span></div>');
 		} else {
-			$(this).append('<div id="'+ sequenceId +'_count" class="nodeCount">'+ numNodes +' Steps<span class="selectCount"></span></div>');
+			$(this).append('<div id="'+ sequenceId +'_count" class="nodeCount">'+ numNodes +' 個步驟<span class="selectCount"></span></div>');
 		}
 	});
 	
@@ -182,7 +182,7 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 	}
 	
 	//create and set title for this node along with step term and/or numbering as specified
-	var titleInput = createElement(document, 'input', {id: 'titleInput_' + node.id, type: 'text', 'class':'nodeTitleInput', onchange: 'eventManager.fire("nodeTitleChanged","' + node.id + '")', title: 'Click to Edit Step Name', value: node.getTitle()});
+	var titleInput = createElement(document, 'input', {id: 'titleInput_' + node.id, type: 'text', 'class':'nodeTitleInput', onchange: 'eventManager.fire("nodeTitleChanged","' + node.id + '")', title: '點選以編輯步驟名稱', value: node.getTitle()});
 	//var taskDiv = createElement(document, 'div', {id: 'taskDiv_' + node.id, 'class': 'taskDiv'});
 	//taskTD.appendChild(taskDiv);
 	mainTD.appendChild(mainDiv);
@@ -190,9 +190,9 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 	if(node.type=='sequence'){
 		var seqTitleDiv = createElement(document, 'div', {id: 'seqTitleDiv_' + absId});
 		if(absId.match(/null.*/)){
-			var titleText = document.createTextNode('Activity: ');
+			var titleText = document.createTextNode('活動： ');
 		} else {
-			var titleText = document.createTextNode('Activity ' + this.currentSeqNum + ': ');
+			var titleText = document.createTextNode('活動 ' + this.currentSeqNum + ': ');
 			this.currentSeqNum++;
 		}
 		var choiceDiv = createElement(document, 'div', {id: 'choiceDiv_' + absId});
@@ -206,14 +206,14 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		}
 		seqTitleDiv.appendChild(titleText);
 		seqTitleDiv.appendChild(titleInput);
-		titleInput.title = 'Click to Edit Activity Name';
+		titleInput.title = '點選以編輯活動名稱';
 		
 		choiceDiv.style.display = 'none';
 		choiceDiv.className = 'choice';
 		
 		if(this.getProject().getRootNode() && node.id==this.project.getRootNode().id){
 			mainDiv.className = 'projectNode master';
-			mainDiv.innerHTML = 'Project Sequence <span>(Active Activities & Steps)</span>';
+			mainDiv.innerHTML = '專案順序 <span>(活躍的 活動 & 步驟)</span>';
 		} else {
 			mainDiv.className = 'projectNode seq';
 		}
@@ -294,7 +294,7 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		mainDiv.className = 'projectNode node';
 		
 		//set up select for changing this node's icon
-		var selectNodeText = document.createTextNode('Icon: ');
+		var selectNodeText = document.createTextNode('圖示： ');
 		var selectDrop = createElement(document, 'select', {id: 'nodeIcon_' + node.id, onchange: 'eventManager.fire("nodeIconUpdated","' + node.id + '")'});
 		mainDiv.appendChild(selectNodeText);
 		mainDiv.appendChild(selectDrop);
@@ -330,8 +330,8 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		}
 		
 		/* add max scores input field. values will be set on retrieval of metadata */
-		var maxScoreText = document.createTextNode('Max Score: ');
-		var maxScoreInput = createElement(document, 'input', {type: 'text', 'class':'maxScoreInput', title: 'Click to Edit Maximum Score', id: 'maxScore_' + node.id, 'size':'2', onchange: 'eventManager.fire("maxScoreUpdated","'+ node.id + '")'});
+		var maxScoreText = document.createTextNode('最高分數： ');
+		var maxScoreInput = createElement(document, 'input', {type: 'text', 'class':'maxScoreInput', title: '點選以編輯最高分數', id: 'maxScore_' + node.id, 'size':'2', onchange: 'eventManager.fire("maxScoreUpdated","'+ node.id + '")'});
 		mainDiv.appendChild(createSpace());
 		mainDiv.appendChild(maxScoreText);
 		mainDiv.appendChild(maxScoreInput);
@@ -352,10 +352,10 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		}
 		
 		if(ndx2==-1){
-			var prevWorkLink = createElement(document, 'a', {'class': 'prevWorkLink', id: 'prevWork_' + node.id, title: 'Show Work from Preview Step', onclick: 'eventManager.fire("launchPrevWork","' + node.id + '")'});
+			var prevWorkLink = createElement(document, 'a', {'class': 'prevWorkLink', id: 'prevWork_' + node.id, title: '顯示先前步驟的實作', onclick: 'eventManager.fire("launchPrevWork","' + node.id + '")'});
 			mainDiv.appendChild(createSpace());
 			mainDiv.appendChild(prevWorkLink);
-			prevWorkLink.appendChild(document.createTextNode("Show Previous Work"));
+			prevWorkLink.appendChild(document.createTextNode("顯示先前實作"));
 		}
 		
 		if(reviewLink){ // if part of review sequence, add review title and remove link
@@ -366,13 +366,13 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		}
 		
 		// Add edit button to open node's editing interface
-		var editInput = createElement(document, 'input', {type: 'button', value:'Edit', 'class':'editNodeInput', title: 'Click to Edit Step Content', id: 'editNode_' + node.id, onclick: 'eventManager.fire("author", "' + absId + '----' + node.id + '")'});
+		var editInput = createElement(document, 'input', {type: 'button', value:'編輯', 'class':'editNodeInput', title: '點選以編輯步驟內容', id: 'editNode_' + node.id, onclick: 'eventManager.fire("author", "' + absId + '----' + node.id + '")'});
 		mainDiv.appendChild(editInput);
 	}
 	
 	// create select checkbox for this node
 	if(!$(mainDiv).hasClass('master')){
-		var selectBox = createElement(document, 'input', {id:'select_' + node.id, type:'checkbox', 'class':'selectNodeInput', title:'Click to Select', onclick:'eventManager.fire("selectBoxClick","'+absId+'")'});
+		var selectBox = createElement(document, 'input', {id:'select_' + node.id, type:'checkbox', 'class':'selectNodeInput', title:'點選以選取', onclick:'eventManager.fire("selectBoxClick","'+absId+'")'});
 		$(mainDiv).prepend(selectBox);
 	}
 
@@ -447,7 +447,7 @@ View.prototype.saveProject = function(){
 				o.notificationManager.notify('Unable to save project to WISE server. The server or your Internet connection may be down. An alert will pop up with the project file data, copy this and paste it into a document for backup.', 3);
 				alert(data);
 			} else {
-				o.notificationManager.notify('Project Saved.', 3);
+				o.notificationManager.notify('專案已儲存', 3);
 				o.eventManager.fire('setLastEdited');
 			};
 		};
@@ -670,8 +670,8 @@ View.prototype.initializeAssetEditorDialog = function(){
 	
 	// set default buttons for asset editor dialog
 	// Modified by Richard 2011/12/12
-	this.assetEditorButtons = {'����': done, '����������ɮ�': remove};
-	$('#assetEditorDialog').dialog({autoOpen:false, draggable:true, modal:true, width:600, title: 'Project Files', buttons: this.assetEditorButtons, close: cancel, open:show});
+	this.assetEditorButtons = {'關閉': done, '移除選取的檔案': remove};
+	$('#assetEditorDialog').dialog({autoOpen:false, draggable:true, modal:true, width:600, title: '專題檔案', buttons: this.assetEditorButtons, close: cancel, open:show});
 };
 
 /**
@@ -686,7 +686,7 @@ View.prototype.uploadAsset = function(view){
 			if(text >= o.MAX_ASSET_SIZE){
 				o.notificationManager.notify('Maximum storage allocation exceeded! Maximum allowed is ' + o.utils.appropriateSizeText(o.MAX_ASSET_SIZE) + ', total on server is ' + o.utils.appropriateSizeText(text) + '.', 3);
 			} else if(view){
-				document.getElementById('sizeDiv').innerHTML = "You are using " + o.utils.appropriateSizeText(text) + " of your " + o.utils.appropriateSizeText(o.MAX_ASSET_SIZE) + " storage space.";
+				document.getElementById('sizeDiv').innerHTML = "您已從 " + o.utils.appropriateSizeText(o.MAX_ASSET_SIZE) + " 的儲存空間中使用了 " + o.utils.appropriateSizeText(text) ;
 			} else {
 				//$('#assetUploaderDialog').dialog('open');
 			}
@@ -1035,10 +1035,10 @@ View.prototype.toggleProjectMode = function(){
 	// modified by Richard 2011/12/7
 	if(this.simpleProject){
 		this.simpleProject = false;
-		$('#projectModeDiv > span').text('�i���Ҧ�');
+		$('#projectModeDiv > span').text('進階模式');
 	} else {
 		this.simpleProject = true;
-		$('#projectModeDiv > span').text('²���Ҧ�');
+		$('#projectModeDiv > span').text('簡易模式');
 	};
 	//regenerate authoring if a project is open
 	if(this.project){
@@ -1193,8 +1193,8 @@ View.prototype.onProjectLoaded = function(){
 View.prototype.notifyPortalOpenProject = function(projectPath, projectName) {
 	var handler = function(responseText, responseXML, o){
 		if (responseText != "") {
-			o.notificationManager.notify(responseText + " is also editing this project right now. Please make sure not to overwrite each other's work.", 3);
-			document.getElementById("concurrentAuthorDiv").innerHTML = "Also Editing: " + responseText;
+			o.notificationManager.notify(responseText + " 現在也正編輯這個專案。請確認不會覆寫其他人的實作內容。", 3);
+			document.getElementById("concurrentAuthorDiv").innerHTML = "同時編輯中： " + responseText;
 			o.currentEditors = responseText;
 			eventManager.fire('browserResize');
 		} else {
@@ -1355,7 +1355,7 @@ View.prototype.nodeTypeSelected = function(){
 		var nodeClassesForNode = this.nodeClasses[val];
 		
 		var selectDiv = createElement(document, 'div', {id: 'selectNodeIconDiv'});
-		var selectText = document.createTextNode('Select an Icon:');
+		var selectText = document.createTextNode('選擇圖示：');
 		var select = createElement(document, 'select', {id: 'selectNodeIcon', name: 'param2'});
 		
 		for(var x=0;x<nodeClassesForNode.length;x++){
@@ -1386,7 +1386,7 @@ View.prototype.nodeTypeSelected = function(){
 		}
 		
 		//create a text node with the description
-		var descriptionTextNode = document.createTextNode('Description: ' + descriptionText);
+		var descriptionTextNode = document.createTextNode('描述： ' + descriptionText);
 		
 		//add the text node to the description div
 		descriptionDiv.appendChild(descriptionTextNode);
@@ -1453,8 +1453,8 @@ View.prototype.populateNodeSelector = function(event, cancelEvent){
 	
 	
 	/* add the buttons */
-	var selectButt = createElement(document, 'input', {type:'button', value:'Create Link', onclick:'eventManager.fire(\'' + event + '\')'});
-	var cancelButt = createElement(document, 'input', {type:'button', value:'Cancel', onclick:'eventManager.fire(\'' + cancelEvent + '\')'});
+	var selectButt = createElement(document, 'input', {type:'button', value:'建立連結', onclick:'eventManager.fire(\'' + event + '\')'});
+	var cancelButt = createElement(document, 'input', {type:'button', value:'取消', onclick:'eventManager.fire(\'' + cancelEvent + '\')'});
 	parent.appendChild(createBreak());
 	parent.appendChild(createBreak());
 	parent.appendChild(selectButt);

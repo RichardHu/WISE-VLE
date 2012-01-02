@@ -1,4 +1,4 @@
-<div id='noteMainDiv'>        
+﻿<div id='noteMainDiv'>        
  	<div id="questionCountBoxNote" class="bg2">
  
 		<div class="instructionsReminderNote">
@@ -9,10 +9,10 @@
         </div>
         
         <div id="buttonBoxNote">
-					<a onclick="eventManager.fire('resizeNote', 'narrow')">Tall</a>
-					<a onclick="eventManager.fire('resizeNote', 'wide')">Wide</a>
-					<a onclick="eventManager.fire('resizeNote', 'original')">Basic</a>
-					<a onclick="eventManager.fire('resizeNote', 'maximize')">Large</a>
+					<a onclick="eventManager.fire('resizeNote', 'narrow')">高</a>
+					<a onclick="eventManager.fire('resizeNote', 'wide')">寬</a>
+					<a onclick="eventManager.fire('resizeNote', 'original')">基本</a>
+					<a onclick="eventManager.fire('resizeNote', 'maximize')">大</a>
 		</div>
 		
 	        
@@ -32,7 +32,7 @@
 	<div id="fullColumn">
             	<div id='promptDisplayDiv'>
                 	<div id='promptLabelDiv' class="itemLabel color1">
-                    question
+                    問題
                 	</div>
 					<div class="promptContainer">
 	                    <div id="orPromptDiv">
@@ -66,11 +66,11 @@
                 </div>
                 
 		<div id='starterParent'>
-			<div id='starterSentenceDiv' class="starterSentence"><a onclick="eventManager.fire('noteShowStarter')">Show Starter Sentence</a></div>
+			<div id='starterSentenceDiv' class="starterSentence"><a onclick="eventManager.fire('noteShowStarter')">顯示起始句</a></div>
 		</div>
 		<div id='responseDisplayDiv'>
             <div id='responseLabelDiv' class="itemLabel color1">
-                response
+                回應
             </div>
 			<div class="promptContainer">
 				<div id="responseBoxDiv">
@@ -92,10 +92,10 @@
 
 
 		<div id="submitButtonsNote">
-		   <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="saveButton" onClick="eventManager.fire('saveNote')" >Save Changes</a></div>
-		   <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="closeButton" onClick="eventManager.fire('saveAndCloseNote')" >Save & Close</a></div>
+		   <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="saveButton" onClick="eventManager.fire('saveNote')" >儲存變更</a></div>
+		   <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="closeButton" onClick="eventManager.fire('saveAndCloseNote')" >儲存 & 關閉</a></div>
 		   <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="saveAndLockButtonDiv" style="display:none" disabled="true">
-		   		<a id="saveAndLockButton" onClick="eventManager.fire('saveAndLock')" >Save & Lock</a>
+		   		<a id="saveAndLockButton" onClick="eventManager.fire('saveAndLock')" >儲存 & 鎖定</a>
 		   </div>
 		</div>
 		

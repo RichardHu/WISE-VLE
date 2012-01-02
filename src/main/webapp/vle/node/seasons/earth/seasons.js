@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
 
 var seasons = {};
 var root = this;
@@ -155,18 +155,18 @@ seasons.Scene = function(options) {
     // Some useful variables
     
     this.month_data = {
-        "jan": { index:  0, num:   1, short_name: 'Jan', long_name: 'January' },
-        "feb": { index:  1, num:   2, short_name: 'Feb', long_name: 'February' },
-        "mar": { index:  2, num:   3, short_name: 'Mar', long_name: 'March' },
-        "apr": { index:  3, num:   4, short_name: 'Apr', long_name: 'April' },
-        "may": { index:  4, num:   5, short_name: 'May', long_name: 'May' },
-        "jun": { index:  5, num:   6, short_name: 'Jun', long_name: 'June' },
-        "jul": { index:  6, num:   7, short_name: 'Jul', long_name: 'July' },
-        "aug": { index:  7, num:   8, short_name: 'Aug', long_name: 'August' },
-        "sep": { index:  8, num:   9, short_name: 'Sep', long_name: 'September' },
-        "oct": { index:  9, num:  10, short_name: 'Oct', long_name: 'October' },
-        "nov": { index: 10, num:  11, short_name: 'Nov', long_name: 'Novemeber' },
-        "dec": { index: 11, num:  12, short_name: 'Dec', long_name: 'December' }
+        "jan": { index:  0, num:   1, short_name: '1月', long_name: '1月' },
+        "feb": { index:  1, num:   2, short_name: '2月', long_name: '2月' },
+        "mar": { index:  2, num:   3, short_name: '3月', long_name: '3月' },
+        "apr": { index:  3, num:   4, short_name: '4月', long_name: '4月' },
+        "may": { index:  4, num:   5, short_name: '5月', long_name: '5月' },
+        "jun": { index:  5, num:   6, short_name: '6月', long_name: '6月' },
+        "jul": { index:  6, num:   7, short_name: '7月', long_name: '7月' },
+        "aug": { index:  7, num:   8, short_name: '8月', long_name: '8月' },
+        "sep": { index:  8, num:   9, short_name: '9月', long_name: '9月' },
+        "oct": { index:  9, num:  10, short_name: '10月', long_name: '10月' },
+        "nov": { index: 10, num:  11, short_name: '11月', long_name: '11月' },
+        "dec": { index: 11, num:  12, short_name: '12月', long_name: '12月' }
     };
 
     this.month_names = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
@@ -344,12 +344,12 @@ seasons.Scene.prototype._updateTilt = function(tilt) {
     switch (tilt) {
         case "yes":
             this.earth_tilt.set("rotation", { x : 0, y : 0, z : 1, angle : 23.5 });
-            tilt_str = "Tilted";
+            tilt_str = "傾斜";
             break;
 
         case "no":
             this.earth_tilt.set("rotation", { x : 0, y : 0, z : 1, angle : 0 });
-            tilt_str = "No Tilt";
+            tilt_str = "無傾斜";
             break;
     };
     if (this.selected_tilt) {
@@ -605,7 +605,7 @@ seasons.Scene.prototype.earthLabel = function() {
         var edist = earth_ellipse_distance_from_sun_by_month(this.month);
         var solar_flux = earth_ephemerides_solar_constant_by_month(this.month);
         var labelStr = "";
-        labelStr += sprintf("Earth Distance: %3.0f million km<br>", edist * scale_factor / 1000000);
+        labelStr += sprintf("太陽-地球距離 %3.0f 百萬公里<br>", edist * scale_factor / 1000000);
         // labelStr += sprintf("Solar Radiation:  %4.1f W/m2<br>", solar_flux);
         if (this.debugging) {
             var earth_pos = this.get_earth_position();

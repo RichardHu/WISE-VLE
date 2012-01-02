@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the OpenResponseNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -20,9 +20,9 @@ View.prototype.OpenResponseNode.generatePage = function(view){
 	
 	//create new
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
-	var promptText = document.createTextNode("Question for Student:");
-	var linesText = document.createTextNode("Size of Student Response Box (# rows):");
-	var richTextEditorText = document.createTextNode("Use Rich Text Editor");
+	var promptText = document.createTextNode("給予學生的問題：");
+	var linesText = document.createTextNode("學生回應欄位大小 (# 列)：");	
+	var richTextEditorText = document.createTextNode("使用完整文字編輯器");
 	
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createElement(document, 'div', {id: 'studentResponseBoxSizeContainer'}));
@@ -46,7 +46,8 @@ View.prototype.OpenResponseNode.generatePage = function(view){
 		pageDiv.appendChild(createBreak());
 	}
 	
-	pageDiv.appendChild(promptText);
+	pageDiv.appendChild(richTextEditorText);
+	pageDiv.appendChild(promptText);	
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createElement(document, 'div', {id: 'promptContainer'}));
 	
@@ -82,10 +83,10 @@ View.prototype.OpenResponseNode.generateStarter = function(){
 	var starterOnClickInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio', onclick: 'eventManager.fire("openResponseStarterOptionChanged")', value: '1'});
 	var starterImmediatelyInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio', onclick: 'eventManager.fire("openResponseStarterOptionChanged")', value: '2'});
 	var starterSentenceInput = createElement(document, 'textarea', {id: 'starterSentenceInput', cols: '60', rows: '4', wrap: 'soft', onchange: 'eventManager.fire("openResponseStarterSentenceUpdated")'});
-	var noStarterInputText = document.createTextNode('Do not use starter sentence');
-	var starterOnClickInputText = document.createTextNode('Starter sentence available upon request');
-	var starterImmediatelyInputText = document.createTextNode('Starter sentence shows immediately');
-	var starterSentenceText = document.createTextNode('Starter sentence: ');
+	var noStarterInputText = document.createTextNode('不要使用起始句');
+	var starterOnClickInputText = document.createTextNode('在要求時使用起始句');
+	var starterImmediatelyInputText = document.createTextNode('立即顯示起始句');
+	var starterSentenceText = document.createTextNode('起始句： ');
 	
 	starterDiv.appendChild(noStarterInput);
 	starterDiv.appendChild(noStarterInputText);

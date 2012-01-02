@@ -1,4 +1,4 @@
-
+﻿
 var dark_side = 0.3;
 
 SceneJS.createNode({
@@ -1222,23 +1222,23 @@ SceneJS.withNode("theScene3").bind("loading-status",
 //
 
 var month_data = {
-    "jan": { index:  0, num:   1, short_name: 'JAN', long_name: 'January' },
-    "feb": { index:  1, num:   2, short_name: 'FEB', long_name: 'February' },
-    "mar": { index:  2, num:   3, short_name: 'MAR', long_name: 'March' },
-    "apr": { index:  3, num:   4, short_name: 'APR', long_name: 'April' },
-    "may": { index:  4, num:   5, short_name: 'MAY', long_name: 'May' },
-    "jun": { index:  5, num:   6, short_name: 'JUN', long_name: 'June' },
-    "jul": { index:  6, num:   7, short_name: 'JUL', long_name: 'July' },
-    "aug": { index:  7, num:   8, short_name: 'AUG', long_name: 'August' },
-    "sep": { index:  8, num:   9, short_name: 'SEP', long_name: 'September' },
-    "oct": { index:  9, num:  10, short_name: 'OCT', long_name: 'October' },
-    "nov": { index: 10, num:  11, short_name: 'NOV', long_name: 'Novemeber' },
-    "dec": { index: 11, num:  12, short_name: 'DEC', long_name: 'December' }
+    "jan": { index:  0, num:   1, short_name: '1月', long_name: '1月' },
+    "feb": { index:  1, num:   2, short_name: '2月', long_name: '2月' },
+    "mar": { index:  2, num:   3, short_name: '3月', long_name: '3月' },
+    "apr": { index:  3, num:   4, short_name: '4月', long_name: '4月' },
+    "may": { index:  4, num:   5, short_name: '5月', long_name: '5月' },
+    "jun": { index:  5, num:   6, short_name: '6月', long_name: '6月' },
+    "jul": { index:  6, num:   7, short_name: '7月', long_name: '7月' },
+    "aug": { index:  7, num:   8, short_name: '8月', long_name: '8月' },
+    "sep": { index:  8, num:   9, short_name: '9月', long_name: '9月' },
+    "oct": { index:  9, num:  10, short_name: '10月', long_name: '10月' },
+    "nov": { index: 10, num:  11, short_name: '11月', long_name: '11月' },
+    "dec": { index: 11, num:  12, short_name: '12月', long_name: '12月' }
 };
 
 var month_names = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
 
-var seasons = ["Fall", "Winter", "Spring", "Summer"];
+var seasons = ["秋天", "冬天", "春天", "夏天"];
 
 var selected_city_latitude = document.getElementById("selected-city-latitude");
 var city_option;
@@ -1262,7 +1262,7 @@ for (var i = 0; i < active_cities.length; i++) {
     city_location = city.location;
     city_option.value = i;
     city_option.textContent = city.name + ', ' + city.country + ', ' + 
-        sprintf("%2.0f", city_location.latitude) + ' degrees ' + city_location.lat_dir;
+        sprintf("%2.0f", city_location.latitude) + ' 度 ' + city_location.lat_dir;
     selected_city_latitude.appendChild(city_option);
 }
 
@@ -1303,7 +1303,7 @@ for (var i = 0; i < active_cities.length; i++) {
 
     city_data_to_plot.push({});
     city_data = city_data_to_plot[i * 2 + 1];
-    city_data.label = city.name + ' no tilt';
+    city_data.label = city.name + ' 無傾斜';
     city_data.color = city.no_tilt_color;
     city_data.lines = { show: true };
     city_data.points = { show: true };
@@ -1386,7 +1386,7 @@ function addExperimentData() {
     if (the_tilt == "yes") {
         table_data.textContent = city.name;
     } else {
-        table_data.textContent = city.name + ' no tilt';
+        table_data.textContent = city.name + ' 無傾斜';
     }
     table_row.appendChild(table_data);
 
@@ -1417,7 +1417,7 @@ function addExperimentData() {
 
     option = document.createElement('option');
     option.disabled = true;
-    option.textContent = "choose...";
+    option.textContent = "請選擇...";
     select.appendChild(option);
 
     for (i = 0; i < seasons.length; i++) {
@@ -1428,7 +1428,7 @@ function addExperimentData() {
     };
     option = document.createElement('option');
     option.value = "I'm not sure";
-    option.textContent = "not sure";
+    option.textContent = "我不確定";
     select.appendChild(option);
     table_data.appendChild(select);
     table_row.appendChild(table_data);
@@ -1580,7 +1580,7 @@ function experimentDataFromJSON(exp_table) {
         };
         option = document.createElement('option');
         option.value = "I'm not sure";
-        option.textContent = "I'm not sure";
+        option.textContent = "我不確定";
         select.appendChild(option);
         select.value = row.seasons
         table_data.appendChild(select);
@@ -1627,12 +1627,12 @@ if (use_fahrenheit) {
     city_latitude_temperature_label.textContent.replace(/(C|F)$/, 'C')    
 }
 
-var y_axis = { title: 'Temperature deg F', min: -20, max: 90 };
+var y_axis = { title: '氣溫(度F)', min: -20, max: 90 };
 var graph_degree_string = "deg F";
 
 if (!use_fahrenheit) {
     graph_degree_string = "deg F"
-    y_axis.title = 'Temperature deg C';
+    y_axis.title = '氣溫(度C)';
     y_axis.min = -30;
     y_axis.max = 30;
 }
@@ -1644,12 +1644,12 @@ function plotCityData() {
         xaxis:{ 
           labelsAngle: 60, 
           ticks: city_x_axis_tics,
-          title: 'Month', 
+          title: '月份', 
           noTics: city_x_axis_tics.length,
           min: 0, max: city_x_axis_tics.length - 1,
         },
         yaxis: y_axis,
-        title: "Average Monthly Temperatures",
+        title: "月平均氣溫",
         grid:{ verticalLines: true, backgroundColor: 'white' },
         HtmlText: false,
         legend: false,
@@ -1726,7 +1726,7 @@ function generateCityColorKeys() {
         
         // add the city name
         var city_name = document.createElement('span');
-        city_name.textContent = city.name + ' (no-tilt)';
+        city_name.textContent = city.name + ' (無傾斜)';
         color_key_item.appendChild(city_name);
         
         // add the new list item to the list

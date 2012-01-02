@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the TemplateNode type as an object of this view
  * 
  * TODO: rename TemplateNode
@@ -66,7 +66,7 @@ View.prototype.TableNode.generatePage = function(view){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	
 	//create the label for the textarea that the author will write the prompt in
-	var promptText = document.createTextNode("Prompt for Student:");
+	var promptText = document.createTextNode("給予學生的提示：");
 	
 	/*
 	 * create the textarea that the author will write the prompt in
@@ -101,13 +101,13 @@ View.prototype.TableNode.generatePage = function(view){
 	}
 	
 	//create the input boxes for columns and rows
-	var numColumnsText = document.createTextNode('Columns: ');
+	var numColumnsText = document.createTextNode('欄： ');
 	var numColumnsInput = createElement(document, 'input', {type: 'input', id: 'numColumnsInput', name: 'numColumnsInput', value: numColumns, size: 10, onkeyup: 'eventManager.fire("tableUpdateNumColumns")'});
-	var numRowsText = document.createTextNode(' Rows: ');
+	var numRowsText = document.createTextNode(' 列： ');
 	var numRowsInput = createElement(document, 'input', {type: 'input', id: 'numRowsInput', name: 'numRowsInput', value: numRows, size: 10, onkeyup: 'eventManager.fire("tableUpdateNumRows")'});
 	
 	//create the input box for the global cell size
-	var globalCellSizeText = document.createTextNode(' Global Cell Size: ');
+	var globalCellSizeText = document.createTextNode(' 整體格子大小： ');
 	var globalCellSizeInput = createElement(document, 'input', {type: 'input', id: 'globalCellSizeInput', name: 'numRowsInput', value: globalCellSize, size: 10, onkeyup: 'eventManager.fire("tableUpdateGlobalCellSize")'});
 	
 	//add the input boxes for columns and rows
@@ -121,10 +121,10 @@ View.prototype.TableNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//instructions on what the letters mean in the table UI
-	var iText = document.createTextNode('I = Insert Column/Row');
-	var dText = document.createTextNode('D = Delete Column/Row');
-	var uText = document.createTextNode('U = Uneditable for student');
-	var sText = document.createTextNode('S = Size of Cell (width in number of characters, overrides Global Cell Size)');
+	var iText = document.createTextNode('I = 插入 欄/列');
+	var dText = document.createTextNode('D = 刪除 欄/列');
+	var uText = document.createTextNode('U = 不允許學生編輯');
+	var sText = document.createTextNode('S = 格子大小 (寬度以數字表示，覆蓋整體格子大小設定)');
 	
 	//add the instructions
 	pageDiv.appendChild(iText);
@@ -154,7 +154,7 @@ View.prototype.TableNode.generatePage = function(view){
 	var hideEverythingBelowTableCheckBox = createElement(document, 'input', {type: 'checkbox', id: 'hideEverythingBelowTableCheckBox', name: 'hideEverythingBelowTableCheckBox', onchange: 'eventManager.fire("tableUpdateHideEverythingBelowTable")'});
 	
 	//create the label for hide everything below the table
-	var hideEverythingBelowTableText = document.createTextNode("Hide Everything Below the Table");
+	var hideEverythingBelowTableText = document.createTextNode("表格下方全部隱藏");
 	
 	//add the hide everything below the table elements
 	pageDiv.appendChild(hideEverythingBelowTableCheckBox);
@@ -163,7 +163,7 @@ View.prototype.TableNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//create the label for prompt2
-	var promptText = document.createTextNode("Prompt2 for Student (shows up between the table and the student response textarea):");
+	var promptText = document.createTextNode("給予學生的提示2 (在表格與學生回應文字欄位間顯示)：");
 	
 	//create the prompt2 textarea
 	var promptTextArea = createElement(document, 'textarea', {id: 'prompt2TextArea', rows:'5', cols:'85', onkeyup:"eventManager.fire('tableUpdatePrompt2')"});
@@ -175,7 +175,7 @@ View.prototype.TableNode.generatePage = function(view){
 	pageDiv.appendChild(createBreak());
 	
 	//create the label for the starter sentence
-	var starterSentenceText = document.createTextNode("Starter Sentence:");
+	var starterSentenceText = document.createTextNode("起始句：");
 	
 	//create the starter sentence textarea
 	var starterSentenceTextArea = createElement(document, 'textarea', {id: 'starterSentenceTextArea', rows:'5', cols:'85', onkeyup:"eventManager.fire('tableUpdateStarterSentence')"});
@@ -534,7 +534,7 @@ View.prototype.TableNode.updateNumColumns = function() {
 			
 			if(numColumns < this.content.numColumns) {
 				
-				var performUpdate = confirm('Are you sure you want to decrease the number of columns? You will lose the data in the columns that will be truncated.');
+				var performUpdate = confirm('您確定要縮減欄的數目？ 縮減後您將失去這欄的資料。');
 				
 				if(performUpdate) {
 					/*
@@ -591,7 +591,7 @@ View.prototype.TableNode.updateNumRows = function() {
 			
 			if(numRows < this.content.numRows) {
 				
-				var performUpdate = confirm('Are you sure you want to decrease the number of rows? You will lose the data in the rows that will be truncated.');
+				var performUpdate = confirm('您確定要縮減列的數目？ 縮減後您將失去這列的資料。');
 				
 				if(performUpdate) {
 					/*
@@ -789,7 +789,7 @@ View.prototype.TableNode.tableInsertColumn = function(args) {
  */
 View.prototype.TableNode.tableDeleteColumn = function(args) {
 	//ask the author if they are sure
-	var performDelete = confirm('Are you sure you want to delete this column?');
+	var performDelete = confirm('您確定要刪除這欄？');
 	
 	if(performDelete) {
 		//get the x position to delete the column from
@@ -851,7 +851,7 @@ View.prototype.TableNode.tableInsertRow = function(args) {
  */
 View.prototype.TableNode.tableDeleteRow = function(args) {
 	//ask the author if they are sure
-	var performDelete = confirm('Are you sure you want to delete this row?');
+	var performDelete = confirm('您確定要刪除這列？');
 	
 	if(performDelete) {
 		//get the y position to delete the row from

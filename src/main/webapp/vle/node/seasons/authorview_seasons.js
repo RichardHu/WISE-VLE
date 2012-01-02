@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the SeasonsNode type as an object of this view
  * 
  * TODO: rename SeasonsNode
@@ -66,7 +66,7 @@ View.prototype.SeasonsNode.generatePage = function(view){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	
 	//create the label for the textarea that the author will write the prompt in
-	var promptText = document.createTextNode("Select Model Type:");
+	var promptText = document.createTextNode("選擇模型類型：");
 	
 	/*
 	 * create the modelType dropdown
@@ -75,9 +75,9 @@ View.prototype.SeasonsNode.generatePage = function(view){
 	 * be handled in the seasonsEvents.js file
 	 */
 	var modelTypeDropDownHtml = '<select id="modelTypeDropDown" onchange="eventManager.fire(\'seasonsModelTypeUpdated\')">' + 
-	'<option value="whatTemperaturePatternsDoYouSee">1 What Temperature Patterns Do You See?</option>' +
-	'<option value="whatIstheShapeofEarthsOrbit">2 What is the Shape of Earth\'s Orbit</option>' +
-	'<option value="howDoesEarthsTiltAffectTemperature">3 How Does Earth\'s Tilt Affect Temperature?</option>' +
+	'<option value="whatTemperaturePatternsDoYouSee">1 您看到了什麼溫度型態？</option>' +
+	'<option value="whatIstheShapeofEarthsOrbit">2 地球的運行軌道是什麼形狀？</option>' +
+	'<option value="howDoesEarthsTiltAffectTemperature">3 地球的傾斜如何影響溫度？</option>' +
 	'</select>';
 		
 	//var promptTextArea = createElement(document, 'textarea', {id: 'promptTextArea', rows:'20', cols:'85', onkeyup:"eventManager.fire('seasonsUpdatePrompt')"});

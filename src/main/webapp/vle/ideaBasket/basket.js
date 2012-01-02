@@ -1,4 +1,4 @@
-function Idea(id, timeCreated, timeLastEdited, text, source, tags, flag, nodeId, nodeName) {
+﻿function Idea(id, timeCreated, timeLastEdited, text, source, tags, flag, nodeId, nodeName) {
 	this.id = id; //unique id (order of creation)
 	this.timeCreated = timeCreated; //creation timestamp
 	this.timeLastEdited = timeLastEdited; //time last edited
@@ -262,14 +262,14 @@ IdeaBasket.prototype.addRow = function(target,idea,load){
 	//var table = this.ideaTable;
 	var table = $('#basketIdeas tbody');
 	var link = 'delete';
-	var title = 'Click and drag to re-order, Double click to edit';
-	var linkText = idea.text +	'<span class="editLink" title="Edit idea">Edit</span>';
+	var title = '按下並拖曳可以重新排序，雙擊可以編輯';
+	var linkText = idea.text +	'<span class="editLink" title="編輯想法">編輯</span>';
 	if (target===1){
 		currTable = 'deleted';
 		//table = this.deletedTable;
 		table = $('#basketDeleted tbody');
 		link = 'restore';
-		title = 'Click on the + icon to take this idea out of the trash';
+		title = '按下 + 按鈕使這個想法離開垃圾桶並恢復';
 		linkText = idea.text;
 	}
 	if(idea.tags && idea.tags != 'undefined'){
@@ -308,8 +308,8 @@ IdeaBasket.prototype.addRow = function(target,idea,load){
 
 		$newLink.click(function(){
 			var $clicked = $(this);
-			$('#deleteDialog').dialog({ title:'Move to Trash', modal:true, resizable:false, width:'400', buttons:{
-				'OK': function(){
+			$('#deleteDialog').dialog({ title:'移到垃圾桶', modal:true, resizable:false, width:'400', buttons:{
+				'確定': function(){
 				var index = $clicked.parent().parent().attr('id');
 				index = index.replace('idea','');
 				
@@ -328,7 +328,7 @@ IdeaBasket.prototype.addRow = function(target,idea,load){
 					$(this).dialog("close");					
 				}
 			},
-			Cancel: function(){$(this).dialog("close");}
+			取消: function(){$(this).dialog("close");}
 			} });
 		});
 	} else {
@@ -348,7 +348,7 @@ IdeaBasket.prototype.addRow = function(target,idea,load){
 	$('#basketDeleted').trigger("applyWidgets");
 
 	var numDeleted = basket.deleted.length;
-	$('#numDeleted').text(numDeleted + ' Deleted Idea(s)');
+	$('#numDeleted').text(numDeleted + ' 刪除的想法');
 	if(numDeleted>0){
 		$('#deletedEmpty').hide();
 	} else {
@@ -395,8 +395,8 @@ IdeaBasket.prototype.openEditDialog = function(context,id,$clicked){
 		}
 	}
 
-	$('#editDialog').dialog({ title:'Edit Your Idea', modal:true, resizable:false, width:'470', buttons:{
-		"OK": function(){
+	$('#editDialog').dialog({ title:'編輯您的想法', modal:true, resizable:false, width:'470', buttons:{
+		"確定": function(){
 			var answer = false;
 			if($("#editForm").validate().form()){
 				if($('#editSource').val() == 'empty'){
@@ -426,7 +426,7 @@ IdeaBasket.prototype.openEditDialog = function(context,id,$clicked){
 					}
 				}
 			}
-		}, Cancel: function(){
+		}, 取消: function(){
 			$(this).dialog("close");
 			resetForm('editForm');
 		}
@@ -616,7 +616,7 @@ IdeaBasket.prototype.edit = function(index,text,source,tags,flag,$tr) {
 				if($tr){
 					$tr.html('<td><div class="ideaText">' + linkText + '</div></td><td>' + idea.source + '</td>' +
 							'<td><div class="ideaTags">' + idea.tags + '</div></td>' + '<td style="text-align:center;"><span title="' + idea.flag + '" class="' + idea.flag + '"></span></td>'+
-					'<td style="text-align:center;"><span class="delete" title="delete idea"></span></td>');
+					'<td style="text-align:center;"><span class="delete" title="刪除想法"></span></td>');
 
 					$tr.effect("pulsate", { times:2 }, 500);
 				}
@@ -638,15 +638,15 @@ IdeaBasket.prototype.edit = function(index,text,source,tags,flag,$tr) {
 				// re-bind delete link click
 				$newLink.click(function(){
 					var $clicked = $(this);
-					$('#deleteDialog').dialog({ title:'Move to Trash', modal:true, resizable:false, width:'400', buttons:{
-						'OK': function(){
+					$('#deleteDialog').dialog({ title:'移到垃圾桶', modal:true, resizable:false, width:'400', buttons:{
+						'確定': function(){
 						var index = $clicked.parent().parent().attr('id');
 						index = index.replace('idea','');
 						var $tr = $clicked.parent().parent();
 						basket.remove(index,$tr);
 						$(this).dialog("close");
 					},
-					Cancel: function(){$(this).dialog("close");}
+					取消: function(){$(this).dialog("close");}
 					} });
 					/*if(confirm("Are you sure you want to delete this idea?\n\n(You can always retrieve it from the trash later on if you change your mind.)")){
 						var index = $(this).parent().parent().attr('id');

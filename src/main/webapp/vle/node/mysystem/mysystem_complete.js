@@ -1,4 +1,4 @@
-//for Internet Explorer
+﻿//for Internet Explorer
 if(!Array.indexOf){
     Array.prototype.indexOf = function(obj){
         for(var i=0; i<this.length; i++){
@@ -2091,7 +2091,7 @@ YAHOO.lang.extend(WireIt.Wire, WireIt.CanvasElement, {
       this.options.color = options.color || '#490A3D';
       this.options.bordercolor = options.bordercolor || '#000000';
       this.options.fields = options.fields || {
-       'name': '(type-here)',
+       'name': '(在這裡輸入)',
        'width': this.options.width,
        'color': 'color1'
       };
@@ -5994,7 +5994,7 @@ MySystemContainer.openContextFor = new YAHOO.util.CustomEvent("openContextFor");
                     gutter: '5px',
                     collapse: true,
                     collapseSize: 25,
-                    header: 'Objects:',
+                    header: '物件：',
                     scroll: true,
                     animate: true
                 },
@@ -6196,7 +6196,7 @@ MySystemContainer.openContextFor = new YAHOO.util.CustomEvent("openContextFor");
         renderButtons: function() {
             var toolbar = Dom.get('toolbar');
             var newButton = new widget.Button({
-                label: "Clear Diagram",
+                label: "清除圖示",
                 id: "WiringEditor-newButton",
                 container: toolbar
             });
@@ -6328,7 +6328,7 @@ MySystemContainer.openContextFor = new YAHOO.util.CustomEvent("openContextFor");
          * @method onNew
          */
         onNew: function() {
-            if (confirm("Are you sure you want to erase your diagram and start fresh?")) {
+            if (confirm("您確定想要刪除您的圖示並重新開始？")) {
                 this.layer.removeAllContainers();
                 this.resetLayers();
             }
@@ -6671,7 +6671,7 @@ MySystemPropEditor.prototype = {
       'default'           : 'Poperties',
       'MySystemNote'      : 'Note Info',
       'MySystemContainer' : 'Information',
-      'WireIt-Wire'       : 'Energy Flow Information'
+      'WireIt-Wire'       : '流動資訊'
     };
     var domThing = $(domName);
     if (domThing) {
@@ -6722,7 +6722,7 @@ MySystemPropEditor.prototype = {
       input.focusout(function() {
         if (self.node) {
           var options = {};
-          options[field_name] = (input.val() || '(type-here)');
+          options[field_name] = (input.val() || '(在這裡輸入)');
           self.node.updateFields(options);
         }
       });
@@ -6733,7 +6733,7 @@ MySystemPropEditor.prototype = {
 
   setArrows: function(arrows) {
     var pallet = $('#palette');
-    pallet.html('<h4>Flow Type</h4>');
+    pallet.html('<h4>類型</h4>');
     var arrow = null;
     var counter=0;
     for (arrow in arrows) {
@@ -6766,7 +6766,7 @@ MySystemPropEditor.prototype = {
     if (this.node) {
       var options = {};
       for (var name in this.fieldLabelMap) {
-        options[name] = $('#' + name).val() || "(type-here)";
+        options[name] = $('#' + name).val() || "(在這裡輸入)";
       }
       options['selected_color'] = this.selected_color;
       this.node.updateFields(options);

@@ -1,4 +1,4 @@
-<html>
+﻿<html>
     <head>
     	<script type="text/javascript">
             var or; // global variable so it can be accessed by other functions
@@ -139,7 +139,7 @@
             <div id='previousWorkDiv'></div>
             <div id="questionTable">
                 <div id="questionType">
-                    open response
+                    開放性問題
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@
             <div id="fullColumn">
             	<div id='promptDisplayDiv' style='display:none'>
                 	<div id='promptLabelDiv' class="itemLabel Color1">
-                    question
+                    問題
                 	</div>
                     <div id="promptContainer">
                     	<div id="orPromptDiv">
@@ -159,11 +159,11 @@
                 
                 <div id='originalPromptDisplayDiv' style='display:none'>
                 	<div id='originalPromptLabelDiv' class="itemLabel Color1">
-                    original question&nbsp;&nbsp;&nbsp;<a id="toggleSwitch" onclick="toggleDetails1()">show/hide text</a> 
+                    original question&nbsp;&nbsp;&nbsp;<a id="toggleSwitch" onclick="toggleDetails1()">顯示/隱藏 文字</a> 
                 	</div>
                 	<div id="originalPromptContainer" class="promptContainer">
                 		<div id='originalPromptTextDiv' style="display:none;" class="promptText"></div>
-                		<div id='originalPromptTextDiv2' class="promptText2">text is hidden</div>
+                		<div id='originalPromptTextDiv2' class="promptText2">文字是隱藏的</div>
                 	</div>
                 </div>
                 
@@ -173,13 +173,13 @@
                 	</div>
                 	<div id="associatedWorkPromptContainer" class="promptContainer">
                 		<div id='associatedWorkTextDiv' class="promptText"></div>
-                		<div id='associatedWorkTextDiv2' style="display:none;" class="promptText2">text is hidden</div>
+                		<div id='associatedWorkTextDiv2' style="display:none;" class="promptText2">文字是隱藏的</div>
                 	</div>
                 </div>
                 
                 <div id='annotationDisplayDiv' style='display:none'>
                 	<div id='annotationLabelDiv' class="itemLabel Color1">
-                    annotation
+                    註解
                 	</div>
                 	<div id="annotationPromptContainer" class="promptContainer">
                 	<div id='annotationTextDiv' class="promptText">
@@ -188,11 +188,11 @@
                 </div>
                 
                 <div id='starterParent' style='display:none'>
-                	<div id='starterSentenceDiv' class="starterSentence"><a onclick="showStarter()">Show Starter Sentence</a></div>
+                	<div id='starterSentenceDiv' class="starterSentence"><a onclick="showStarter()">顯示起始句</a></div>
                 </div>
                 <div id='responseDisplayDiv' style='display:none'>
 	                <div id='responseLabelDiv' class="itemLabel Color1">
-	                    your response
+	                    您的回應
 	                </div>
 	                <div id="promptContainer">
 	                <div id="responseBoxDiv">
@@ -213,11 +213,11 @@
             <table id="buttonTable">
                 <tr>
                     <td>
-                        <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="saveButton" onClick="javascript:save();">SAVE DRAFT</a></div>
+                        <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><a id="saveButton" onClick="javascript:save();">儲存</a></div>
                     </td>
                     <td>
                         <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="saveAndLockButtonDiv" style="display:none" disabled="true">
-                        <a id="saveAndLockButton" onClick="javascript:saveAndLock();">SUBMIT (and lock)</a></div>
+                        <a id="saveAndLockButton" onClick="javascript:saveAndLock();">送出(鎖定)</a></div>
                 	</td>
                 </tr>
             </table>

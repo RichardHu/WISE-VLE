@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the Mysystem2Node type as an object of this view
  *jslint browser: true, maxerr: 50, indent: 4
 
@@ -96,14 +96,14 @@ View.prototype.Mysystem2Node.buildPage = function(){
   /* create new elements */
   var pageDiv = createElement(document, 'div', {id: 'dynamicPage', style:'width:100%;height:100%'});
 	var mainDiv = createElement(document, 'div', {id: 'mainDiv'});
-  var instructionsText = document.createTextNode("When entering image filenames, make sure to use the asset uploader on the main authoring page to upload your images.");
+  var instructionsText = document.createTextNode("當輸入圖檔名稱時，確認您有使用編輯主頁面的asset上傳器上傳您的圖檔。");
 
   /* append elements */
   parent.appendChild(pageDiv);
   pageDiv.appendChild(mainDiv);
   mainDiv.appendChild(instructionsText);
   mainDiv.appendChild(createBreak());
-  mainDiv.appendChild(document.createTextNode("Enter instructions -- text or html -- here."));
+  mainDiv.appendChild(document.createTextNode("在這裡輸入教學或說明 -- 文字 或 html -- "));
   mainDiv.appendChild(createBreak());
   mainDiv.appendChild(createElement(document, 'div', {id: 'promptContainer'}));
   mainDiv.appendChild(createBreak());

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * The link manager is responsible for inserting links to other steps
  * from an authored step for the authoring tool.
  */
@@ -153,7 +153,7 @@ View.prototype.linkManager.processExistingLinks = function(view){
 	for(var d=0;d<links.length;d++){
 		var linkDiv = createElement(document, 'div', {id:'linkDiv_' + links[d].key});
 		var linkSelect = createElement(document, 'select', {id:'linkSelect_' + links[d].key, onchange:"eventManager.fire('linkToNodeChanged','" + links[d].key + "')"});
-		var removeButt = createElement(document, 'input', {type:'button', value:'remove link', onclick:"eventManager.fire('removeLinkTo','" + links[d].key + "')"});
+		var removeButt = createElement(document, 'input', {type:'button', value:'移除連結', onclick:"eventManager.fire('removeLinkTo','" + links[d].key + "')"});
 		
 		if (links[d].nodePosition) {
 			var nodeId = view.getProject().getNodeByPosition(links[d].nodePosition).id;

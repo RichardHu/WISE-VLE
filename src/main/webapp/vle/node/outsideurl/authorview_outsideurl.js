@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the OutsideUrlNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -18,7 +18,7 @@ View.prototype.OutsideUrlNode.generatePage = function(view){
 	/* create new elements */
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	var tInput = createElement(document, 'input', {id:'tInput', type:'text', size:'50', onkeyup:'eventManager.fire("sourceUpdated")'});
-	var urlText = document.createTextNode("URL: ");
+	var urlText = document.createTextNode("網址： ");
 	
 	parent.appendChild(pageDiv);
 	pageDiv.appendChild(urlText);

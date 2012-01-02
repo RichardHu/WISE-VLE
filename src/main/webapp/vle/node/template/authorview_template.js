@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the TemplateNode type as an object of this view
  * 
  * TODO: rename TemplateNode
@@ -67,7 +67,7 @@ View.prototype.TemplateNode.generatePage = function(view){
 	var pageDiv = createElement(document, 'div', {id:'dynamicPage', style:'width:100%;height:100%'});
 	
 	//create the label for the textarea that the author will write the prompt in
-	var promptText = document.createTextNode("Prompt for Student:");
+	var promptText = document.createTextNode("給予學生的提示：");
 	
 	/*
 	 * create the textarea that the author will write the prompt in

@@ -18,43 +18,43 @@
   <![endif]-->
 </head>
 <body>
-  <h1>MySystem Authoring</h1>
+  <h1>編輯MySystem</h1>
   <script type="text/html">
   <div class="options_block">
-    <h2>Options</h2>
-    <h3>Links</h3>
+    <h2>選項</h2>
+    <h3>連結</h3>
       <div style="padding-left: 20px;">
-      {{view SC.Checkbox title="Enable Label Editing" valueBinding="MSA.activity.enableLinkLabelEditing" id="linkLabelEditing"}}
-      {{view SC.Checkbox title="Enable Description Editing" valueBinding="MSA.activity.enableLinkDescriptionEditing" id="linkDescriptionEditing"}}
+      {{view SC.Checkbox title="允許標籤編輯" valueBinding="MSA.activity.enableLinkLabelEditing" id="linkLabelEditing"}}
+      {{view SC.Checkbox title="允許描述編輯" valueBinding="MSA.activity.enableLinkDescriptionEditing" id="linkDescriptionEditing"}}
       </div>
-    <h3>Nodes</h3>
+    <h3>節點</h3>
       <div style="padding-left: 20px;">
-        {{view SC.Checkbox title="Enable Label Editing" valueBinding="MSA.activity.enableNodeLabelEditing" id="nodeLabelEditing"}}
-        {{view SC.Checkbox title="Enable Description Editing" valueBinding="MSA.activity.enableNodeDescriptionEditing" id="nodeDescriptionEditing"}}
+        {{view SC.Checkbox title="允許標籤編輯" valueBinding="MSA.activity.enableNodeLabelEditing" id="nodeLabelEditing"}}
+        {{view SC.Checkbox title="允許描述編輯" valueBinding="MSA.activity.enableNodeDescriptionEditing" id="nodeDescriptionEditing"}}
       </div>
   </div>
   
   <div class="options_block">
-    <h2>Node Types</h2>
+    <h2>節點類型</h2>
     {{#collection contentBinding="MSA.modulesController" tagName="ul"}}
       {{view SC.TextField valueBinding="parentView.content.name" placeholder="name"}}
       {{view SC.TextField valueBinding="parentView.content.image" placeholder="image"}}
       {{#view SC.Button target="MSA.modulesController" action="removeItem" itemBinding="parentView.content"}}
-      remove
+      移除
       {{/view}}
     {{/collection}}
     {{#view SC.Button 
       target="MSA.modulesController"
       action="createItem" class="add_button"}}
-      Add New Node Type
+      新增節點類型
     {{/view}}
   </div>
   
   <div class="options_block">
-    <h2>Energy Types</h2>
+    <h2>能量類型</h2>
     {{#collection contentBinding="MSA.energyTypesController" tagName="ul"}}
-      {{view SC.TextField valueBinding="parentView.content.label" placeholder="label"}}
-      {{view SC.TextField valueBinding="parentView.content.color" placeholder="color"}}
+      {{view SC.TextField valueBinding="parentView.content.label" placeholder="標籤"}}
+      {{view SC.TextField valueBinding="parentView.content.color" placeholder="顏色"}}
       {{#view SC.Button target="MSA.energyTypesController" action="removeItem" itemBinding="parentView.content"}}
       remove
       {{/view}}
@@ -62,20 +62,20 @@
     {{#view SC.Button 
       target="MSA.energyTypesController"
       action="createItem" class="add_button"}}
-      Add New Energy Type
+      新增能量類型
     {{/view}}
   </div>
   
   <div class="options_block">
-    <h2>Minimum Requirements</h2>
+    <h2>最小需求</h2>
     {{#if MSA.minRequirementsController.hasRequirements}}
       <span style="padding-left: 10px;">
-        Feedback: {{view SC.TextField valueBinding="MSA.activity.minimumRequirementsFeedback" placeholder="Your diagram doesn't include enough detail" id="minimumFeedback"}}
+        回饋： {{view SC.TextField valueBinding="MSA.activity.minimumRequirementsFeedback" placeholder="您的圖示沒有包含足夠的訊息" id="minimumFeedback"}}
       </span>
     {{/if}}
     {{#collection contentBinding="MSA.minRequirementsController" tagName="ul"}}
-        The diagram
-        {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.shouldOptions" valueBinding="parentView.content.shouldOption"}} contain
+        圖示
+        {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.shouldOptions" valueBinding="parentView.content.shouldOption"}} 包含
         {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.comparisons" valueBinding="parentView.content.comparison"}}
         {{view SC.TextField valueBinding="parentView.content.number" placeholder="number"}}<br/>
         {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.nodeTypes" valueBinding="parentView.content.type"}}
@@ -91,17 +91,17 @@
         {{#if "content.hasLink"}}
           {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.linkDirections" valueBinding="parentView.parentView.content.linkDirection"}}
           {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.nodeTypes" valueBinding="parentView.parentView.content.otherNodeType"}}
-          with energy type: {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.energyTypes" valueBinding="parentView.parentView.content.energyType"}}
+          使用能量類型： {{collection SCUtil.Select contentBinding="MSA.minRequirementsController.energyTypes" valueBinding="parentView.parentView.content.energyType"}}
         {{else}}
           {{#view SC.Button
             targetBinding="parentView.parentView.content"
             action="toggleHasLink"}}
-            Enable link conditions
+            允許連結條件
           {{/view}} 
         {{/if}}
         <br/>
         {{#view SC.Button target="MSA.minRequirementsController" action="removeItem" itemBinding="parentView.content"}}
-        Remove Requirement
+        移除需求
         {{/view}}
         {{#view SC.Button target="MSA.minRequirementsController" action="moveItemUp" itemBinding="parentView.content"}} ↑ {{/view}}
         {{#view SC.Button target="MSA.minRequirementsController" action="moveItemDown" itemBinding="parentView.content"}} ↓ {{/view}}
@@ -109,28 +109,28 @@
     {{#view SC.Button 
       target="MSA.minRequirementsController"
       action="createItem" class="add_button"}}
-      Add New Minimum Requirement
+      新增最小需求
     {{/view}}
   </div>
   
   <div class="options_block">
-    <h2>Feedback</h2>
+    <h2>回饋</h2>
     <div style="padding-left: 10px;">
-      Feedback if all rules pass:
+      通過所有規定時所給的回饋：
         <div style="padding-left: 10px; width: 800px;">
-          {{view SC.TextField valueBinding="MSA.activity.correctFeedback" placeholder="Your diagram has no obvious problems." id="correctFeedback"}}
+          {{view SC.TextField valueBinding="MSA.activity.correctFeedback" placeholder="您的圖示沒有明顯的問題。" id="correctFeedback"}}
         </div>
-      Only report 
+      只報告
         {{view SC.TextField valueBinding="MSA.activity.maxFeedbackItems" placeholder="#" id="feedbackLimit" style="width: 800px;"}}
-      feedback items
+      回饋項目
     </div>
   </div>
   
   <div class="options_block">
-    <h2>Diagram Rules</h2>
+    <h2>圖示規則</h2>
     {{#collection contentBinding="MSA.diagramRulesController" tagName="ol" attributeBindings="start" start="0"}}
-        The diagram 
-        {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.shouldOptions" valueBinding="parentView.content.shouldOption"}} contain
+        圖示 
+        {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.shouldOptions" valueBinding="parentView.content.shouldOption"}} 包含
         {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.comparisons" valueBinding="parentView.content.comparison"}}
         {{view SC.TextField valueBinding="parentView.content.number" placeholder="number"}}<br/>
         {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.nodeTypes" valueBinding="parentView.content.type"}}
@@ -146,19 +146,19 @@
         {{#if "content.hasLink"}}
           {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.linkDirections" valueBinding="parentView.parentView.content.linkDirection"}}
           {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.nodeTypes" valueBinding="parentView.parentView.content.otherNodeType"}}
-          with energy type: {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.energyTypes" valueBinding="parentView.parentView.content.energyType"}}
+          使用能量類型： {{collection SCUtil.Select contentBinding="MSA.diagramRulesController.energyTypes" valueBinding="parentView.parentView.content.energyType"}}
         {{else}}
           {{#view SC.Button
             targetBinding="parentView.parentView.content"
             action="toggleHasLink"}}
-            Enable link conditions
+            允許連結條件
           {{/view}} 
         {{/if}}
         <br/>
-        if not then show the user:
+        若無則顯示給使用者：
         {{view SC.TextField valueBinding="parentView.content.suggestion"}}
         {{#view SC.Button target="MSA.diagramRulesController" action="removeItem" itemBinding="parentView.content"}}
-        Remove Diagram Rule
+        移除圖示規則
         {{/view}}
         {{#view SC.Button target="MSA.diagramRulesController" action="moveItemUp" itemBinding="parentView.content"}} ↑ {{/view}}
         {{#view SC.Button target="MSA.diagramRulesController" action="moveItemDown" itemBinding="parentView.content"}} ↓ {{/view}}
@@ -166,12 +166,12 @@
     {{#view SC.Button 
       target="MSA.diagramRulesController"
       action="createItem" class="add_button"}}
-      Add New Diagram Rule
+      新增圖示規則
     {{/view}}
   </div>
   <div class="options_block">
     {{view SC.Checkbox 
-        title="Enable Custom Rule Evaluator" 
+        title="客製化規則評估" 
         valueBinding="MSA.activity.enableCustomRuleEvaluator" 
         id="customRuleEvaluator"}}
     {{#if "MSA.activity.enableCustomRuleEvaluator"}}
@@ -194,7 +194,7 @@ if(! ((rule_a && rule_b) || rule_c)) {
       {{/if}}
     </div>
   
-  <h2>State</h2>
+  <h2>狀態</h2>
   <pre style="font-size: 80%">
   {{MSA.dataController.data}}
   </pre>

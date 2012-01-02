@@ -1,4 +1,4 @@
-// nice web color picker: http://www.allscoop.com/tools/Web-Colors/web-colors.php
+﻿// nice web color picker: http://www.allscoop.com/tools/Web-Colors/web-colors.php
 
 var city_colors = {
   bright_red:       '#ff0000',
@@ -18,8 +18,8 @@ var city_colors = {
 var cities = [
 
     {
-        name: "Fairbanks",
-        country: "United States",
+        name: "費爾班克斯",
+        country: "美國",
         active: true,
         color: city_colors.bright_red,
         no_tilt_color: city_colors.dark_red,
@@ -27,7 +27,7 @@ var cities = [
             signed_longitude: 147.43,
             signed_latitude: 64.51,
             latitude: 64.51,
-            lat_dir: "N",
+            lat_dir: "北緯",
             longitude: 147.43,
             long_dir: "W",
             elev: 133
@@ -75,8 +75,8 @@ var cities = [
     },
 
     {
-        name: "Washington, D.C.",
-        country: "United States",
+        name: "華盛頓",
+        country: "美國",
         active: true,
         color: city_colors.bright_blue,
         no_tilt_color: city_colors.dark_blue,
@@ -84,7 +84,7 @@ var cities = [
             signed_longitude: 77.02,
             signed_latitude: 38.54,
             latitude: 38.54,
-            lat_dir: "N",
+            lat_dir: "北緯",
             longitude: 77.02,
             long_dir: "W",
             elev: 22
@@ -132,8 +132,8 @@ var cities = [
     },
     
     {
-        name: "Singapore",
-        country: "Singapore",
+        name: "新加坡",
+        country: "新加坡",
         active: true,
         color: city_colors.bright_green,
         no_tilt_color: city_colors.dark_green,
@@ -141,7 +141,7 @@ var cities = [
             signed_longitude: -103.55,
             signed_latitude: 1.14,
             latitude: 1.14,
-            lat_dir: "N",
+            lat_dir: "北緯",
             longitude: 103.55,
             long_dir: "E",
             elev: 18
@@ -208,8 +208,8 @@ var cities = [
     },
 
     {
-        name: "Canberra",
-        country: "Australia",
+        name: "坎培拉",
+        country: "澳大利亞",
         active: true,
         color: city_colors.bright_purple,
         no_tilt_color: city_colors.dark_purple,
@@ -217,7 +217,7 @@ var cities = [
             signed_longitude: -149.08,
             signed_latitude: -35.15,
             latitude: 35.15,
-            lat_dir: "S",
+            lat_dir: "南緯",
             longitude: 149.08,
             long_dir: "E",
             elev: 559
@@ -246,8 +246,8 @@ var cities = [
     },
     
     {
-        name: "Rio Gallegos",
-        country: "Argentina", 
+        name: "里奧加拉哥斯",
+        country: "阿根廷", 
         active: true,
         color: city_colors.bright_orange,
         no_tilt_color: city_colors.dark_orange,
@@ -255,7 +255,7 @@ var cities = [
             signed_longitude: 69.13,
             signed_latitude: -51.38,
             latitude: 51.38,
-            lat_dir: "S",
+            lat_dir: "南緯",
             longitude: 69.13,
             long_dir: "W",
             elev: 22
@@ -265,8 +265,8 @@ var cities = [
     },
     
     {
-        name: "McMurdo Station",
-        country: "Antarctica",
+        name: "麥克默多基地",
+        country: "南極洲",
         active: true,
         color: city_colors.bright_turquoise,
         no_tilt_color: city_colors.dark_turquoise,
@@ -274,7 +274,7 @@ var cities = [
             signed_longitude: -166.73,
             signed_latitude: -77.88,
             latitude: 77.88,
-            lat_dir: "S",
+            lat_dir: "南緯",
             longitude: 166.73,
             long_dir: "E",
             elev: 24

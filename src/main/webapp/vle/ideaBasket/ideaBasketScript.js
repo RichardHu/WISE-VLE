@@ -1,4 +1,4 @@
-/* Author: 
+﻿/* Author: 
  * Jonathan Breitbart
  */
 
@@ -59,8 +59,8 @@ var documentReadyFunction = function(object, createForStep, stepBasket) {
 		$("#ideaForm").validate();
 	});
 
-	$('#ideaDialog').dialog({title:'Add New Idea to Basket', autoOpen:false, modal:true, resizable:false, width:'470', buttons:{
-		"OK": function(){				
+	$('#ideaDialog').dialog({title:'新增想法', autoOpen:false, modal:true, resizable:false, width:'470', buttons:{
+		"確定": function(){				
 		if($("#ideaForm").validate().form()){
 			var source = $('#source').val();
 			if(source == 'empty'){
@@ -74,7 +74,7 @@ var documentReadyFunction = function(object, createForStep, stepBasket) {
 				resetForm('ideaForm');
 			}
 		}
-	}, Cancel: function(){
+	}, 取消: function(){
 		$(this).dialog("close");
 		resetForm('ideaForm');
 	}
@@ -88,14 +88,14 @@ var documentReadyFunction = function(object, createForStep, stepBasket) {
 			function() {
 				$('#trash').fadeIn();
 				$('#toggleDeleted').addClass('visible');
-				$('#showDeleted').text('(Click to hide)');
+				$('#showDeleted').text('(點選隱藏)');
 				//$('#toggleDeleted img.arrow').attr('src','images/arrow-down.png');
 				return false;
 			},
 			function() {
 				$('#trash').fadeOut();
 				$('#toggleDeleted').removeClass('visible');
-				$('#showDeleted').text('(Click to show)');
+				$('#showDeleted').text('(點選顯示)');
 				//$('#toggleDeleted img.arrow').attr('src','images/arrow.png');
 				return false;
 			}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the MySystemNode type as an object of this view
  * @constructor
  * @author patrick lawler
@@ -39,14 +39,14 @@ View.prototype.MySystemNode.buildPage = function(){
 	var pageDiv = createElement(document, 'div', {id: 'dynamicPage', style:'width:100%;height:100%'});
 	var mainDiv = createElement(document, 'div', {id: 'mainDiv'});
 	var modulesDiv = createElement(document, 'div', {id: 'modulesDiv'});
-	var instructionsText = document.createTextNode("When entering image filenames, make sure to use the asset uploader on the main authoring page to upload your images.");
+	var instructionsText = document.createTextNode("當輸入圖檔名稱時，確認您有使用編輯主頁面的asset上傳器上傳您的圖檔。");
 	
 	/* append elements */
 	parent.appendChild(pageDiv);
 	pageDiv.appendChild(mainDiv);
 	mainDiv.appendChild(instructionsText);
 	mainDiv.appendChild(createBreak());
-	mainDiv.appendChild(document.createTextNode("Enter instructions -- text or html -- here."));
+	mainDiv.appendChild(document.createTextNode("在這裡輸入教學或說明 -- 文字 或 html -- "));
 	mainDiv.appendChild(createBreak());
 	mainDiv.appendChild(createElement(document, 'div', {id: 'promptContainer'}));
 	mainDiv.appendChild(createBreak());
@@ -83,9 +83,9 @@ View.prototype.MySystemNode.generateModules = function(){
 	parent.appendChild(createBreak());
 	
 	if(this.content.modules.length>0){
-		var modsText = document.createTextNode("Existing Modules");
+		var modsText = document.createTextNode("現有模組");
 	} else {
-		var modsText = document.createTextNode("Create Modules");
+		var modsText = document.createTextNode("新增模組");
 	};
 	
 	parent.appendChild(modsText);
@@ -94,12 +94,12 @@ View.prototype.MySystemNode.generateModules = function(){
 	//create current mod elements
 	for(var a=0;a<this.content.modules.length;a++){
 		var modDiv = createElement(document, 'div', {id: 'modDiv_' + a});
-		var modText = document.createTextNode('Module');
-		var nameText = document.createTextNode("Name: ");
-		var imageText = document.createTextNode("Image: ");
+		var modText = document.createTextNode('模組');
+		var nameText = document.createTextNode("名稱： ");
+		var imageText = document.createTextNode("圖片： ");
 		var nameInput = createElement(document, 'input', {id: 'nameInput_' + a, type: 'text', value: this.content.modules[a].name, onchange: 'eventManager.fire("mysystemFieldUpdated",["name","' + a + '"])'});
 		var imageInput = createElement(document, 'input', {id: 'imageInput_' + a, type: 'text', value: this.content.modules[a].image, onchange: 'eventManager.fire("mysystemFieldUpdated",["image","' + a + '"])'});
-		var removeButt = createElement(document, 'input', {type: 'button', id: 'removeButt', value: 'remove module', onclick: 'eventManager.fire("mysystemRemoveMod","' + a + '")'});
+		var removeButt = createElement(document, 'input', {type: 'button', id: 'removeButt', value: '移除模組', onclick: 'eventManager.fire("mysystemRemoveMod","' + a + '")'});
 		
 		parent.appendChild(modDiv);
 		modDiv.appendChild(modText);
@@ -116,7 +116,7 @@ View.prototype.MySystemNode.generateModules = function(){
 	};
 	
 	//create buttons to create new modules
-	var createButt = createElement(document, 'input', {type:'button', value:'add new module', onclick:'eventManager.fire("mysystemAddNew")'});
+	var createButt = createElement(document, 'input', {type:'button', value:'新增模組', onclick:'eventManager.fire("mysystemAddNew")'});
 	parent.appendChild(createButt);
 };
 

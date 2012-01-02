@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Sets the AssessmentList type as an object of this view
  * @constructor
  * @author hiroki
@@ -24,11 +24,11 @@ View.prototype.AssessmentListNode.generatePage = function(view){
 	
 	parent.appendChild(pageDiv);
 	pageDiv.appendChild(createBreak());
-	pageDiv.appendChild(document.createTextNode("Assessment List Options:"));
+	pageDiv.appendChild(document.createTextNode("評量列表選項："));
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(createElement(document, 'div', {id: 'assessmentOptionsContainer'}));
 	pageDiv.appendChild(createBreak());
-	pageDiv.appendChild(document.createTextNode("Enter instructions"));
+	pageDiv.appendChild(document.createTextNode("輸入教學或說明"));
 	pageDiv.appendChild(createElement(document, 'div', {id: 'promptContainer'}));
 	pageDiv.appendChild(createBreak());
 	pageDiv.appendChild(assessmentsDiv);
@@ -49,13 +49,13 @@ View.prototype.AssessmentListNode.getCommonComponents = function() {
  * Generates the options for an assessment list node
  */
 View.prototype.AssessmentListNode.generateOptions = function(){
-	var optionsHtml = '<table id="assessmentOptionsTable"><thead><tr><td>Display Answer After Submit</td><td>Lock After Submit</td><td>Complete All Before Exit</td></tr></thead>' + 
-		'<tbody><tr><td><label for="displayRadioYes"><input type="radio" name="displayRadio" id="displayRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'display\')"/>Yes</label></br>' +
-		'<label for="displayRadioNo"><input type="radio" name="displayRadio" id="displayRadioNod" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'display\')"/>No</label></td>' +
-		'<td><label for="lockRadioYes"><input type="radio" name="lockRadio" id="lockRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'lock\')"/>Yes</label></br>' +
-		'<label for="lockRadioNo"><input type="radio" name="lockRadio" id="lockRadioNo" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'lock\')"/>No</label></td>' +
-		'<td><label for="completeRadioYes"><input type="radio" name="completeRadio" id="completeRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'complete\')"/>Yes</label></br>' +
-		'<label for="completeRadioNo"><input type="radio" name="completeRadio" id="completeRadioNo" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'complete\')"/>No</label></td></tr></tbody></table>';
+	var optionsHtml = '<table id="assessmentOptionsTable"><thead><tr><td>送出後顯示答案</td><td>送出後鎖定</td><td>離開前完成所有</td></tr></thead>' + 
+		'<tbody><tr><td><label for="displayRadioYes"><input type="radio" name="displayRadio" id="displayRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'display\')"/>是</label></br>' +
+		'<label for="displayRadioNo"><input type="radio" name="displayRadio" id="displayRadioNod" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'display\')"/>否</label></td>' +
+		'<td><label for="lockRadioYes"><input type="radio" name="lockRadio" id="lockRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'lock\')"/>是</label></br>' +
+		'<label for="lockRadioNo"><input type="radio" name="lockRadio" id="lockRadioNo" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'lock\')"/>否</label></td>' +
+		'<td><label for="completeRadioYes"><input type="radio" name="completeRadio" id="completeRadioYes" value="true" onclick="eventManager.fire(\'assessmentOptionChanged\',\'complete\')"/>是</label></br>' +
+		'<label for="completeRadioNo"><input type="radio" name="completeRadio" id="completeRadioNo" value="false" onclick="eventManager.fire(\'assessmentOptionChanged\',\'complete\')"/>否</label></td></tr></tbody></table>';
 	
 	$('#assessmentOptionsContainer').append(optionsHtml);
 	
@@ -208,9 +208,9 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 	parent.appendChild(createBreak());
 	
 	if(this.content.assessments.length>0){
-		var assText = document.createTextNode("Existing Assessments");
+		var assText = document.createTextNode("現有評量");
 	} else {
-		var assText = document.createTextNode("Create Assessments");
+		var assText = document.createTextNode("新增評量");
 	};
 	
 	parent.appendChild(assText);
@@ -219,14 +219,14 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 	//create current mod elements
 	for(var a=0;a<this.content.assessments.length;a++){
 		var assDiv = createElement(document, 'div', {id: 'assDiv_' + a});
-		var assText = document.createTextNode('Assessment Item');
+		var assText = document.createTextNode('評量項目');
 		if (this.content.assessments[a].type == "radio") {
-			var typeText = document.createTextNode("Type: Multiple Choice");
+			var typeText = document.createTextNode("類型：多選題");
 		} else if (this.content.assessments[a].type == "text") {
-			var typeText = document.createTextNode("Type: Open Response");
+			var typeText = document.createTextNode("類型：開放性問題");
 		};
 		
-		var promptText = document.createTextNode("Prompt: ");
+		var promptText = document.createTextNode("提示： ");
 		
 		var promptInput = createElement(document, 'textarea', {id: 'promptInput_' + a, cols: '60', rows: '4', wrap: 'soft', onchange: "eventManager.fire('assessmentlistFieldUpdated',['prompt','" + a + "'])"});
 		
@@ -244,7 +244,7 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 		assDiv.appendChild(createBreak());		
 
 		if (this.content.assessments[a].type == "radio") {
-			var choiceText = document.createTextNode("Choices: ");
+			var choiceText = document.createTextNode("選項： ");
 			assDiv.appendChild(choiceText);
 			assDiv.appendChild(createBreak());
 			// add "enable automated scoring" checkbox
@@ -258,7 +258,7 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 					     onclick:"eventManager.fire('assessmentListIsAutoScoringEnabledChanged',["+a+"])"});			
 			}
 			assDiv.appendChild(isAutoScoringEnabledInput);
-			assDiv.appendChild(document.createTextNode("Enable automated scoring for this item"));
+			assDiv.appendChild(document.createTextNode("允許這個項目自動評分"));
 			
 			var choices = this.content.assessments[a].choices;
 			for (var c=0; c<choices.length; c++) {
@@ -305,12 +305,12 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 				choiceDiv.appendChild(createBreak());
 
 				// add "Remove this choice" button
-				var removeChoiceButt = createElement(document, 'input', {type:'button',id:'removeChoiceButt',value:'remove choice',onclick: "eventManager.fire('assessmentlistRadioItemRemoveChoice',['"+ a +"','"+ c +"'])"});
+				var removeChoiceButt = createElement(document, 'input', {type:'button',id:'removeChoiceButt',value:'移除選項',onclick: "eventManager.fire('assessmentlistRadioItemRemoveChoice',['"+ a +"','"+ c +"'])"});
 				choiceDiv.appendChild(removeChoiceButt);
 				assDiv.appendChild(choiceDiv);
 				assDiv.appendChild(createBreak());
 			};
-			var addChoiceButt = createElement(document, 'input', {type:'button',id:'addChoiceButt',value:'add choice',onclick: "eventManager.fire('assessmentlistAddChoice','"+ a + "')"});
+			var addChoiceButt = createElement(document, 'input', {type:'button',id:'addChoiceButt',value:'新增選項',onclick: "eventManager.fire('assessmentlistAddChoice','"+ a + "')"});
 			assDiv.appendChild(addChoiceButt);
 			assDiv.appendChild(createBreak());
 		} else if(this.content.assessments[a].type == "text") {
@@ -348,7 +348,7 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 			assDiv.appendChild(createBreak());
 		}
 		
-		var removeButt = createElement(document, 'input', {type: 'button', id: 'removeButt', value: 'remove item', onclick: "eventManager.fire('assessmentlistRemoveItem','" + a + "')"});
+		var removeButt = createElement(document, 'input', {type: 'button', id: 'removeButt', value: '移除項目', onclick: "eventManager.fire('assessmentlistRemoveItem','" + a + "')"});
 		
 		assDiv.appendChild(removeButt);
 		assDiv.appendChild(createBreak());
@@ -356,9 +356,9 @@ View.prototype.AssessmentListNode.generateAssessments = function(){
 	};
 	
 	//create buttons to create new assessments
-	var createNewRadioButt = createElement(document, 'input', {type:'button', value:'add new multiple choice item', onclick:"eventManager.fire('assessmentlistAddNewItem','radio')"});
+	var createNewRadioButt = createElement(document, 'input', {type:'button', value:'新增多選題項目', onclick:"eventManager.fire('assessmentlistAddNewItem','radio')"});
 	parent.appendChild(createNewRadioButt);
-	var createNewOpenResponseButt = createElement(document, 'input', {type:'button', value:'add new open response item', onclick:"eventManager.fire('assessmentlistAddNewItem','text')"});
+	var createNewOpenResponseButt = createElement(document, 'input', {type:'button', value:'新增開放性問題項目', onclick:"eventManager.fire('assessmentlistAddNewItem','text')"});
 	parent.appendChild(createNewOpenResponseButt);
 };
 
@@ -374,10 +374,10 @@ View.prototype.AssessmentListNode.generateStarter = function(ndx){
 	var starterOnClickInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio_'+ndx, onclick: "eventManager.fire('assessmentlistStarterOptionChanged','"+ ndx +"')", value: '1'});
 	var starterImmediatelyInput = createElement(document, 'input', {type: 'radio', name: 'starterRadio_'+ndx, onclick: "eventManager.fire('assessmentlistStarterOptionChanged','"+ ndx +"')", value: '2'});
 	var starterSentenceInput = createElement(document, 'textarea', {id: 'starterSentenceInput_'+ndx, cols: '60', rows: '4', wrap: 'soft', onchange: "eventManager.fire('assessmentlistStarterSentenceUpdated','"+ ndx +"')"});
-	var noStarterInputText = document.createTextNode('Do not use starter sentence');
-	var starterOnClickInputText = document.createTextNode('Starter sentence available upon request');
-	var starterImmediatelyInputText = document.createTextNode('Starter sentence shows immediately');
-	var starterSentenceText = document.createTextNode('Starter sentence: ');
+	var noStarterInputText = document.createTextNode('不要使用起始句');
+	var starterOnClickInputText = document.createTextNode('在要求時使用起始句');
+	var starterImmediatelyInputText = document.createTextNode('立即顯示起始句');
+	var starterSentenceText = document.createTextNode('起始句： ');
 	
 	starterDiv.appendChild(noStarterInput);
 	starterDiv.appendChild(noStarterInputText);
@@ -473,7 +473,7 @@ View.prototype.AssessmentListNode.addNewItem = function(type){
 	if (type == "radio") {
 		var item = {id:this.view.activeNode.utils.generateKey(),
 			    type:'radio',
-			    prompt:'Edit prompt here',
+			    prompt:'在這裡編輯提示',
 			    choices:[]
 			    };
 	
@@ -485,11 +485,11 @@ View.prototype.AssessmentListNode.addNewItem = function(type){
 	} else if (type == "text"){
 		var item = {id:this.view.activeNode.utils.generateKey(),
 			    type:'text',
-			    prompt:'Edit prompt here',
+			    prompt:'在這裡編輯提示',
 			    isRichTextEditorAllowed:false,
 			    starter: {
 					display:1,
-					text: 'Edit starter sentence here'
+					text: '在這裡編輯起始句'
 				}
 			    };
 	
@@ -506,7 +506,7 @@ View.prototype.AssessmentListNode.addNewItem = function(type){
  */
 View.prototype.AssessmentListNode.addChoice = function(ndx){
 	var choice = {id:this.view.activeNode.utils.generateKey(),
-			    text:["Enter choice text here"]
+			    text:["在這裡輸入選項文字"]
 			    };
 	
 	this.content.assessments[ndx].choices.push(choice);
