@@ -1,4 +1,4 @@
-/**
+﻿/**
  * BrainstormNode
  *
  * @author: patrick lawler
@@ -8,8 +8,8 @@ BrainstormNode.prototype = new Node();
 BrainstormNode.prototype.constructor = BrainstormNode;
 BrainstormNode.prototype.parent = Node.prototype;
 
-BrainstormNode.authoringToolName = "Brainstorm Discussion";
-BrainstormNode.authoringToolDescription = "Students post their answer for everyone in the class to read and discuss";
+BrainstormNode.authoringToolName = "腦力激盪";
+BrainstormNode.authoringToolDescription = "學生在課堂中張貼他們的答案讓每個人閱讀與討論";
 
 /**
  * @constructor

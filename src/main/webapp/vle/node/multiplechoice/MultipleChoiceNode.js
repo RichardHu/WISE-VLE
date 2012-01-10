@@ -1,12 +1,12 @@
-/*
+﻿/*
  * MultipleChoiceNode
  */
 
 MultipleChoiceNode.prototype = new Node();
 MultipleChoiceNode.prototype.constructor = MultipleChoiceNode;
 MultipleChoiceNode.prototype.parent = Node.prototype;
-MultipleChoiceNode.authoringToolName = "Multiple Choice";
-MultipleChoiceNode.authoringToolDescription = "Students answer a multiple choice question";
+MultipleChoiceNode.authoringToolName = "選擇題";
+MultipleChoiceNode.authoringToolDescription = "學生回答多選項題目";
 
 /**
  * @constructor

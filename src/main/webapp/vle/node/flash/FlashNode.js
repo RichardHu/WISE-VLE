@@ -1,17 +1,17 @@
-FlashNode.prototype = new Node();
+﻿FlashNode.prototype = new Node();
 FlashNode.prototype.constructor = FlashNode;
 FlashNode.prototype.parent = Node.prototype;
 
 /*
  * the name that displays in the authoring tool when the author creates a new step
  */
-FlashNode.authoringToolName = "Flash"; 
+FlashNode.authoringToolName = "Flash動畫"; 
 
 /*
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-FlashNode.authoringToolDescription = "Embed Flash content in a WISE step.";
+FlashNode.authoringToolDescription = "在WISE步驟中嵌入Flash內容";
 
 /**
  * This is the constructor for the Node

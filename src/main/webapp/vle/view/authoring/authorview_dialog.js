@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Functions specific to the creation and initialization of dialogs
  * 
  * @author patrick lawler
@@ -61,7 +61,7 @@ View.prototype.initializeCreateProjectDialog = function(){
 		$('#projectInput').val('');
 	};
 	
-	$('#createProjectDialog').dialog({autoOpen:false, modal:true, draggable:false, title:'Create a New Project', width:650, buttons: {'Submit':submit, 'Cancel': function(){$(this).dialog("close");}}});
+	$('#createProjectDialog').dialog({autoOpen:false, modal:true, draggable:false, title:'新增專案', width:650, buttons: {'送出':submit, '取消': function(){$(this).dialog("close");}}});
 };
 
 /**
@@ -120,7 +120,7 @@ View.prototype.initializeCreateSequenceDialog = function(){
 		$('#createSequenceInput').val('');
 	};
 	
-	$('#createSequenceDialog').dialog({autoOpen:false, draggable:true, resizable:false, title:'Add a New Activity', width:650, buttons: {'Submit':submit}, close: cancel});
+	$('#createSequenceDialog').dialog({autoOpen:false, draggable:true, resizable:false, title:'新增活動', width:650, buttons: {'送出':submit}, close: cancel});
 };
 
 /**
@@ -212,7 +212,7 @@ View.prototype.initializeCreateNodeDialog = function (){
 	this.populateCreateNodeChoices();
 	
 	//this should have height set to auto resize but it doesn't work so I just set it to 260
-	$('#createNodeDialog').dialog({autoOpen:false, draggable:false, resizable:false, width:650, height:260, title:'Add a New Step', buttons: {'Submit':submit}, close: cancel});
+	$('#createNodeDialog').dialog({autoOpen:false, draggable:false, resizable:false, width:650, height:260, title:'新增步驟', buttons: {'送出':submit}, close: cancel});
 };
 
 /**
@@ -362,7 +362,7 @@ View.prototype.initializeEditProjectFileDialog = function(){
 		$('projectText').val('');
 	};
 	
-	$('#editProjectFileDialog').dialog({autoOpen:false, draggable:false, width:900, buttons: {'Submit':submit}, close: cancel});
+	$('#editProjectFileDialog').dialog({autoOpen:false, draggable:false, width:900, buttons: {'送出':submit}, close: cancel});
 };
 
 /**
@@ -421,7 +421,7 @@ View.prototype.initializeAssetUploaderDialog = function(){
 		$('#uploadAssetFile').val('');
 	};
 	
-	$('#assetUploaderDialog').dialog({autoOpen:false, draggable:false, modal:true, width:600, buttons: {'Submit':submit}, close: cancel});
+	$('#assetUploaderDialog').dialog({autoOpen:false, draggable:false, modal:true, width:600, buttons: {'送出':submit}, close: cancel});
 };
 
 /**
@@ -472,7 +472,7 @@ View.prototype.initializeCopyProjectDialog = function (){
 		$('#copyProjectDialog').dialog('close');
 	};
 	
-	$('#copyProjectDialog').dialog({autoOpen:false, modal: true, draggable:false, title:'Copy a Project', width:500, buttons: {'Cancel': cancel, 'Copy': submit}});
+	$('#copyProjectDialog').dialog({autoOpen:false, modal: true, draggable:false, title:'複製專案', width:500, buttons: {'取消': cancel, '複製': submit}});
 };
 
 /**
@@ -515,7 +515,7 @@ View.prototype.initializeEditProjectMetadataDialog = function(){
 		$('#editProjectMetadataDialog').dialog('close');
 	};
 	
-	$('#editProjectMetadataDialog').dialog({autoOpen:false, draggable:false, modal:true, title:'Edit Project Information', width:850, buttons: {'Close': cancel, 'Revert To Last Save': undoProjectMetadata, 'Save Changes': updateProjectMetadata}});
+	$('#editProjectMetadataDialog').dialog({autoOpen:false, draggable:false, modal:true, title:'編輯專題資訊', width:850, buttons: {'關閉': cancel, '回復上次儲存': undoProjectMetadata, '儲存變更': updateProjectMetadata}});
 };
 
 /**
@@ -548,7 +548,7 @@ View.prototype.initializePreviousWorkDialog = function(){
 		view.clearCols();
 	};
 	
-	$('#previousWorkDialog').dialog({autoOpen:false, draggable:false, width:800, height:500, buttons: {'Cancel Changes': cancelChanges, 'Save Changes': savePreviousWork}, close: onClose});
+	$('#previousWorkDialog').dialog({autoOpen:false, draggable:false, width:800, height:500, buttons: {'取消變更': cancelChanges, '儲存變更': savePreviousWork}, close: onClose});
 };
 
 /**
@@ -604,28 +604,28 @@ View.prototype.initializeSnapshotInformationDialog = function(){
  * Initializes the constraint authoring dialog
  */
 View.prototype.initializeConstraintAuthoringDialog = function(){
-	$('#constraintAuthoringDialog').dialog({autoOpen:false,width:1000,resizable:false,draggable:false,position:'top',title:'Author Student Navigation Constraints', dialogClass:'constraintAuthoring',close:function(){eventManager.fire('closingConstraintDialog');},stack:false,modal:true});
+	$('#constraintAuthoringDialog').dialog({autoOpen:false,width:1000,resizable:false,draggable:false,position:'top',title:'編輯學生探索限制', dialogClass:'constraintAuthoring',close:function(){eventManager.fire('closingConstraintDialog');},stack:false,modal:true});
 };
 
 /**
  * Initializes the open project dialog.
  */
 View.prototype.initializeOpenProjectDialog = function(){
-	$('#openProjectDialog').dialog({autoOpen:false, draggable:false, width:650, modal:true, title:'Open a Project', buttons: {'Open': function(){eventManager.fire('projectSelected');}, 'Cancel': function(){$(this).dialog("close");}}});
+	$('#openProjectDialog').dialog({autoOpen:false, draggable:false, width:650, modal:true, title:'開啟專案', buttons: {'開啟': function(){eventManager.fire('projectSelected');}, '取消': function(){$(this).dialog("close");}}});
 };
 
 /**
  * Initializes the author project dialog.
  */
 View.prototype.initializeAuthorStepDialog = function(){
-	$('#authorStepDialog').dialog({autoOpen:false, width:800, height:600, resizable:true, draggable:true, modal:true, title:'Edit Step', open: function(){}, buttons: {'Save':function(){eventManager.fire("saveStep");},'Save and Close':function(){eventManager.fire("saveAndCloseStep");},'Close':function(){eventManager.fire("closeStep");}}});
+	$('#authorStepDialog').dialog({autoOpen:false, width:800, height:600, resizable:true, draggable:true, modal:true, title:'編輯步驟', open: function(){}, buttons: {'Save':function(){eventManager.fire("saveStep");},'Save and Close':function(){eventManager.fire("saveAndCloseStep");},'Close':function(){eventManager.fire("closeStep");}}});
 };
 
 /**
  * Initialized the edit project tags dialog.
  */
 View.prototype.initializeEditProjectTagsDialog = function(){
-	$('#editProjectTagsDialog').dialog({autoOpen:false, draggable:false, width:750, hide:'slow', title:'Add/Edit Project Tags'});
+	$('#editProjectTagsDialog').dialog({autoOpen:false, draggable:false, width:750, hide:'slow', title:'新增/編輯 專案標籤'});
 };
 
 View.prototype.initializeReviewUpdateProjectDialog = function(){
@@ -638,7 +638,7 @@ View.prototype.initializeReviewUpdateProjectDialog = function(){
 		$('#reviewUpdateProjectDiv').dialog('close');
 	};
 	
-	$('#reviewUpdateProjectDiv').dialog({autoOpen:false, draggable:false, resizeable:false, mode:true, width:800, height:600, title:'Review Update Project', buttons: {'Cancel':cancel, 'Update':submit}});
+	$('#reviewUpdateProjectDiv').dialog({autoOpen:false, draggable:false, resizeable:false, mode:true, width:800, height:600, title:'Review Update Project', buttons: {'取消':cancel, '更新':submit}});
 };
 
 /**
@@ -701,7 +701,7 @@ View.prototype.initializeStepTypeDescriptionsDialog = function() {
 		
 		if(NodeFactory.nodeConstructors[nodeType] != null) {
 			//the default description
-			var nodeTypeDescription = "Description not provided";
+			var nodeTypeDescription = "不支援描述";
 			
 			if(NodeFactory.nodeConstructors[nodeType].authoringToolDescription) {
 				//get the step type description
@@ -714,7 +714,7 @@ View.prototype.initializeStepTypeDescriptionsDialog = function() {
 	}
 	
 	//make the div into a jquery dialog that we will display when the author clicks on the 'Step Type Descriptions' link
-	$('#stepTypeDescriptions').dialog({autoOpen:false, title:'Step Type Descriptions', width:600, height:400});
+	$('#stepTypeDescriptions').dialog({autoOpen:false, title:'步驟類型描述', width:600, height:400});
 };
 
 /**
@@ -722,7 +722,7 @@ View.prototype.initializeStepTypeDescriptionsDialog = function() {
  */
 View.prototype.initializeTagViewDialog = function() {
 	//create the dialog element so we can use it later
-	$('#tagViewDialog').dialog({autoOpen:false, draggable:true, resizable:true, width:800, height:600, title:'Tags', buttons: {'Close': function(){$(this).dialog("close");}}});
+	$('#tagViewDialog').dialog({autoOpen:false, draggable:true, resizable:true, width:800, height:600, title:'標籤', buttons: {'關閉': function(){$(this).dialog("close");}}});
 };
 
 //used to notify scriptloader that this script has finished loading

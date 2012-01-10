@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/outsideurl/OutsideUrlNode.js',
 	'vle/node/outsideurl/outsideUrlEvents.js'
 ];
@@ -22,7 +22,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'www', nodeClassText:'WWW Page'}
+	{nodeClass:'www', nodeClassText:'WWW網頁'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

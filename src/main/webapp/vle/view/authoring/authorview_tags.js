@@ -1,4 +1,4 @@
-
+﻿
 
 /**
  * Generate the html for the tag view, insert the html into
@@ -69,7 +69,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 			
 			//output the html to show the activity
 			htmlSoFar += "<tr>";
-			htmlSoFar += "<td><b>Activity " + stepNumberAndTitle + "</b></td>";
+			htmlSoFar += "<td><b>活動 " + stepNumberAndTitle + "</b></td>";
 			htmlSoFar += "</tr>";
 		}
 		
@@ -103,7 +103,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 		htmlSoFar += "<table id='tagTableForStep_" + nodeId + "' border='1' width='100%'>";
 		
 		//create the row to display the step number, step title, and step type
-		htmlSoFar += "<tr><td width='70%'>Step " + stepNumberAndTitle + " (" + nodeType + ")</td></tr>";
+		htmlSoFar += "<tr><td width='70%'>步驟 " + stepNumberAndTitle + " (" + nodeType + ")</td></tr>";
 		
 		//create the row to display the tags
 		htmlSoFar += "<tr><td id='tagsForStep_" + nodeId + "'>";
@@ -113,7 +113,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 			
 			//create the select element for the user to add a tag
 			htmlSoFar += "<select id='addTagSelect_" + nodeId + "' style='display:inline' onClick='eventManager.fire(\"populateAddTagSelect\", [\"" + nodeId + "\"])' onChange='eventManager.fire(\"addTag\", [\"" + nodeId + "\"])'>";
-			htmlSoFar += "<option>&lt;Add Tag&gt;</option>";
+			htmlSoFar += "<option>&lt;新增標籤&gt;</option>";
 			htmlSoFar += "</select>";
 		} else {
 			/*
@@ -123,7 +123,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 			 */
 			
 			//create a button for the user to create a tag
-			htmlSoFar += "<input type='button' value='Create New Tag' onclick='eventManager.fire(\"addTag\", [\"" + nodeId + "\"])' />";
+			htmlSoFar += "<input type='button' value='建立新標籤' onclick='eventManager.fire(\"addTag\", [\"" + nodeId + "\"])' />";
 		}
 		
 		//get any existing tags for the step
@@ -153,7 +153,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 			
 			//create the select element for the user to add a tag map
 			htmlSoFar += "<select id='addTagMapSelect_" + nodeId + "' style='display:inline' onclick='eventManager.fire(\"populateAddTagMapSelect\", [\"" + nodeId + "\"])' onchange='eventManager.fire(\"addTagMap\", [\"" + nodeId + "\"])'>";
-			htmlSoFar += "<option>&lt;Add Tag Map&gt;</option>";
+			htmlSoFar += "<option>&lt;新增標籤地圖&gt;</option>";
 			htmlSoFar += "</select>";			
 		} else {
 			/*
@@ -163,7 +163,7 @@ View.prototype.getProjectTagViewHelper = function(currentNode, htmlSoFar) {
 			 */
 			
 			//create a button for the user to create a new tag map
-			htmlSoFar += "<input type='button' value='Create New Tag Map' onclick='eventManager.fire(\"addTagMap\", [\"" + nodeId + "\"])' />";
+			htmlSoFar += "<input type='button' value='建立新標籤地圖' onclick='eventManager.fire(\"addTagMap\", [\"" + nodeId + "\"])' />";
 		}
 
 		//get all the existing tag maps
@@ -213,10 +213,10 @@ View.prototype.populateAddTagSelect = function(nodeId) {
 	var html = "";
 	
 	//create the option that shows the author what this drop down is for
-	html += "<option>&lt;Add Tag&gt;</option>";
+	html += "<option>&lt;新增標籤&gt;</option>";
 	
 	//create the option to allow the author to create a new tag 
-	html += "<option>(Create New Tag)</option>";
+	html += "<option>(建立新標籤)</option>";
 	
 	//get all the unique existing tags
 	var tags = this.getProject().getAllUniqueTagsInProject();
@@ -263,10 +263,10 @@ View.prototype.populateAddTagMapSelect = function(nodeId) {
 	var html = "";
 	
 	//create the option that shows the author what this drop down is for
-	html += "<option>&lt;Add Tag Map&gt;</option>";
+	html += "<option>&lt;新增標籤地圖&gt;</option>";
 	
 	//create the option to allow the author to create a new tag map
-	html += "<option>(Create New Tag Map)</option>";
+	html += "<option>(建立新標籤地圖)</option>";
 	
 	//loop through all the tag maps
 	for(var x=0; x<tagMaps.length; x++) {
@@ -342,7 +342,7 @@ View.prototype.tagMapToString = function(tagMap) {
 		}
 		
 		//create the tag map string
-		tagMapString = 'Tag: ' + tagName + ', Function: ' + functionName + ', Arguments: ' + functionArgsString;
+		tagMapString = '標籤： ' + tagName + ', 功能： ' + functionName + ', 參數： ' + functionArgsString;
 	}
 	
 	return tagMapString;
@@ -370,7 +370,7 @@ View.prototype.addTag = function(nodeId) {
 	//get the existing tags
 	var existingTags = node.tags;
 	
-	if(tagName == '(Create New Tag)' || tagName == null) {
+	if(tagName == '(建立新標籤)' || tagName == null) {
 		//the user wants to create a brand new tag
 		tagName = '';
 	}
@@ -599,13 +599,13 @@ View.prototype.getTagMapInnerHtml = function(nodeId, tagName, functionName, func
 	
 	//create the div to contain the tag
 	tagMapInnerHtml += "<div id='tagMapTagNameDiv_" + nodeId + "_" + tagMapIndex + "' style='display:inline'>";
-	tagMapInnerHtml += "Tag: ";
+	tagMapInnerHtml += "標籤： ";
 	tagMapInnerHtml += "<input id='tagMapTagInput_" + nodeId + "_" + tagMapIndex + "' type='text' style='display:inline' size='12' value='" + tagName + "' onchange='eventManager.fire(\"tagMapChanged\", [\"" + nodeId + "\", " + tagMapIndex + "])'/>";
 	tagMapInnerHtml += "</div>";
 	
 	//create the div to contain the function name
 	tagMapInnerHtml += "<div id='tagMapFunctionNameDiv_" + nodeId + "_" + tagMapIndex + "' style='display:inline'>";
-	tagMapInnerHtml += "Function: ";
+	tagMapInnerHtml += "功能： ";
 	
 	var tagMapFunctionNameHtml = "";
 	
@@ -862,7 +862,7 @@ View.prototype.addTagMap = function(nodeId) {
 	var functionName = "";
 	var functionArgs = [];
 	
-	if(tagMapSelected == null || tagMapSelected == "(Create New Tag Map)") {
+	if(tagMapSelected == null || tagMapSelected == "(建立新標籤地圖)") {
 		//author is creating a new tag map
 	} else {
 		/*
@@ -871,7 +871,7 @@ View.prototype.addTagMap = function(nodeId) {
 		 */
 		
 		//create the regex string so we can extract the tag map attributes
-		var regExString = /Tag:\s*(\w*),\s*Function:\s*(\w*),\s*Arguments:\s*([\w\s]*)/;
+		var regExString = /標籤：\s*(\w*),\s*功能：\s*(\w*),\s*參數：\s*([\w\s]*)/;
 		var regEx = new RegExp(regExString);
 		
 		//run the regex on the selected tag map string

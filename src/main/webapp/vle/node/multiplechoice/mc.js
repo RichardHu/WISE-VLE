@@ -116,7 +116,7 @@ MC.prototype.getChoiceByIdentifier = function(identifier) {
  */
 MC.prototype.render = function() {
 	/* set the question type title */
-	$('#questionType').html((this.node.getType()=='ChallengeNode') ? '挑戰問題' : '多選題');
+	$('#questionType').html((this.node.getType()=='ChallengeNode') ? '挑戰問題' : '選擇題');
 	
 	/* render the prompt */
 	$('#promptDiv').html(this.content.assessmentItem.interaction.prompt);

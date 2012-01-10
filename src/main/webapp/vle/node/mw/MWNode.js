@@ -1,9 +1,9 @@
-
+﻿
 MWNode.prototype = new Node();
 MWNode.prototype.constructor = MWNode;
 MWNode.prototype.parent = Node.prototype;
-MWNode.authoringToolName = "Molecular Workbench";
-MWNode.authoringToolDescription = "Students work on a Molecular Workbench applet";
+MWNode.authoringToolName = "嵌入MW";
+MWNode.authoringToolDescription = "學生在Molecular Workbench的applet程式上實作";
 
 /**
  * @constructor

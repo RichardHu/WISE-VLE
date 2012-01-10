@@ -1,9 +1,9 @@
-
+﻿
 SensorNode.prototype = new Node();
 SensorNode.prototype.constructor = SensorNode;
 SensorNode.prototype.parentNode = Node.prototype;
-SensorNode.authoringToolName = "Graph/Sensor";
-SensorNode.authoringToolDescription = "Students plot points on a graph and can use a USB probe to collect data";
+SensorNode.authoringToolName = "USB感測器";
+SensorNode.authoringToolDescription = "學生在圖表中量測而且可以用USB感測器收集資料";
 
 /**
  * @constructor

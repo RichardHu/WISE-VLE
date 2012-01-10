@@ -1,12 +1,12 @@
-/*
+﻿/*
  * OutsideUrlNode
  */
 
 OutsideUrlNode.prototype = new Node();
 OutsideUrlNode.prototype.constructor = OutsideUrlNode;
 OutsideUrlNode.prototype.parent = Node.prototype;
-OutsideUrlNode.authoringToolName = "Outside Url";
-OutsideUrlNode.authoringToolDescription = "Students see a webpage from the internet";
+OutsideUrlNode.authoringToolName = "外部連結";
+OutsideUrlNode.authoringToolDescription = "學生從網際網路瀏覽網頁";
 
 /**
  * @constructor

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * An OpenResponseNode is a representation of an OpenResponse assessment item
  *
  */
@@ -6,8 +6,8 @@
 OpenResponseNode.prototype = new Node();
 OpenResponseNode.prototype.constructor = OpenResponseNode;
 OpenResponseNode.prototype.parent = Node.prototype;
-OpenResponseNode.authoringToolName = "Open Response";
-OpenResponseNode.authoringToolDescription = "Students write text to answer a question or explain their thoughts";
+OpenResponseNode.authoringToolName = "簡答申論題";
+OpenResponseNode.authoringToolDescription = "學生寫下文字回答問題或解釋他們的想法";
 
 /**
  * @constructor

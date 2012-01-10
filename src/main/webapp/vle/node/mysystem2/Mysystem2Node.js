@@ -1,17 +1,17 @@
-Mysystem2Node.prototype = new Node();
+﻿Mysystem2Node.prototype = new Node();
 Mysystem2Node.prototype.constructor = Mysystem2Node;
 Mysystem2Node.prototype.parent = Node.prototype;
 
 /*
  * the name that displays in the authoring tool when the author creates a new step
  */
-Mysystem2Node.authoringToolName = "My System 2"; 
+Mysystem2Node.authoringToolName = "系統圖2"; 
 
 /*
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-Mysystem2Node.authoringToolDescription = "This is a generic step only used by developers";
+Mysystem2Node.authoringToolDescription = "程式設計師專屬步驟";
 
 /**
  * This is the constructor for the Node

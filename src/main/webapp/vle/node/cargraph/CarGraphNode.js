@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a carGraph Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -24,13 +24,13 @@ CarGraphNode.prototype.parentNode = Node.prototype; //TODO: rename CarGraphNode
  * the authoring tool when the author creates a new step
  * e.g. if you are making a QuizNode you would set authoringToolName to to "Quiz"
  */
-CarGraphNode.authoringToolName = "Car Graph"; 
+CarGraphNode.authoringToolName = "位置-時間圖"; 
 
 /*
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-CarGraphNode.authoringToolDescription = "Lets students draw graphs and have cars move according to the graph";
+CarGraphNode.authoringToolDescription = "讓學生繪圖且讓車子按照圖移動";
 
 /**
  * This is the constructor for the Node

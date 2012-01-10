@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Functions specific to the selection process in the project layout for the authoring view
  * 
  * @author patrick lawler
@@ -41,10 +41,10 @@ View.prototype.selectBoxClick = function(id){
 		var node = $('#' + $.escapeId(id));
 		
 		//if(this.keystrokeManager.isShiftkeydown()){ //toggle selected for node
-			if(node.hasClass('selected')){
-				node.removeClass('selected');
+			if(node.hasClass('Selected')){
+				node.removeClass('Selected');
 			} else {
-				node.addClass('selected');
+				node.addClass('Selected');
 			}
 		/*} else { //clear previous and select only node
 			this.clearAllSelected();
@@ -96,7 +96,7 @@ View.prototype.updateSelectCounts = function(){
 			}
 		});
 		if(selectedNodes>0){
-			$('#'+id+' .selectCount').html(' ('+ selectedNodes +' Selected)');
+			$('#'+id+' .selectCount').html(' ('+ selectedNodes +' 選取)');
 		} else {
 			$('#'+id+' .selectCount').html('');
 		}
@@ -174,30 +174,30 @@ View.prototype.deleteSelected = function(){
 	if(selected.seqs.size()<1 && selected.nodes.size()<1){//if none are selected, notify user
 		this.notificationManager.notify('Select one or more items before activating this tool.', 3);
 	} else {
-		var message = 'Are you sure you want to delete ';
+		var message = '您確定要刪除 ';
 		if(selected.seqs.size()>0){
-			seqAlert = '\n\nIf you delete an Activity, any Steps that Activity contains will be unattached and will be moved to the Inactive Steps section.';
+			seqAlert = '\n\n如果您刪除一個活動，這個活動所包含的任何步驟將被移動到隱藏步驟區。';
 			if(selected.seqs.size()==1){
-				message = message + '1 Activity';
+				message = message + '1 活動';
 			}
 			if(selected.seqs.size()>1){
-				message = message + selected.seqs.size() + ' Activities';
+				message = message + selected.seqs.size() + ' 活動';
 			}
 			if(selected.nodes.size()>0){
-				message = message + ' and ';
+				message = message + ' 與 ';
 			} else {
-				message = message + '?';
+				message = message + '？';
 			}
 		}
 		
 		if(selected.nodes.size()==1){
-			message = message + '1 Step?';
+			message = message + '1 步驟？';
 		}
 		if(selected.nodes.size()>1){
-			message = message + selected.nodes.size() + ' Steps?';
+			message = message + selected.nodes.size() + ' 步驟？';
 		}
 		
-		message = message + '\n\nWARNING: This operation is permanent!\n\nAs an alternative, you can move items to the Inactive Activities & Steps sections.  Those items do not show up when students run the project, but are saved for possible future use.' + seqAlert + reviewAlert;
+		message = message + '\n\n警告：這個動作是永久而不能回復的。\n\n一個替代性做法，您可以移動項目到隱藏活動 & 步驟區。當學生執行專題時那些項目不會顯示，但是以應未來之需而保留下來。' + seqAlert + reviewAlert;
 		
 		
 		if(confirm(message)){
@@ -269,7 +269,7 @@ View.prototype.duplicateSelected = function(){
 		return;
 	};
 	
-	if(confirm('Are you sure you want to duplicate the selected item(s)')){
+	if(confirm('您確定要複製這個選取的項目？')){
 		var nodeIds = [];
 		
 		if(selected.master.size()>0){
@@ -423,7 +423,7 @@ View.prototype.useSelected = function(){
 		return;
 	}
 	
-	if(confirm('ADVISORY: This tool creates a mirror copy of the selected item not a true duplicate.  Mirror copies remain linked and share the same data. Mirror copies should only be used for Adaptive (branching) projects that branch, otherwise use the Duplicate tool. Are you sure you wish to continue?')){
+	if(confirm('公告：這個工具複製的鏡像不是一個選取項目的正常複製。鏡像與原來項目連結且分享相同資料。鏡像只能用在特定狀況，其他使用複製工具。您確定要繼續？')){
 		/* validation completed, proceed with creating duplicate nodes 
 		 * for any that remain in the list */
 		
@@ -1096,9 +1096,18 @@ View.prototype.placeNewNode = function(id){
  */
 View.prototype.startCreateReviewSequence = function(reviewSequenceType) {
 	//check if a project is open
+	//modified by Richard 2012/1/3 
+	//reviewSequenceType變數 Peer對應"同儕"；Teacher對應"教師"
 	if(this.getProject()) {
+	    if(reviewSequenceType=="Peer"){
+		    reviewSequenceType="同儕";
+		}
+		else{
+		    reviewSequenceType="教師";
+		}
 		//prompt the user to click on the first node in the review sequence
-		this.engageSelectMode(this.createReviewSequenceCallback, "Choose the 1st step in the " + reviewSequenceType + " Review Sequence. This is where the students will submit their initial work.", ["createReviewSequence1", reviewSequenceType]);		
+		this.engageSelectMode(this.createReviewSequenceCallback, "在" + reviewSequenceType + "互評順序中選擇第一步驟。這是學生送出起始實作內容的地方。", ["createReviewSequence1", reviewSequenceType]);		
+	    
 	} else {
 		//a project is not open so we will display an error message
 		this.notificationManager.notify('Please open or create a Project.', 3);

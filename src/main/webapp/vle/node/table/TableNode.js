@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a template Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -25,9 +25,9 @@ TableNode.prototype.parentNode = Node.prototype; //TODO: rename TemplateNode
  * TODO: rename Template to whatever you would like this step to be displayed as in
  * the authoring tool when the author creates a new step
  */
-TableNode.authoringToolName = "Table"; 
+TableNode.authoringToolName = "表格"; 
 
-TableNode.authoringToolDescription = "Students fill out a table"; //TODO: rename TemplateNode
+TableNode.authoringToolDescription = "學生填寫表格"; //TODO: rename TemplateNode
 
 /**
  * This is the constructor for the Node

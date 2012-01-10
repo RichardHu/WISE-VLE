@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/draw/SVGDrawNode.js',
 	'vle/node/draw/svgDrawEvents.js'
 ];
@@ -55,7 +55,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'quickdraw', nodeClassText:'Drawing'}
+	{nodeClass:'quickdraw', nodeClassText:'手繪圖'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

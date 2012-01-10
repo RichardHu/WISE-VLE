@@ -1,12 +1,12 @@
-/*
+﻿/*
  * NoteNode is a child of openresponse
  */
 
 NoteNode.prototype = new OpenResponseNode();
 NoteNode.prototype.constructor = NoteNode;
 NoteNode.prototype.parent = OpenResponseNode.prototype;
-NoteNode.authoringToolName = "Reflection Note";
-NoteNode.authoringToolDescription = "Students write text to answer a question or explain their thoughts";
+NoteNode.authoringToolName = "反思筆記";
+NoteNode.authoringToolDescription = "學生寫下文字回答問題或解釋他們的想法";
 
 /**
  * @constructor

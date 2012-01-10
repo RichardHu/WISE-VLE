@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Functions specific to step authoring
  * 
  * @author patrick lawler
@@ -229,7 +229,7 @@ View.prototype.saveHints = function(){
 View.prototype.addHint = function(){
     var currentNode = this.activeNode;
     var hintsArr = currentNode.getHints().hintsArray;
-    hintsArr.push("new hint");
+    hintsArr.push("新的提示");
     
     eventManager.fire("editHints", [hintsArr.length-1]);
 };
@@ -269,7 +269,7 @@ View.prototype.editHints = function(tabIndex){
 	    				width:650,
 	    				modal:false,
 	    				resizable:false,
-	    				title:'Add/Edit Hints for this Step',
+	    				title:'為這個步驟新增/編輯提示',
 	    				zIndex:3000, 
 	    				left:0
 	    			}).bind( "dialogbeforeclose", {view:currentNode.view}, function(event, ui) {
@@ -285,10 +285,10 @@ View.prototype.editHints = function(tabIndex){
 	    };
 	    
 	    // append hints into one html string
-	    var editHintsMenu = "<input type='button' value='add new hint' onclick='eventManager.fire(\"addHint\")'></input>"+
-	    	"<input type='button' value='delete current hint' onclick='eventManager.fire(\"deleteHint\")'></input>" +
-	    	"<input type='button' value='save hints' onclick='eventManager.fire(\"saveHints\")'></input>" + 
-	    	"Force Show: <select id='forceShowOptions'><option value='never'>Never</option><option value='firsttime'>First time only</option><option value='always'>Always</option></select>";     
+	    var editHintsMenu = "<input type='button' value='新增提示' onclick='eventManager.fire(\"addHint\")'></input>"+
+	    	"<input type='button' value='刪除目前提示' onclick='eventManager.fire(\"deleteHint\")'></input>" +
+	    	"<input type='button' value='儲存提示' onclick='eventManager.fire(\"saveHints\")'></input>" + 
+	    	"顯示： <select id='forceShowOptions'><option value='never'>不顯示</option><option value='firsttime'>只有第一次</option><option value='always'>永遠顯示</option></select>";     
 	    var hintsStringPart1 = "";   // first part will be the <ul> for text on tabs
 	    var hintsStringPart2 = "";   // second part will be the content within each tab
 	    // if there are no hints, make them
@@ -301,7 +301,7 @@ View.prototype.editHints = function(tabIndex){
 	    var hintsArr = currentNode.getHints().hintsArray;
 	    for (var i=0; i< hintsArr.length; i++) {
 	    	var currentHint = hintsArr[i];
-	    	hintsStringPart1 += "<li><a href='#tabs-"+i+"'>Hint "+(i+1)+"</a></li>";
+	    	hintsStringPart1 += "<li><a href='#tabs-"+i+"'>提示 "+(i+1)+"</a></li>";
 	    	hintsStringPart2 += "<div id='tabs-"+i+"'><textarea class='hintTextBox' onblur='eventManager.fire(\"saveHint\")'>"+currentHint+"</textarea></div>";
 	    }
 	    hintsStringPart1 = "<ul>" + hintsStringPart1 + "</ul>";

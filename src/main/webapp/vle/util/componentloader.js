@@ -302,9 +302,9 @@ var componentloader = function(em, sl){
 				currentStepNum:undefined, 
 				activeNode:undefined, 
 				tab:'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-				defaultSelectModeMessage:'Select a new location for selected item(s).',
-				defaultNodeSelectMessage:'Select a new location for the selected step(s). ' +
-					'If you select an activity, the selected step(s) will be placed at the beginning of the activity.',
+				defaultSelectModeMessage:'為您選取的項目選擇一個新的位置。',
+				defaultNodeSelectMessage:'為您選取的步驟選擇一個新的位置。 ' +
+					'如果您選取一個活動，該活動的步驟會隨著步驟一起移動。',
 				defaultSequenceSelectMessage:'Select a new location for the selected activity(s).',
 				hasProjectMeta:false, 
 				projectMeta:{title:'', subject:'', summary:'', author:'', gradeRange:'', totalTime:'', compTime:'', contact:'', techReqs:'', tools:'', lessonPlan:'', standards:'', keywords:''},

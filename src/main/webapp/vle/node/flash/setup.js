@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/flash/FlashNode.js',
 	'vle/node/flash/flashEvents.js'
 ];
@@ -29,7 +29,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'simulation', nodeClassText:'Flash'}
+	{nodeClass:'simulation', nodeClassText:'Flash動畫'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

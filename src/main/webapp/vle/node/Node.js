@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @constructor
  * Node
  */
@@ -1148,7 +1148,7 @@ Node.prototype.getShowAllWorkHtml = function(vle, divIdPrefix){
             }
         }
         var latestState = states[states.length - 1];
-        showAllWorkHtmlSoFar += "Last visited on ";
+        showAllWorkHtmlSoFar += "上次拜訪過此步驟 ";
         
         if(latestNodeVisit!=null){
         	showAllWorkHtmlSoFar += "" + new Date(parseInt(latestNodeVisit.visitStartTime)).toLocaleString();
@@ -1171,10 +1171,10 @@ Node.prototype.getShowAllWorkHtml = function(vle, divIdPrefix){
         	var contentBaseUrl = this.view.getConfig().getConfigParam('getContentBaseUrl');
         	
         	if(this.view.isSelfRenderingGradingViewNodeType(this.type)) {
-        		showAllWorkHtmlSoFar += '<div class=\"showallLatest\">Latest Work:' + '</div>' + 
+        		showAllWorkHtmlSoFar += '<div class=\"showallLatest\">最近實作：' + '</div>' + 
         		'<div id=\"'+divId+'\" contentBaseUrl=\"'+contentBaseUrl+'\" class=\"'+divClass+'\" style=\"'+divStyle+'\"></div>';
         	} else {
-        		showAllWorkHtmlSoFar += '<div class=\"showallLatest\">Latest Work:' + '</div>' + 
+        		showAllWorkHtmlSoFar += '<div class=\"showallLatest\">最近實作：' + '</div>' + 
         			'<div id=\"'+divId+'\" contentBaseUrl=\"'+contentBaseUrl+'\" class=\"'+divClass+'\" style=\"'+divStyle+'\">' + this.translateStudentWork(latestState.getStudentWork()) + '</div>';
         	}
         	
@@ -1189,7 +1189,7 @@ Node.prototype.getShowAllWorkHtml = function(vle, divIdPrefix){
         };
     }
     else {
-        showAllWorkHtmlSoFar += "Step not visited yet.";
+        showAllWorkHtmlSoFar += "此步驟尚未拜訪過";
     }
     
     for (var i = 0; i < this.children.length; i++) {

@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/sensor/SensorNode.js',
 	'vle/node/sensor/sensorEvents.js'
 ];
@@ -34,7 +34,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'simulation', nodeClassText:'Sensor'}
+	{nodeClass:'simulation', nodeClassText:'USB感測器'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

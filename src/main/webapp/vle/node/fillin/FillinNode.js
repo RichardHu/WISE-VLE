@@ -1,12 +1,12 @@
-/*
+﻿/*
  * FillinNode
  */
 
 FillinNode.prototype = new Node();
 FillinNode.prototype.constructor = FillinNode;
 FillinNode.prototype.parent = Node.prototype;
-FillinNode.authoringToolName = "Fill In";
-FillinNode.authoringToolDescription = "Students fill in the missing text blanks in a body of text";
+FillinNode.authoringToolName = "填空題";
+FillinNode.authoringToolDescription = "學生在文字空格中填入答案";
 
 /**
  * @constructor

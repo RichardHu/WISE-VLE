@@ -1,12 +1,12 @@
-/*
+﻿/*
  * MatchSequenceNode
  */
 
 MatchSequenceNode.prototype = new Node();
 MatchSequenceNode.prototype.constructor = MatchSequenceNode;
 MatchSequenceNode.prototype.parent = Node.prototype;
-MatchSequenceNode.authoringToolName = "Match & Sequence";
-MatchSequenceNode.authoringToolDescription = "Students drag and drop choices into boxes";
+MatchSequenceNode.authoringToolName = "配對問題";
+MatchSequenceNode.authoringToolDescription = "學生拖曳置放選項到答案欄";
 
 /**
  * @constructor

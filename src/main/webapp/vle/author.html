@@ -87,22 +87,22 @@ var view;
 		<div>
 			<button onclick="top.location.href='/webapp/teacher/index.html';" id="gotoDashboard" title='離開前往教師頁面'><img src="images/go-home.png" alt="goto Teacher Dashboard icon" /><br />
 				回首頁</button>
-			<button onclick="eventManager.fire('openProject');" id="openProjectButton" title='開啟現有的專案編輯'><img src="images/openProject.png" alt="open project icon" /><br />
-				開啟<br>專案</button>
-			<button onclick="eventManager.fire('createNewProject')" id="createProjectButton" title='新增一個專案'><img src="images/createProject.png" alt="create project icon" /><br />
-				新增<br>專案</button>
-			<button onclick='eventManager.fire("copyProject")' id='copyProjectButton' title='複製現有的專案以進一步編輯'><img src="images/copyProject.png" alt="create project icon" /><br />
-				複製<br>專案</button>
+			<button onclick="eventManager.fire('openProject');" id="openProjectButton" title='開啟現有的專題編輯'><img src="images/openProject.png" alt="open project icon" /><br />
+				開啟<br>專題</button>
+			<button onclick="eventManager.fire('createNewProject')" id="createProjectButton" title='新增一個專題'><img src="images/createProject.png" alt="create project icon" /><br />
+				新增<br>專題</button>
+			<button onclick='eventManager.fire("copyProject")' id='copyProjectButton' title='複製現有的專題以進一步編輯'><img src="images/copyProject.png" alt="create project icon" /><br />
+				複製<br>專題</button>
 		</div>
 		<div id="projectButtons">
-			<button disabled="true" onclick="eventManager.fire('saveProject');" id="saveProjectButton" title='儲存專案'><img src="images/saveProject.png" alt="save project icon" /><br />
-				儲存<br>專案</button>
-			<button disabled="true" onclick="eventManager.fire('viewAssets')" title='新增/編輯專案所屬檔案'><img src="images/uploadArt.png" alt="Manage Art/Files" /><br />
+			<button disabled="true" onclick="eventManager.fire('saveProject');" id="saveProjectButton" title='儲存專題'><img src="images/saveProject.png" alt="save project icon" /><br />
+				儲存<br>專題</button>
+			<button disabled="true" onclick="eventManager.fire('viewAssets')" title='新增/編輯專題所屬檔案'><img src="images/uploadArt.png" alt="Manage Art/Files" /><br />
 				管理上傳檔案</button>
-			<button disabled="true" onclick='eventManager.fire("editProjectMetadata")' id='editprojectmetaLI' title='編輯課程規劃 & 專案說明'><img src="images/editProjectFile.png"
+			<button disabled="true" onclick='eventManager.fire("editProjectMetadata")' id='editprojectmetaLI' title='編輯課程規劃 & 專題說明'><img src="images/editProjectFile.png"
 				alt="edit project file icon" /><br/>編輯<br>資訊</button>
-			<button disabled="true" onclick='eventManager.fire("previewProject");' id="previewProjectButton" title='預覽目前的專案'><img src="images/previewproject.png"
-				alt="preview project icon" /><br />預覽<br>專案</button>
+			<button disabled="true" onclick='eventManager.fire("previewProject");' id="previewProjectButton" title='預覽目前的專題'><img src="images/previewproject.png"
+				alt="preview project icon" /><br />預覽<br>專題</button>
 		</div>
 		<!--<li><a onclick="eventManager.fire('createNewSequence');" id="createActivityButton"><img src="images/addSequence.png"
 			alt="Add Activity icon" /><br />Add Activity</a></li>
@@ -130,7 +130,7 @@ var view;
 	            <ul>
 	     
 	                <li style="text-decoration:line-through;"><a onclick="" id="importNodeButton">
-	                <img src="images/importNode.png" alt="匯入步驟"  />匯入活動或步驟<br/>(從專案庫、客製化或分享的專案)</a></li>
+	                <img src="images/importNode.png" alt="匯入步驟"  />匯入活動或步驟<br/>(從專題庫、客製化或分享的專題)</a></li>
 	
 	                <!--
 	         	    <li style="text-decoration:line-through;"><a onclick="" class="underline"><img src="images/shareProject.png"
@@ -161,10 +161,10 @@ var view;
 				建立教師評論序列</a></li>
 				
 			<div id="listTitle">進階使用者</div>
-			<li><a onclick="eventManager.fire('cleanProject')"><img src="images/edit-clear.png" alt="清除專案" />清除專案</a></li>
+			<li><a onclick="eventManager.fire('cleanProject')"><img src="images/edit-clear.png" alt="清除專題" />清除專題</a></li>
 			
 			 <li><a onclick="eventManager.fire('editProjectFile')"><img src="images/document-properties.png"
-			alt="編輯專案資料檔案" />編輯專案資料檔案</a></li>
+			alt="編輯專題資料檔案" />編輯專題資料檔案</a></li>
 			
 			<li><a onclick="eventManager.fire('authorConstraints')"><img src="images/constraint.png" alt="編輯限制"/>編輯學生探索限制</a></li>
 			
@@ -172,7 +172,7 @@ var view;
 			alt="產生語音文字"  />語音文字</a></li>
 			
 			<li><a class='last' onclick="eventManager.fire('reviewUpdateProject')" ><img src="images/constraint.png"
-			alt="更新專案"  />更新專案</a></li>
+			alt="更新專題"  />更新專題</a></li>
 			
 			<!-- 
 			        <li><a onclick="eventManager.fire('importProject')" id="importProjectButton"><img
@@ -193,16 +193,16 @@ var view;
 
 <div id="currentProjectContainer">
 <div id="currentProjectContent">
-	<div id='projectTitle'>專案標題： 
-		<input type="text" id='projectTitleInput' title='編輯專案標題' size='40' onchange='eventManager.fire("projectTitleChanged")'/>
-		<a id='editProjectTitle' onclick='$("#projectTitleInput").focus();' title='編輯專案標題'>編輯</a>
+	<div id='projectTitle'>專題標題： 
+		<input type="text" id='projectTitleInput' title='編輯專題標題' size='40' onchange='eventManager.fire("projectTitleChanged")'/>
+		<a id='editProjectTitle' onclick='$("#projectTitleInput").focus();' title='編輯專題標題'>編輯</a>
 		<div id='projectID'>ID:&nbsp;<span id='projectIdDisplay'></span></div>
-		<div id='projectModeDiv'><span>簡易模式</span><a id='toggleMode' onclick='eventManager.fire("toggleProjectMode")' title='轉換專案模式 (簡易或進階)'>轉換</a></div>
+		<div id='projectModeDiv'><span>簡易模式</span><a id='toggleMode' onclick='eventManager.fire("toggleProjectMode")' title='轉換專題模式 (簡易或進階)'>轉換</a></div>
 	</div>
 	<div id="authorOptions">
 		<div class='authorOption'>步驟編號方式： 
 			<select id='numberStepSelect' onchange='eventManager.fire("stepNumberChanged")'>
-				<option value='0'>專案</option>
+				<option value='0'>專題</option>
 				<option value='1'>活動</option>
 			</select>
 			<!--<input align="middle" type='checkbox' name='autoStepCheck' id='autoStepCheck1' onclick='eventManager.fire("autoStepChanged")'/>
@@ -239,8 +239,8 @@ var view;
 		<button class='last' title='取消選擇全部步驟 & 活動' onclick='eventManager.fire("clearAll");'><span class='tool-icon-left action-icon action-icon-deselect'></span><span class='tool-label'>取消選擇</span></button>
 	</div>
 	<div id='createNodeTools'>
-		<button id='newSequence' class='first' title='新增這個專案的活動' onclick='eventManager.fire("createNewSequence");'><span class='tool-icon action-icon action-icon-new2'></span><span class='tool-label'>新增活動</span></button>
-		<button id='newNode' class='last' title='新增這個專案的步驟' onclick='eventManager.fire("createNewNode");'><span class='tool-icon action-icon action-icon-new'></span><span class='tool-label'>新增步驟</span></button>
+		<button id='newSequence' class='first' title='新增這個專題的活動' onclick='eventManager.fire("createNewSequence");'><span class='tool-icon action-icon action-icon-new2'></span><span class='tool-label'>新增活動</span></button>
+		<button id='newNode' class='last' title='新增這個專題的步驟' onclick='eventManager.fire("createNewNode");'><span class='tool-icon action-icon action-icon-new'></span><span class='tool-label'>新增步驟</span></button>
 	</div>
 	<div id='editNodeTools'>
 		<button id='moveSelected' disabled='true' class='first' title='移動選擇的項目' onclick='eventManager.fire("moveSelected");'><span class='tool-icon action-icon action-icon-move action-icon-inactive'></span><span class='tool-label'>移動</span></button>
@@ -252,8 +252,8 @@ var view;
 		<button id='displayTagView' title='標籤' onclick='eventManager.fire("displayTagView");'><span class='tool-icon action-icon action-icon-copy action-icon-inactive'></span><span class='tool-label'>標籤</span></button>
 	</div>
 	<div id='visibiltyNodeTools'>
-		<button id='hideNodesBtn' title='隱藏所有專案的步驟' onclick='eventManager.fire("hideNodes");'><span class='tool-icon action-icon action-icon-hide'></span><span class='tool-label'>隱藏步驟</span></button>
-		<button id='showNodesBtn' title='顯示所有專案的步驟' onclick='eventManager.fire("unhideNodes");' class='hidden'><span class='tool-icon action-icon action-icon-show'></span><span class='tool-label'>顯示步驟</span></button>
+		<button id='hideNodesBtn' title='隱藏所有專題的步驟' onclick='eventManager.fire("hideNodes");'><span class='tool-icon action-icon action-icon-hide'></span><span class='tool-label'>隱藏步驟</span></button>
+		<button id='showNodesBtn' title='顯示所有專題的步驟' onclick='eventManager.fire("unhideNodes");' class='hidden'><span class='tool-icon action-icon action-icon-show'></span><span class='tool-label'>顯示步驟</span></button>
 	</div>
 	<!--<td><div id='projectTasks' class='taskInfo' style='display: none;' onMouseOver='eventManager.fire("showTaskBox","project")' onMouseOut='eventManager.fire("hideTaskBox")'>Project Tasks</div></td>
 	<td><div id='userTasks' class='taskInfo' style='display: none;' onMouseOver='eventManager.fire("showTaskBox","users")' onMouseOut='eventManager.fire("hideTaskBox")'>User Tasks</div></td>-->
@@ -275,14 +275,14 @@ var view;
 <div id="clearFloats" class="clearFloats"></div>
 
 <div id='createProjectDialog' style="display: none;">
-<div>請輸入新專案名稱：</div>
+<div>請輸入新專題名稱：</div>
 <div>
 	<input type='text' id='projectInput'/><br/>
 </div>
 </div>
 
 <div id='openProjectDialog' style="display: none;">
-<div class='hd'>從列表中選擇一個專案</div>
+<div class='hd'>從列表中選擇一個專題</div>
 <div class='bd'>
 <form method='POST' action='filemanager.html' id='openProjectForm' style='display:none;'><select id='selectProject'
 		onchange='eventManager.fire("projectSelected")'>
@@ -290,7 +290,7 @@ var view;
 </select>
 </form>
 <div id='loadingProjectMessageDiv' style='display:none;'>
-	<div>更新專案列表...</div>
+	<div>更新專題列表...</div>
 	<div><img src='images/loading.gif'/></div>
 </div>
 </div>
@@ -320,7 +320,7 @@ var view;
 </div>
 
 <div id="editProjectFileDialog" style="display: none;">
-<div class='hd'>編修專案</div>
+<div class='hd'>編修專題</div>
 <div class='bd'>
 	 <div id='editProjectDiv'> 
 	 	<textarea id='projectText' cols='110' rows='32' wrap='hard' name='param3' /></textarea>
@@ -360,7 +360,7 @@ var view;
 </div>
 
 <div id='copyProjectDialog' style='display: none;'>
-<div class='hd'>請選擇您想複製的專案：</div>
+<div class='hd'>請選擇您想複製的專題：</div>
 <div class='bd'>
 	<div id='copyProjectDiv'>
 		<select id='copyProjectSelect'></select>
@@ -374,7 +374,7 @@ var view;
 <div class='bd'>
 	<div id='editProjectMetadataMainDiv'>
 		<table>
-		<tr><td id="col1">專案標題：</td><td class="col2"><div id='projectMetadataTitle'/>[專案標題 (不允許編輯) 顯示在此]</div></td></tr>
+		<tr><td id="col1">專題標題：</td><td class="col2"><div id='projectMetadataTitle'/>[專題標題 (不允許編輯) 顯示在此]</div></td></tr>
 		<tr><td>作者：</td><td> <div id='projectMetadataAuthor'/>[原始作者姓名 (不允許編輯) 顯示在此]</div></td></tr>
 		<tr><td>聯絡 姓名/電子郵件：</td><td>  <input type='text' id='projectMetadataContact'/></td></tr>
 		<tr><td>學科：</td>
@@ -441,7 +441,7 @@ var view;
 				</select>
 			</td></tr>	
 
-		<tr><td>專案摘要：<br>(限制255字)</br></td><td><textarea class="size1" id='projectMetadataSummary' onkeyup='checkTextAreaLength("Project Summary", "projectMetadataSummary", 255)'></textarea></td></tr>
+		<tr><td>專題摘要：<br>(限制255字)</br></td><td><textarea class="size1" id='projectMetadataSummary' onkeyup='checkTextAreaLength("Project Summary", "projectMetadataSummary", 255)'></textarea></td></tr>
 		<tr><td>關鍵字：<br/>(用逗號分隔)</td><td><textarea class="size2" id='projectMetadataKeywords'></textarea></td></tr>
 		<tr><td>科技需求：</td>
 			<td>
@@ -451,7 +451,7 @@ var view;
 				<input type="checkbox" name="quickTime" value="quickTime" id="quickTime"/>&nbsp;<label for="quickTime">QuickTime</label>&nbsp;&nbsp;
 			</td></tr>		
 		<tr><td>科技詳述：</td><td><textarea class="size2" id='projectMetadataTechDetails'></textarea></td></tr>
-		<tr><td>專案設定：</td>
+		<tr><td>專題設定：</td>
 			<td>
 				<span style="font-size:85%">(選擇應用到的)</span>&nbsp;&nbsp;
 				<input id='enableIdeaManager' name="enableIdeaManager" type="checkbox"></input><label for="enableIdeaManager">想法管理員</label>&nbsp;&nbsp;
@@ -510,7 +510,7 @@ var view;
 				<td id='refreshOptions'>
 					<input type='checkbox' id='refreshCheck' onclick='eventManager.fire("updateRefreshOption")' CHECKED>輸入同時更新</input>
 					<input type='button' id='refreshButt' onclick='eventManager.fire("refreshNow")' value='現在更新'></input>
-					<input type='button' id='hintsButt' onclick='eventManager.fire("editHints",[0])' value='編輯指引'></input>
+					<input type='button' id='hintsButt' onclick='eventManager.fire("editHints",[0])' value='編輯提示'></input>
 				</td>
 			</tr>
 		</table>
@@ -567,7 +567,7 @@ var view;
 <div id='linkContainer' style='display:none;'>
 <div id='linkDiv'>
 	<div id='instructionDiv'>
-		在這個專案建立一個到其他步驟的連結：反白您想要學生點選的文字，然後點選 '新增連結' 按鈕。
+		在這個專題建立一個到其他步驟的連結：反白您想要學生點選的文字，然後點選 '新增連結' 按鈕。
 	</div><br/>
 	現有連結：
 	<div id='existingLinksDiv'></div><br/>
@@ -580,7 +580,7 @@ var view;
 <div id='cleanProjectDialog' style='display:none;'>
 <div class='hd'></div>
 <div id='cleanProjectPanel' class='bd'>
-	<div id='cleanProjectTitleDiv'><h3>專案清除結果</h3></div><br/>
+	<div id='cleanProjectTitleDiv'><h3>專題清除結果</h3></div><br/>
 	<div id='cleanProjectResultsDiv'>
 		<div id='cleanProjectResultsText'>分析...</div><br/>
 		<table id='cleanProjectTable'>
@@ -603,7 +603,7 @@ var view;
 				<td><div class='constraintButton' onclick='eventManager.fire("constraintHideAll")'>全部隱藏</div></td>
 			</tr>
 			<tr>
-				<td id='constraintAuthoringText'>專案輪廓：</td><td></td><td></td><td></td>
+				<td id='constraintAuthoringText'>專題輪廓：</td><td></td><td></td><td></td>
 				<td id='helpIcon' class='skipme'><a href='view/authoring/constraints/constrainthelp.html' target='_blank'>&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
 			</tr>
 		</tbody>
@@ -618,7 +618,7 @@ var view;
 		<div id='existingTagsHeadDiv'>現存標籤</div>
 		<ul id='existingTagsUL' style='display:none;'></ul>
 		<div id='loadingEditProjectTagsDiv' style='display:none;'>
-			<div>取得專案標籤...</div>
+			<div>取得專題標籤...</div>
 			<div><img src='images/loading.gif'/></div>
 		</div>
 	</div>

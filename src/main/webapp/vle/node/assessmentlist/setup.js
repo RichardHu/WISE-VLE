@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/assessmentlist/AssessmentListNode.js',
 	'vle/node/assessmentlist/assessmentListEvents.js'
 ];
@@ -34,8 +34,8 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'instantquiz', nodeClassText:'Survey 1'},
-	{nodeClass:'teacherquiz', nodeClassText:'Survey 2'}
+	{nodeClass:'instantquiz', nodeClassText:'調查 1'},
+	{nodeClass:'teacherquiz', nodeClassText:'調查 2'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

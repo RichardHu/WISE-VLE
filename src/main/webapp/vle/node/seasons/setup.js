@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
     /*
      * TODO: rename seasons
      * TODO: rename SeasonsNode.js
@@ -78,7 +78,7 @@ var dependencies = [
  * 'Quiz'
  */
 var nodeClasses = [
-	{nodeClass:'display', nodeClassText:'Seasons'}
+	{nodeClass:'display', nodeClassText:'四季 *'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

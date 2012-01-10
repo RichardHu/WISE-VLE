@@ -34,7 +34,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'display', nodeClassText:'Surge'}
+	{nodeClass:'display', nodeClassText:'SURGE *'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

@@ -1,4 +1,4 @@
-var nodeType = 'OpenResponseNode';
+﻿var nodeType = 'OpenResponseNode';
 
 var coreScripts = [
 	'vle/node/openresponse/OpenResponseNode.js',
@@ -50,11 +50,11 @@ var css = [
 ];
 
 var openResponseNodeClasses = [
-	{nodeClass:'openresponse', nodeClassText:'Open Response'}
+	{nodeClass:'openresponse', nodeClassText:'簡答申論題'}
 ];
 
 var noteNodeClasses = [
-	{nodeClass:'note', nodeClassText:'Reflection Note (popup)'}
+	{nodeClass:'note', nodeClassText:'反思筆記(彈跳視窗)'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

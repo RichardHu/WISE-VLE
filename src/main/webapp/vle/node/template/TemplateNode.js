@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a template Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -26,7 +26,7 @@ TemplateNode.prototype.parentNode = Node.prototype; //TODO: rename TemplateNode
  * the authoring tool when the author creates a new step
  * e.g. if you are making a QuizNode you would set authoringToolName to to "Quiz"
  */
-TemplateNode.authoringToolName = "Template"; 
+TemplateNode.authoringToolName = "模板 *"; 
 
 /*
  * TODO: rename TemplateNode
@@ -34,7 +34,7 @@ TemplateNode.authoringToolName = "Template";
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-TemplateNode.authoringToolDescription = "This is a generic step only used by developers";
+TemplateNode.authoringToolDescription = "程式設計師專屬步驟";
 
 /**
  * This is the constructor for the Node

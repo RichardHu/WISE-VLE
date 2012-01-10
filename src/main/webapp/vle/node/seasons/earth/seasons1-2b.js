@@ -1,4 +1,4 @@
-
+﻿
 SceneJS.createNode({
     id: "EarthPointerSprite",
     type: "billboard",
@@ -1657,12 +1657,12 @@ if (use_fahrenheit) {
     city_latitude_temperature_label.innerText.replace(/(C|F)$/, 'C')    
 }
 
-var y_axis = { title: 'Temperature deg C', min: -30, max: 60 };
+var y_axis = { title: '氣溫(度C)', min: -30, max: 60 };
 var graph_degree_string = "deg C";
 
 if (use_fahrenheit) {
     graph_degree_string = "deg F"
-    y_axis.title = 'Temperature deg F';
+    y_axis.title = '氣溫(度F)';
     y_axis.min = y_axis.min * 9 / 5 + 32;
     y_axis.max = y_axis.max * 9 / 5 + 32;
 }
@@ -1679,7 +1679,7 @@ function plotCityData() {
           min: 0, max: city_x_axis_tics.length - 1,
         },
         yaxis: y_axis,
-        title: "Average Monthly Temperatures",
+        title: "月平均氣度",
         grid:{ verticalLines: true, backgroundColor: 'white' },
         HtmlText: false,
         legend: { position: 'nw', margin: 1, backgroundOpacity: 0.1 },

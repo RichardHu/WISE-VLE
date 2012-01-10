@@ -1,9 +1,9 @@
-
+﻿
 SVGDrawNode.prototype = new Node();
 SVGDrawNode.prototype.constructor = SVGDrawNode;
 SVGDrawNode.prototype.parent = Node.prototype;
-SVGDrawNode.authoringToolName = "Draw";
-SVGDrawNode.authoringToolDescription = "Students draw using basic drawing tools, take snapshots and create flipbook animations";
+SVGDrawNode.authoringToolName = "手繪圖";
+SVGDrawNode.authoringToolDescription = "學生使用基本繪圖工具繪圖，拍成影格且建立影格動畫";
 
 /**
  * @constructor

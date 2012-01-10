@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/fillin/FillinNode.js',
 	'vle/node/fillin/fillinEvents.js'
 ];
@@ -36,7 +36,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'fillblank', nodeClassText:'Fill the Blank'}
+	{nodeClass:'fillblank', nodeClassText:'填空題'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a template Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -26,7 +26,7 @@ IdeaBasketNode.prototype.parentNode = Node.prototype; //TODO: rename TemplateNod
  * the authoring tool when the author creates a new step
  * e.g. if you are making a QuizNode you would set authoringToolName to to "Quiz"
  */
-IdeaBasketNode.authoringToolName = "Idea Basket"; 
+IdeaBasketNode.authoringToolName = "想法籃"; 
 
 /*
  * TODO: rename TemplateNode
@@ -34,7 +34,7 @@ IdeaBasketNode.authoringToolName = "Idea Basket";
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-IdeaBasketNode.authoringToolDescription = "Students view their Idea Basket and are prompted to add an idea";
+IdeaBasketNode.authoringToolDescription = "學生觀察他們的想法籃且被提示新增想法";
 
 /**
  * This is the constructor for the Node

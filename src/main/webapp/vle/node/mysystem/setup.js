@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/mysystem/MySystemNode.js',
 	'vle/node/mysystem/mySystemEvents.js',
 	/* 
@@ -33,7 +33,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'mysystem', nodeClassText:'My System'}
+	{nodeClass:'mysystem', nodeClassText:'系統圖'}
 ];
 
 var css = [

@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
     /*
      * TODO: rename template
      * TODO: rename TemplateNode.js
@@ -79,7 +79,7 @@ var dependencies = [
  * 'Quiz'
  */
 var nodeClasses = [
-	{nodeClass:'ideabasket', nodeClassText:'Idea Basket'}
+	{nodeClass:'ideabasket', nodeClassText:'想法籃'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

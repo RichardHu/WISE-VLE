@@ -1,4 +1,4 @@
-View.prototype.dropDownMenuDispatcher = function(type,args,obj){
+﻿View.prototype.dropDownMenuDispatcher = function(type,args,obj){
 	if(type=='showAllWork'){
 		obj.showAllWork();
 	} else if(type=='displayProgress'){
@@ -144,7 +144,7 @@ View.prototype.displayFlaggedWork = function() {
 		var nodeIds = this.getProject().getNodeIds();
 		
 		flaggedWorkHtml += "<div>";
-		flaggedWorkHtml += "<p><b>Choose a step</b></p>";
+		flaggedWorkHtml += "<p><b>選擇一個步驟</b></p>";
 		
 		//select box for the student to choose which step's flagged work to look at
 		flaggedWorkHtml += "<select id='flagNodeIdSelect' onchange='eventManager.fire(\"displayFlaggedWorkForNodeId\")'>";
@@ -182,13 +182,13 @@ View.prototype.displayFlaggedWork = function() {
 		flaggedWorkHtml += "<div id='flaggedWorkForNodeIdDiv'></div>";
 	} else {
 		//there are no flagged items
-		flaggedWorkHtml += "There are no flagged items.";
+		flaggedWorkHtml += "沒有標記項目";
 	}
 	
 	//check if the showflaggedwork div exists
     if($('#showflaggedwork').size()==0){
     	//the show flaggedworkdiv does not exist so we will create it
-    	$('<div id="showflaggedwork" style="text-align:left"></div>').dialog({autoOpen:false,closeText:'',width:'96%',height:(document.height * .96),modal:true,title:'Flagged Work',zindex:9999});
+    	$('<div id="showflaggedwork" style="text-align:left"></div>').dialog({autoOpen:false,closeText:'',width:'96%',height:(document.height * .96),modal:true,title:'標記作業',zindex:9999});
     }
     
     //set the html into the div
@@ -403,17 +403,17 @@ View.prototype.displayShowAllWork = function() {
 	    
 		// var closeButton1 = "<a href='#' class='container-close'>Close</a>";
 		
-	    var scoresDiv1 = "<table id='showAllWorkScoresTable'><tr><td class='scoreHeader' colspan='4'>Current Score & Progress</td></tr>";
+	    var scoresDiv1 = "<table id='showAllWorkScoresTable'><tr><td class='scoreHeader' colspan='4'>目前分數 & 進展</td></tr>";
 	    
-	    var scoresDiv2 = "<tr><td>Teacher Graded Score</td><td>Computer Graded Score</td><td>TOTAL SCORE</td><td>% of Project Completed</td></tr>";
+	    var scoresDiv2 = "<tr><td>教師評悶</td><td>電腦評分</td><td>總分</td><td>% 專題完成度</td></tr>";
 	    	
-	    var scoresDiv3 = "<tr><td class='scoreValue'>" + totalScoreForWorkgroup + "/" + totalPossibleForWorkgroup + "</td><td class='scoreValue'>not available</td><td class='scoreValue'>" + totalScoreForWorkgroup + "/" + totalPossibleForProject + "</td><td class='scoreValue'>" + teamPercentProjectCompleted + "</td></tr></table>";
+	    var scoresDiv3 = "<tr><td class='scoreValue'>" + totalScoreForWorkgroup + "/" + totalPossibleForWorkgroup + "</td><td class='scoreValue'>無</td><td class='scoreValue'>" + totalScoreForWorkgroup + "/" + totalPossibleForProject + "</td><td class='scoreValue'>" + teamPercentProjectCompleted + "</td></tr></table>";
 
 	    
 		allWorkHtml = "<div id=\"showWorkContainer\">" + scoresDiv1 + scoresDiv2 + scoresDiv3 + "<br><hr class='showAllWorkHR'><br>" + this.project.getShowAllWorkHtml(this.project.getRootNode(), true) + "</div>";
 
 	    if($('#showallwork').size()==0){
-	    	$('<div id="showallwork"></div>').dialog({autoOpen:false,closeText:'',width:'96%',height:(document.height * .96),modal:true,title:'My Work (with Teacher Feedback and Scores)'});
+	    	$('<div id="showallwork"></div>').dialog({autoOpen:false,closeText:'',width:'96%',height:(document.height * .96),modal:true,title:'我的作業(使用教師回饋與評分)'});
 	    }	    
 	    
 	    $('#showallwork').html(allWorkHtml);
@@ -665,20 +665,20 @@ View.prototype.displayAddAnIdeaDialog = function() {
     
     addAnIdeaHtml += "<form class='cmxform' id='ideaForm' method='get' action=''>";
     addAnIdeaHtml += "<fieldset>";
-    addAnIdeaHtml += "			<p><label for='text'>Type your idea here*:</label><input id='addAnIdeaText' type='text' name='text' size='30' class='required' minlength='2' maxlength='150'></input></p>";
+    addAnIdeaHtml += "			<p><label for='text'>在這裡輸入您的想法*：</label><input id='addAnIdeaText' type='text' name='text' size='30' class='required' minlength='2' maxlength='150'></input></p>";
     addAnIdeaHtml += "			<table>";
     addAnIdeaHtml += "				<tr>";
     addAnIdeaHtml += "					<td>";
     addAnIdeaHtml += "			<p style:'height:24px; line-height:24px;'>";
-    addAnIdeaHtml += "				<label for='source'>Source*: </label>";
+    addAnIdeaHtml += "				<label for='source'>來源*： </label>";
     addAnIdeaHtml += "				<select id='addAnIdeaSource' name='source' class='required' style='height:24px;'>";
-    addAnIdeaHtml += "				  <option value='empty'>Choose One:</option>";	
-    addAnIdeaHtml += "				  <option value='Evidence Step'>Evidence Step</option>";
-    addAnIdeaHtml += "				  <option value='Visualization or Model'>Visualization or Model</option>";
-    addAnIdeaHtml += "				  <option value='Movie/Video'>Movie/Video</option>";
-    addAnIdeaHtml += "				  <option value='Everyday Observation'>Everyday Observation</option>";
-    addAnIdeaHtml += "				  <option value='School or Teacher'>School or Teacher</option>";
-    addAnIdeaHtml += "				  <option value='Other'>Other</option>";
+    addAnIdeaHtml += "				  <option value='empty'>選一個：</option>";	
+    addAnIdeaHtml += "				  <option value='Evidence Step'>證據步驟</option>";
+    addAnIdeaHtml += "				  <option value='Visualization or Model'>視覺化或模型</option>";
+    addAnIdeaHtml += "				  <option value='Movie/Video'>電影/電視</option>";
+    addAnIdeaHtml += "				  <option value='Everyday Observation'>每日的觀察</option>";
+    addAnIdeaHtml += "				  <option value='School or Teacher'>學校或老師</option>";
+    addAnIdeaHtml += "				  <option value='Other'>其他</option>";
     addAnIdeaHtml += "				</select>";
     addAnIdeaHtml += "			</p>";
     addAnIdeaHtml += "					</td>";
@@ -687,12 +687,12 @@ View.prototype.displayAddAnIdeaDialog = function() {
     addAnIdeaHtml += "					</td>";
     addAnIdeaHtml += "				</tr>";
     addAnIdeaHtml += "			</table>";
-    addAnIdeaHtml += "			<p><label for='tags'>Tags (keywords): </label><input id='addAnIdeaTags' name='tags' size='20' maxlength='20'></input></p>";
+    addAnIdeaHtml += "			<p><label for='tags'>關鍵字： </label><input id='addAnIdeaTags' name='tags' size='20' maxlength='20'></input></p>";
     addAnIdeaHtml += "				<p>";
-	addAnIdeaHtml += "				<label for='flag'>Flag (choose one)*: </label>";
-	addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='blank' class='required' checked style='margin-left:0;'><span style='vertical-align:top; line-height:24px;'> None</span>";
-   	addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='important'><img src='images/ideaManager/important.png' alt='important' /><span style='vertical-align:top; line-height:24px;'>Important</span>";
-    addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='question'><img src='images/ideaManager/question.png' alt='question' /><span style='vertical-align:top; line-height:24px;'>Not Sure</span>";
+	addAnIdeaHtml += "				<label for='flag'>標籤(選一個)*： </label>";
+	addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='blank' class='required' checked style='margin-left:0;'><span style='vertical-align:top; line-height:24px;'> 無</span>";
+   	addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='important'><img src='images/ideaManager/important.png' alt='重要的' /><span style='vertical-align:top; line-height:24px;'>重要</span>";
+    addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='question'><img src='images/ideaManager/question.png' alt='有疑問的' /><span style='vertical-align:top; line-height:24px;'>不確定</span>";
     //addAnIdeaHtml += "				<input type='radio' name='addAnIdeaFlag' value='check'><img src='images/ideaManager/check.png' alt='check' />";
     addAnIdeaHtml += "				</p>";
     addAnIdeaHtml += "	</fieldset>";
@@ -724,12 +724,12 @@ View.prototype.addIdeaToBasket = function() {
 	var text = $('#addAnIdeaText').val();
 	
 	if(text == "") {
-		alert("Please enter text in the idea field");
+		alert("請在想法區中輸入文字");
 	} else {
 		
 		var source = $('#addAnIdeaSource').val();
 		if(source == 'empty'){
-			alert('Please select a source for your idea.');
+			alert('請選擇您的想法來源');
 		} else {
 			var tags = $('#addAnIdeaTags').val();
 			var flag = $("input[@name=addAnIdeaFlag]:checked").val();

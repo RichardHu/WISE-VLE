@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Dispatches events to the appropriate functions for the vle view.
  */
 View.prototype.vleDispatcher = function(type,args,obj){
@@ -183,14 +183,14 @@ View.prototype.startVLE = function(){
  */
 View.prototype.displayGlobalTools = function() {	
 	var studentAssetsToolbarHtml=	"<li id='studentAssetsTD' style=\"display:none\"><a id=\"studentAssetsLink\" onclick='eventManager.fire(\"viewStudentAssets\")' title=\"View My Files\"><img src=\"images/hint/star.png\" alt=\"Files\" border=\"0\" /><span>&nbsp;"+this.getI18NString("top_toolbar_file_button_text")+"&nbsp;</span></a></li>";                    
-	var ideaBasketToolbarHtml = "<li id='ideaBasketTD' style=\"display:none\"><a id=\"ideaBasketLink\" onclick='eventManager.fire(\"displayIdeaBasket\")' title=\"Idea Basket\"><img src=\"images/ideaManager/basket2.png\" alt=\"Basket\" border=\"0\" /><span>&nbsp;"+this.getI18NString("top_toolbar_ideas_button_text")+"</span><span id='ideaCount'>(0)</span></a></li>";
-	var addIdeaToolbarHtml = "<li id='addIdeaTD' style=\"display:none\"><a onclick='eventManager.fire(\"displayAddAnIdeaDialog\")' title=\"Add an Idea\"><img src=\"images/ideaManager/lightBulbPlus.png\" alt=\"Light Bulb\" border=\"0\" />"+this.getI18NString("top_toolbar_addidea_button_text")+"</a></li>";
-	var myWorkToolbarHtml = "<li id='myWorkTD'><a class=\"\" onclick='eventManager.fire(\"showAllWork\")' title=\"Review My Work\"><img src=\"images/reviewAllWork.png\" alt=\"Review My Work\" border=\"0\" />"+this.getI18NString("top_toolbar_mywork_button_text")+"</a></li>";
-	var flagToolbarHtml = "<li id='flaggedWorkTD'><a class=\"\" onclick='eventManager.fire(\"showFlaggedWork\")' title=\"Show Flagged Work\"><img src=\"images/reviewAllWork.png\" alt=\"Show Flagged Work\" border=\"0\" />"+this.getI18NString("top_toolbar_flagged_button_text")+"</a></li>";
+	var ideaBasketToolbarHtml = "<li id='ideaBasketTD' style=\"display:none\"><a id=\"ideaBasketLink\" onclick='eventManager.fire(\"displayIdeaBasket\")' title=\"想法籃\"><img src=\"images/ideaManager/basket2.png\" alt=\"Basket\" border=\"0\" /><span>&nbsp;"+this.getI18NString("top_toolbar_ideas_button_text")+"</span><span id='ideaCount'>(0)</span></a></li>";
+	var addIdeaToolbarHtml = "<li id='addIdeaTD' style=\"display:none\"><a onclick='eventManager.fire(\"displayAddAnIdeaDialog\")' title=\"新增想法\"><img src=\"images/ideaManager/lightBulbPlus.png\" alt=\"Light Bulb\" border=\"0\" />"+this.getI18NString("top_toolbar_addidea_button_text")+"</a></li>";
+	var myWorkToolbarHtml = "<li id='myWorkTD'><a class=\"\" onclick='eventManager.fire(\"showAllWork\")' title=\"檢閱我的作業\"><img src=\"images/reviewAllWork.png\" alt=\"Review My Work\" border=\"0\" />"+this.getI18NString("top_toolbar_mywork_button_text")+"</a></li>";
+	var flagToolbarHtml = "<li id='flaggedWorkTD'><a class=\"\" onclick='eventManager.fire(\"showFlaggedWork\")' title=\"顯示標記的作業\"><img src=\"images/reviewAllWork.png\" alt=\"Show Flagged Work\" border=\"0\" />"+this.getI18NString("top_toolbar_flagged_button_text")+"</a></li>";
 	var journalToolbarHtml = "<li id='journalTD' style=\"display:none\"><a class=\"\" onclick='eventManager.fire(\"showJournal\")' title=\"Show Student Journal\"><img src=\"images/Journal28x28.png\" alt=\"Show My Journal\" border=\"0\" />&nbsp;"+this.getI18NString("top_toolbar_journal_button_text")+"</a></li>";
-	var fullScreenToolbarHtml = "<li id='menuTD'><a class=\"menuSwitcher\" onclick='eventManager.fire(\"toggleNavigationPanelVisibility\")' title=\"Nav Menu Switcher\"><img src=\"images/NavBar-Switch32.png\" alt=\"Full Screen On/Off \" border=\"0\" />"+this.getI18NString("top_toolbar_fullscreen_button_text")+"</a></li>";
-	var prevNodeToolbarHtml = "<li><a onclick='eventManager.fire(\"renderPrevNode\")' title=\"Previous step\"><img src=\"images/go-previous.png\" alt=\"Previous Arrow\" border=\"0\" /></a></li>";
-	var nextNodeToolbarHtml = "<li><a onclick='eventManager.fire(\"renderNextNode\")' title=\"Next step\"><img src=\"images/go-next.png\" alt=\"Next Arrow\" border=\"0\" /></a></li>";
+	var fullScreenToolbarHtml = "<li id='menuTD'><a class=\"menuSwitcher\" onclick='eventManager.fire(\"toggleNavigationPanelVisibility\")' title=\"選單切換\"><img src=\"images/NavBar-Switch32.png\" alt=\"Full Screen On/Off \" border=\"0\" />"+this.getI18NString("top_toolbar_fullscreen_button_text")+"</a></li>";
+	var prevNodeToolbarHtml = "<li><a onclick='eventManager.fire(\"renderPrevNode\")' title=\"上一個步驟\"><img src=\"images/go-previous.png\" alt=\"Previous Arrow\" border=\"0\" /></a></li>";
+	var nextNodeToolbarHtml = "<li><a onclick='eventManager.fire(\"renderNextNode\")' title=\"下一個步驟\"><img src=\"images/go-next.png\" alt=\"Next Arrow\" border=\"0\" /></a></li>";
 	
 	var goHomeHref = "/webapp/student/index.html";
 	var userType = this.config.getConfigParam('userType');
@@ -198,7 +198,7 @@ View.prototype.displayGlobalTools = function() {
 		goHomeHref = "/webapp/teacher/index.html";
 	}
 	
-	var signOutGoHomeToolbarHtml = "<li><a id=\"quitAndLogoutLink\" class=\"tightText\" onclick=\"eventManager.fire('logout')\" target=\"_parent\" title=\"Save & Sign Out\" style=\"margin-right:0;\"><img src=\"images/exit.png\" alt=\"Sign Out\" border=\"0\" />"+this.getI18NString("top_toolbar_signout_button_text")+"</a> | <a id=\"goHomeLink\" class=\"tightText\" href=\""+goHomeHref+"\" target=\"_parent\" title=\"Go to home page\">"+this.getI18NString("top_toolbar_gohome_button_text")+"</a></li>";
+	var signOutGoHomeToolbarHtml = "<li><a id=\"quitAndLogoutLink\" class=\"tightText\" onclick=\"eventManager.fire('logout')\" target=\"_parent\" title=\"儲存 & 登出\" style=\"margin-right:0;\"><img src=\"images/exit.png\" alt=\"Sign Out\" border=\"0\" />"+this.getI18NString("top_toolbar_signout_button_text")+"</a> | <a id=\"goHomeLink\" class=\"tightText\" href=\""+goHomeHref+"\" target=\"_parent\" title=\"回首頁\">"+this.getI18NString("top_toolbar_gohome_button_text")+"</a></li>";
 
 	$("#projectRightUpperBoxUL").html(studentAssetsToolbarHtml+ideaBasketToolbarHtml+addIdeaToolbarHtml+myWorkToolbarHtml+flagToolbarHtml+journalToolbarHtml+fullScreenToolbarHtml+prevNodeToolbarHtml+nextNodeToolbarHtml+signOutGoHomeToolbarHtml);
 	

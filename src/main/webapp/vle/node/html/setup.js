@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/html/HtmlNode.js',
 	'vle/node/html/htmlEvents.js'
 ];
@@ -24,15 +24,15 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'intro', nodeClassText:'Introductory Page'},
-	{nodeClass:'curriculum', nodeClassText:'Curriculum Page'},
-	{nodeClass:'display', nodeClassText:'Display Page'},
-	{nodeClass:'cartoon', nodeClassText:'Cartoon Page'},
-	{nodeClass:'codeit', nodeClassText:'Coding Page'},
-	{nodeClass:'simulation', nodeClassText:'Simulation Page'},
-	{nodeClass:'movie', nodeClassText:'Movie Page'},
-	{nodeClass:'homework', nodeClassText:'Homework Page'},
-	{nodeClass:'summary', nodeClassText:'Summary Page'}
+	{nodeClass:'intro', nodeClassText:'介紹'},
+	{nodeClass:'curriculum', nodeClassText:'課程'},
+	{nodeClass:'display', nodeClassText:'顯示'},
+	{nodeClass:'cartoon', nodeClassText:'卡通'},
+	{nodeClass:'codeit', nodeClassText:'編碼'},
+	{nodeClass:'simulation', nodeClassText:'模擬'},
+	{nodeClass:'movie', nodeClassText:'電影'},
+	{nodeClass:'homework', nodeClassText:'作業'},
+	{nodeClass:'summary', nodeClassText:'摘要'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

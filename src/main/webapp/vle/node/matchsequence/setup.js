@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/matchsequence/MatchSequenceNode.js',
 	'vle/node/matchsequence/matchSequenceEvents.js'
 ];
@@ -44,7 +44,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'matchsequence', nodeClassText:'Match & Sequence'}
+	{nodeClass:'matchsequence', nodeClassText:'配對問題'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

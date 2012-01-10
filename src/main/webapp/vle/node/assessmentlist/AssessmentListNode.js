@@ -1,8 +1,8 @@
-AssessmentListNode.prototype = new Node();
+﻿AssessmentListNode.prototype = new Node();
 AssessmentListNode.prototype.constructor = AssessmentListNode;
 AssessmentListNode.prototype.parent = Node.prototype;
-AssessmentListNode.authoringToolName = "Questionnaire";
-AssessmentListNode.authoringToolDescription = "Students answer a collection of questions that require text or multiple choice answers";
+AssessmentListNode.authoringToolName = "問卷/測驗";
+AssessmentListNode.authoringToolDescription = "學生回答一連串需要文字或多選項答案的問題";
 
 /**
  * @constructor

@@ -48,7 +48,7 @@ var css = [
 ];
 
 var multipleChoiceNodeClasses = [
-	{nodeClass:'multiplechoice', nodeClassText:'Multiple Choice'}
+	{nodeClass:'multiplechoice', nodeClassText:'選擇題'}
 ];
 
 var challengeNodeClasses = [

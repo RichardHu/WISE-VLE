@@ -106,8 +106,8 @@ ExplanationBuilder.prototype.initializeUI = function() {
 	//get the ideaBasket from the view
 	this.ideaBasket = this.view.ideaBasket;
 
-	$('#ideaDialog').dialog({title:'Add New Idea to Basket', autoOpen:false, modal:true, resizable:false, width:'470', buttons:{
-		"OK": function(){       
+	$('#ideaDialog').dialog({title:'新增想法', autoOpen:false, modal:true, resizable:false, width:'470', buttons:{
+		"確定": function(){       
 		if($("#ideaForm").validate().form()){
 			var source = $('#source').val();
 			if(source == 'empty'){
@@ -121,7 +121,7 @@ ExplanationBuilder.prototype.initializeUI = function() {
 				resetForm('ideaForm');
 			}
 		}
-	}, Cancel: function(){
+	}, 取消: function(){
 		$(this).dialog("close");
 		resetForm('ideaForm');
 	}

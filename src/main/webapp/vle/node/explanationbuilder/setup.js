@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
     /*
      * xTODO: rename template
      * xTODO: rename TemplateNode.js
@@ -96,7 +96,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'codeit', nodeClassText:'Explanation Builder'}
+	{nodeClass:'codeit', nodeClassText:'建立解釋'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

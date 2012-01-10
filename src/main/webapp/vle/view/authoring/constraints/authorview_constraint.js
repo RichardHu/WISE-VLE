@@ -1,4 +1,4 @@
-/** 
+﻿/** 
  * Set the constraint object in this view. The constraint object is responsible
  * for handling all tasks associated with authoring constraints.
  * 
@@ -80,7 +80,7 @@ View.prototype.Constraint.createProjectLayout = function(node, depth){
  */
 View.prototype.Constraint.getConstraintHTML = function(node){
 	var position = this.convertPosition(this.view.getProject().getPositionById(node.id));
-	var constraintHTML = '<div id="existingConstraintsDiv_' + position + '" class="existingConstraints"><div>Existing Constraints:</div>';
+	var constraintHTML = '<div id="existingConstraintsDiv_' + position + '" class="existingConstraints"><div>目前的限制：</div>';
 	var constraintsForNode = this.getConstraintsByNodeId(node.id);
 	
 	/* if there are constraints specified, we want to create and append
@@ -91,12 +91,12 @@ View.prototype.Constraint.getConstraintHTML = function(node){
 		for(var i=0;i<constraintsForNode.length;i++){
 			constraintHTML += '<li id="constraintListEntry_' + position + '_' + constraintsForNode[i].id + 
 				'" onclick="eventManager.fire(\'constraintEntryClicked\',[\'' + position + '\',\'' + constraintsForNode[i].id + '\'])">' + 
-				this.getHumanType(constraintsForNode[i].getType()) + '  <input type="button" class="constraintButton" value="Remove" ' + 
+				this.getHumanType(constraintsForNode[i].getType()) + '  <input type="button" class="constraintButton" value="移除" ' + 
 				'onclick="eventManager.fire(\'constraintRemoveConstraint\',[\'' + position + '\',\'' + constraintsForNode[i].id + '\'])"/></li>';
 		}
 		constraintHTML += '</ul></div>';
 	} else {
-		constraintHTML += '<div id="constraintListDiv_' + position + '">No contraints are specified for this activity/step.</div>';
+		constraintHTML += '<div id="constraintListDiv_' + position + '">這個 活動/步驟 沒有指定任何限制</div>';
 	}
 	
 	/* adds the button elements to the constraintHTML */
@@ -174,17 +174,17 @@ View.prototype.Constraint.removeConstraint = function(pos,cId){
  */
 View.prototype.Constraint.getHumanType = function(type){
 	if(type=='NotVisitableXConstraint'){
-		return 'Not Visitable';
+		return '不顯示';
 	} else if(type=='VisitXAfterYConstraint'){
-		return 'Visit After';
+		return '後置瀏覽';
 	} else if(type=='VisitXBeforeYConstraint'){
-		return 'Visit Before';
+		return '前置瀏覽';
 	} else if(type=='VisitXOrYConstraint'){
-		return 'Visit This OR That';
+		return '兩者擇一';
 	} else if(type=='WorkOnXBeforeYConstraint'){
-		return 'Work Before';
+		return '前置實作';
 	} else if(type=='WorkOnXConstraint'){
-		return 'Work Completed';
+		return '完成實作';
 	} else {
 		return type;
 	}
@@ -275,9 +275,9 @@ View.prototype.Constraint.getConstraintById = function(constraintId){
 View.prototype.Constraint.getButtonHTML = function(node){
 	var position = this.convertPosition(this.view.getProject().getPositionById(node.id));
 	return '<div id="createConstraintContainer_' + position + '" class="createConstraint"><div id="createConstraintBuilder_' + 
-		position + '">Constraint Builder</div><div id="createConstraintButton_' + position + 
+		position + '">新增限制</div><div id="createConstraintButton_' + position + 
 		'" class="constraintButton" onclick="eventManager.fire(\'constraintCreateConstraint\',\'' + position + 
-		'\')">Create A New Constraint</div><div id="createConstraintOptions_' + position + '" style="display:none;">' +
+		'\')">新增一個限制</div><div id="createConstraintOptions_' + position + '" style="display:none;">' +
 		'</div></div>';
 };
 
@@ -289,15 +289,15 @@ View.prototype.Constraint.getButtonHTML = function(node){
  * @return string - html
  */
 View.prototype.Constraint.getCreateConstraintHTML = function(position){
-	return '<div id="selectConstraintDiv_' + position + '">Select constraint type: <select id="constraintSelectType_' + position + 
+	return '<div id="selectConstraintDiv_' + position + '">選擇限制類型： <select id="constraintSelectType_' + position + 
 		'" onchange="eventManager.fire(\'constraintSelectTypeChanged\',\'' + position + '\')"><option name="constraintTypeOption_' + 
-		position + '" value="none"> --none-- </option><option name="constraintTypeOption_' + position + 
-		'" value="NotVisitableX">Not Visitable - student cannot visit this step</option><option name="constraintTypeOption_' + position + 
-		'" value="VisitXAfterY">Visit After - student must visit specified step/activity after visiting this one</option><option name="constraintTypeOption_' + 
-		position + '" value="VisitXBeforeY">Visit Before - students can only visit this after visiting a specified activity/step</option><option name="constraintTypeOption_' + 
-		position + '" value="WorkOnXBeforeY">Work Before - students can only visit this after having submitted work for a specified activity/step</option><option name="constraintTypeOption_' + 
-		position + '" value="WorkOnX">Work Completed - students must complete work on this activity/step before proceeding to any other</option><option name="constraintTypeOption_' + 
-		position + '" value="VisitXOrY">Visit This OR That - students can visit either this activity/step or another specified activity/step but NOT both</option></select></div>' +
+		position + '" value="none"> --無-- </option><option name="constraintTypeOption_' + position + 
+		'" value="NotVisitableX">不顯示 - 學生不能瀏覽這個步驟</option><option name="constraintTypeOption_' + position + 
+		'" value="VisitXAfterY">後置瀏覽 - 學生在瀏覽這個項目之後必須瀏覽特定活動/步驟</option><option name="constraintTypeOption_' + 
+		position + '" value="VisitXBeforeY">前置瀏覽 - 學生在瀏覽一個特定活動/步驟後只能瀏覽這個項目</option><option name="constraintTypeOption_' + 
+		position + '" value="WorkOnXBeforeY">前置實作 - 學生在送出特定活動/步驟的實作內容之後只能瀏覽這個項目</option><option name="constraintTypeOption_' + 
+		position + '" value="WorkOnX">完成實作 - 學生進一步瀏覽其他之前必須完成實作這個活動/步驟</option><option name="constraintTypeOption_' + 
+		position + '" value="VisitXOrY">兩者擇一 - 學生可以瀏覽這個活動/步驟或其他特定的活動/步驟但不能兩者都瀏覽</option></select></div>' +
 		'<div id="selectConstraintResultsDiv_' + position + '"><div id="anyAll1_' + position + '"></div><div id="projectNodesSelectDiv_' + 
 		position + '"></div><div id="anyAll2_' + position + '"></div><div id="navigationOptionsDiv_' + position + 
 		'"></div><div id="liftOnSatisfactionOptionDiv_' + position + '"></div><div id="finishButtonDiv_' + position + '"></div></div>';
@@ -341,13 +341,13 @@ View.prototype.Constraint.selectTypeChanged = function(position){
  * @param string - position
  */
 View.prototype.Constraint.setNavigationOptionsHTML = function(position){
-	var html = '<div>Select Navigation Restriction: <select id="selectNavigationRestriction_' + position + '"><option value="2">' +
-		'Not Visitable - students will not be allowed to visit steps affected by this constraint</option><option value="1">Disabled ' + 
-		'- students can visit steps affected by this constraint but cannot do any work</option><option value="0">No restriction - students ' +
-		'can visit and work on affected steps</select></div><div>Select Menu Restriction: <select id="selectMenuRestriction_' + position + 
-		'"><option value="1">Disabled - the affected steps will be disabled in the menu</option><option value="2">Not Visible ' +
-		'- the affected steps will not appear in the menu</option><option value="0">No restriction - students will see the affected steps ' + 
-		'normally</option></select></div>';
+	var html = '<div>選擇瀏覽限制： <select id="selectNavigationRestriction_' + position + '"><option value="2">' +
+		'不顯示 - 這個限制不允許學生瀏覽步驟</option><option value="1">無效的 ' + 
+		'- 這個限制允許學生瀏覽步驟但不能做任何事</option><option value="0">無限制 - 學生 ' +
+		'可以瀏覽與實作步驟</select></div><div>選擇選單限制： <select id="selectMenuRestriction_' + position + 
+		'"><option value="1">無效的 - 被影響的步驟在選單中將沒有效用</option><option value="2">不顯示 ' +
+		'- 步驟將不顯示在選單中</option><option value="0">無限制 - 學生可以正常瀏覽步驟 ' + 
+		'</option></select></div>';
 		
 	$('#navigationOptionsDiv_' + position).html(html);
 };
@@ -356,7 +356,7 @@ View.prototype.Constraint.setNavigationOptionsHTML = function(position){
  * Sets the html for the lift on satisfaction option given the position
  */
 View.prototype.Constraint.setLiftOnSatisfactionHTML = function(position){
-	$('#liftOnSatisfactionOptionDiv_' + position).html('Should constraint be lifted upon satisfaction? <select id="selectLiftOnSatisfaction_' + position + '"><option value="true">Yes, this only applies once</option><option value="false">No, this should apply every time the student visits this step/activity</option></select>');
+	$('#liftOnSatisfactionOptionDiv_' + position).html('此限制的使用次數？ <select id="selectLiftOnSatisfaction_' + position + '"><option value="true">使用一次</option><option value="false">每一次學生瀏覽這個步驟/活動時都使用</option></select>');
 };
 
 /**
@@ -365,7 +365,7 @@ View.prototype.Constraint.setLiftOnSatisfactionHTML = function(position){
  * @param string - position
  */
 View.prototype.Constraint.setFinishedButtonHTML = function(position){
-	$('#finishButtonDiv_' + position).html('<div id="finishConstraintButton" class="constraintButton" onclick="eventManager.fire(\'constraintFinishCreateConstraint\',\'' + position + '\')">Create</div>');
+	$('#finishButtonDiv_' + position).html('<div id="finishConstraintButton" class="constraintButton" onclick="eventManager.fire(\'constraintFinishCreateConstraint\',\'' + position + '\')">建立</div>');
 };
 
 /**
@@ -382,7 +382,7 @@ View.prototype.Constraint.setSequenceNodeHTML = function(type, position){
 	 * the constraint applies to any of the steps in the sequence or all of the
 	 * steps in this sequence */
 	if(node.isSequence()){
-		$('#anyAll1_' + position).html('Applies to (any/all) steps in this Activity? <select id="selectAnyAll1_' + position + '"><option name="anyAllOption1_' + position + '" value="Any">Any</option><option name="anyAllOption1_' + position + '" value="All">All</option></select>');
+		$('#anyAll1_' + position).html('應用到 (任何/所有) 這個活動的步驟？ <select id="selectAnyAll1_' + position + '"><option name="anyAllOption1_' + position + '" value="Any">任何</option><option name="anyAllOption1_' + position + '" value="All">所有</option></select>');
 	}
 	
 	/* if this is a workonx constraint, then the author is done, so set the
@@ -404,13 +404,13 @@ View.prototype.Constraint.setSequenceNodeHTML = function(type, position){
  */
 View.prototype.Constraint.getConstraintAppliesToPrompt = function(type){
 	if(type=='VisitXAfterY'){
-		return 'Select the activity/step that the student must visit after: ';
+		return '選擇學生在這項目之後必須瀏覽的活動/步驟： ';
 	} else if(type=='VisitXBeforeY'){
-		return 'Select the activity/step that the student must visit before: ';
+		return '選擇學生在這項目之前必須瀏覽的活動/步驟： ';
 	} else if(type=='WorkOnXBeforeY'){
-		return 'Select the activity/step that the student must submit work for before: ';
+		return '選擇學生送出實作內容後才能瀏覽的活動/步驟： ';
 	} else if(type=='VisitXOrY'){
-		return 'Select the activity/step that is an alternate to this one: ';
+		return '選擇這個項目的替代活動/步驟： ';
 	} else {
 		return '';
 	}

@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/cargraph/CarGraphNode.js',
 	'vle/node/cargraph/cargraphEvents.js'
 ];
@@ -36,7 +36,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'simulation', nodeClassText:'CarGraph'}
+	{nodeClass:'simulation', nodeClassText:'位置-時間圖'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

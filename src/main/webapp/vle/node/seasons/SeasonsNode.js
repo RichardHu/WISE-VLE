@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a seasons Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -26,7 +26,7 @@ SeasonsNode.prototype.parentNode = Node.prototype; //TODO: rename SeasonsNode
  * the authoring tool when the author creates a new step
  * e.g. if you are making a QuizNode you would set authoringToolName to to "Quiz"
  */
-SeasonsNode.authoringToolName = "Seasons"; 
+SeasonsNode.authoringToolName = "四季 *"; 
 
 /*
  * TODO: rename SeasonsNode
@@ -34,7 +34,7 @@ SeasonsNode.authoringToolName = "Seasons";
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-SeasonsNode.authoringToolDescription = "This is a generic step only used by developers";
+SeasonsNode.authoringToolDescription = "程式設計師專屬步驟";
 
 /**
  * This is the constructor for the Node

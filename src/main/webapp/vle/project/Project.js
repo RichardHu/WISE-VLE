@@ -1,4 +1,4 @@
-/* Modular Project Object */
+﻿/* Modular Project Object */
 function createProject(content, contentBaseUrl, lazyLoading, view, totalProjectContent){
 	return function(content, cbu, ll, view, totalProjectContent){
 		var content = content;
@@ -799,14 +799,14 @@ function createProject(content, contentBaseUrl, lazyLoading, view, totalProjectC
 					tempNewFeedback += "<div id=\"showallStep\"><a href=\"#\" onclick=\"eventManager.fire('renderNode', ['" + getPositionById(node.id) + "']); $('#showallwork').dialog('close');\">" + vlePosition + " " + node.title + "</a><div class=\"type\">"+node.getType(true)+"</div></div>";
 				    if (showGrades) {
 				    	
-				    	tempAllFeedback += "<div class=\"showallStatus\">Status: " + node.getShowAllWorkHtml(view) + "</div>";
+				    	tempAllFeedback += "<div class=\"showallStatus\">狀態： " + node.getShowAllWorkHtml(view) + "</div>";
 				    	
 				    	/*
 				    	 * we need to pass in a prefix to be prepended to the div that is made
 				    	 * otherwise there will be two divs with the same id and when we
 				    	 * render the work, it will only show up in one of the divs
 				    	 */
-				    	tempNewFeedback += "<div class=\"showallStatus\">Status: " + node.getShowAllWorkHtml(view, "new_") + "</div>";
+				    	tempNewFeedback += "<div class=\"showallStatus\">狀態： " + node.getShowAllWorkHtml(view, "new_") + "</div>";
 						
 						commonFeedback += "<div><table id='teacherTable'>";
 						
@@ -894,7 +894,7 @@ function createProject(content, contentBaseUrl, lazyLoading, view, totalProjectC
 						
 						if(annotationHtml == "") {
 							//there were no annotations
-							annotationHtml += "<tr><td class='teachermsg3'>" + "Grading: Your Teacher hasn't graded this step yet." + "<td></tr>";
+							annotationHtml += "<tr><td class='teachermsg3'>" + "評分：您的教師尚未對這個步驟評分" + "<td></tr>";
 						}
 						
 						commonFeedback += annotationHtml;

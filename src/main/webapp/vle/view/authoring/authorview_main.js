@@ -62,12 +62,12 @@ View.prototype.generateAuthoring = function(){
 	uSeqTR.appendChild(uSeqTD);
 	
 	var unusedSeqDiv = createElement(document, 'div', {id: 'uSeq', 'class': 'uSeq', onclick: 'eventManager.fire("selectClick","uSeq")', onMouseOver: 'eventManager.fire("checkAndSelect","uSeq")', onMouseOut: 'eventManager.fire("checkAndDeselect","uSeq")'});
-	var unusedSeqText = document.createTextNode('不活躍活動');
+	var unusedSeqText = document.createTextNode('隱藏的活動');
 	var unusedSeqs = this.project.getUnattached('sequence');
 	
 	uSeqTD.appendChild(unusedSeqDiv);
 	unusedSeqDiv.appendChild(unusedSeqText);
-	unusedSeqDiv.innerHTML += ' <span>(不顯示在專案中)</span>';
+	unusedSeqDiv.innerHTML += ' <span>(不顯示在專案預覽與執行)</span>';
 	for(var d=0;d<unusedSeqs.length;d++){
 		this.generateNodeElement(unusedSeqs[d], null, uSeqTB, 0, 0);
 	};
@@ -87,12 +87,12 @@ View.prototype.generateAuthoring = function(){
 	uNodeTR.appendChild(uNodeTD);
 	
 	var unusedNodeDiv = createElement(document, 'div', {id: 'uNode', onclick: 'eventManager.fire("selectClick","uNode")', onMouseOver: 'eventManager.fire("checkAndSelect","uNode")', onMouseOut: 'eventManager.fire("checkAndDeselect","uNode")'});
-	var unusedNodesText = document.createTextNode('不活躍步驟');
+	var unusedNodesText = document.createTextNode('隱藏的步驟');
 	var unusedNodes = this.project.getUnattached('node');
 	
 	uNodeTD.appendChild(unusedNodeDiv);
 	unusedNodeDiv.appendChild(unusedNodesText);
-	unusedNodeDiv.innerHTML += ' <span>(不顯示在專案中)</span>';
+	unusedNodeDiv.innerHTML += ' <span>(不顯示在專案預覽與執行)</span>';
 	for(var e=0;e<unusedNodes.length;e++){
 		this.generateNodeElement(unusedNodes[e], null, uNodeTB, 0, 0);
 	};
@@ -213,7 +213,7 @@ View.prototype.generateNodeElement = function(node, parentNode, el, depth, pos){
 		
 		if(this.getProject().getRootNode() && node.id==this.project.getRootNode().id){
 			mainDiv.className = 'projectNode master';
-			mainDiv.innerHTML = '專案順序 <span>(活躍的 活動 & 步驟)</span>';
+			mainDiv.innerHTML = '專案順序 <span>(顯示的活動 & 步驟)</span>';
 		} else {
 			mainDiv.className = 'projectNode seq';
 		}
@@ -447,7 +447,7 @@ View.prototype.saveProject = function(){
 				o.notificationManager.notify('Unable to save project to WISE server. The server or your Internet connection may be down. An alert will pop up with the project file data, copy this and paste it into a document for backup.', 3);
 				alert(data);
 			} else {
-				o.notificationManager.notify('專案已儲存', 3);
+				o.notificationManager.notify('專題已儲存', 3);
 				o.eventManager.fire('setLastEdited');
 			};
 		};

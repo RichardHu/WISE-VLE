@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/brainstorm/BrainstormNode.js',
 	'vle/node/brainstorm/brainstormEvents.js'
 ];
@@ -38,8 +38,8 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'brainstorm', nodeClassText:'Brainstorm session'},
-	{nodeClass:'qadiscuss', nodeClassText:'Q&A Discussion'}
+	{nodeClass:'brainstorm', nodeClassText:'腦力激盪'},
+	{nodeClass:'qadiscuss', nodeClassText:'Q&A討論'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

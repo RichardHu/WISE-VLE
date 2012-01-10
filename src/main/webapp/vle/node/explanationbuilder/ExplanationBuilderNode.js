@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This a template Node that developers can use to create new 
  * step types. Copy this file and rename it to 
  *
@@ -25,9 +25,9 @@ ExplanationBuilderNode.prototype.parentNode = Node.prototype; //xTODO: rename Te
  * xTODO: rename Template to whatever you would like this step to be displayed as in
  * the authoring tool when the author creates a new step
  */
-ExplanationBuilderNode.authoringToolName = "Explanation Builder"; 
+ExplanationBuilderNode.authoringToolName = "建立解釋"; 
 
-ExplanationBuilderNode.authoringToolDescription = "Students use ideas from their Idea Basket to generate a response"; //xTODO: rename TemplateNode
+ExplanationBuilderNode.authoringToolDescription = "學生使用他們想法籃中的想法來產生回應"; //xTODO: rename TemplateNode
 
 /**
  * This is the constructor for the Node

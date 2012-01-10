@@ -1,12 +1,12 @@
-/*
+﻿/*
  * HtmlNode
  */
 
 HtmlNode.prototype = new Node();
 HtmlNode.prototype.constructor = HtmlNode;
 HtmlNode.prototype.parent = Node.prototype;
-HtmlNode.authoringToolName = "Text/HTML Page";
-HtmlNode.authoringToolDescription = "Students read information from an HTML page";
+HtmlNode.authoringToolName = "文字/HTML";
+HtmlNode.authoringToolDescription = "學生從HTML網頁閱讀資訊";
 
 /**
  * @constructor

@@ -1,4 +1,4 @@
-/*
+﻿/*
 Copyright (c) 2009, Yahoo! Inc. All rights reserved.
 Code licensed under the BSD License:
 http://developer.yahoo.net/yui/license.txt
@@ -8644,7 +8644,7 @@ YAHOO.lang.extend(WireIt.LayerMap, WireIt.CanvasElement, {
 
 })();
 /* 	mySystem 	- Engine Model 0.1
-		License 	- Copyright Concord Constortium © 2009
+		License 	- Copyright Concord Constortium 穢 2009
 		Developer - Alistair MacDonald, Hyper-Metrix.com */
 
 (function(){
@@ -10243,7 +10243,7 @@ MySystemData.defaultTerminals = function() {
         renderButtons: function() {
             var toolbar = Dom.get('toolbar');
             var newButton = new widget.Button({
-                label: "Clear Diagram",
+                label: "清除圖示",
                 id: "WiringEditor-newButton",
                 container: toolbar
             });

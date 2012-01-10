@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/datagraph/DataGraphNode.js',
 	'vle/node/datagraph/dataGraphEvents.js'
 ];
@@ -36,7 +36,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'datatable', nodeClassText:'Data Graph'}
+	{nodeClass:'datatable', nodeClassText:'資料圖表'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

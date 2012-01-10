@@ -5,7 +5,7 @@ ChallengeNode.prototype = new MultipleChoiceNode();
 ChallengeNode.prototype.constructor = ChallengeNode;
 ChallengeNode.prototype.parent = MultipleChoiceNode.prototype;
 ChallengeNode.authoringToolName = "挑戰問題";
-ChallengeNode.authoringToolDescription = "Students answer a multiple choice question. If they get the answer wrong, they will need to revisit a previous step before trying again.";
+ChallengeNode.authoringToolDescription = "學生回答多選項問題。如果答錯，再次回答之前他們必須重新瀏覽前面的步驟";
 
 /**
  * @constructor

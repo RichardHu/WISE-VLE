@@ -1,17 +1,17 @@
-SurgeNode.prototype = new Node();
+﻿SurgeNode.prototype = new Node();
 SurgeNode.prototype.constructor = SurgeNode;
 SurgeNode.prototype.parent = Node.prototype;
 
 /*
  * the name that displays in the authoring tool when the author creates a new step
  */
-SurgeNode.authoringToolName = "Surge"; 
+SurgeNode.authoringToolName = "SURGE *"; 
 
 /*
  * will be seen by the author when they add a new step to their project to help
  * them understand what kind of step this is
  */
-SurgeNode.authoringToolDescription = "This is a generic step only used by developers";
+SurgeNode.authoringToolDescription = "程式設計師專屬步驟";
 
 /*
  * The tag map functions that are available for this step type

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * the scripts that are always necessary regardless of whether the
  * user is using the vle, authoring tool, or grading tool
  */
@@ -29,7 +29,7 @@ var dependencies = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'display', nodeClassText:'Mysystem2'}
+	{nodeClass:'display', nodeClassText:'系統圖2'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

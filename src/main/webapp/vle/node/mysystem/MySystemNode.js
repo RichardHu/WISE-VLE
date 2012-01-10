@@ -1,9 +1,9 @@
-
+﻿
 MySystemNode.prototype = new Node();
 MySystemNode.prototype.constructor = MySystemNode;
 MySystemNode.prototype.parent = Node.prototype;
-MySystemNode.authoringToolName = "My System";
-MySystemNode.authoringToolDescription = "Students work on a diagram where they can add images and connect them with lines";
+MySystemNode.authoringToolName = "系統圖";
+MySystemNode.authoringToolDescription = "學生實作圖示，他們可以新增圖形且用線來連接";
 
 /**
  * @constructor

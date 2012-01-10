@@ -1,4 +1,4 @@
-var coreScripts = [
+﻿var coreScripts = [
 	'vle/node/mw/MWNode.js',
 	'vle/node/mw/mwEvents.js'
 ];
@@ -25,7 +25,7 @@ var css = [
 ];
 
 var nodeClasses = [
-	{nodeClass:'simulation', nodeClassText:'Molecular Workbench'}
+	{nodeClass:'simulation', nodeClassText:'嵌入MW'}
 ];
 
 scriptloader.addScriptToComponent('core', coreScripts);

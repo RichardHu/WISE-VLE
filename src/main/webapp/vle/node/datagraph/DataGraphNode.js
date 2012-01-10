@@ -1,8 +1,8 @@
-DataGraphNode.prototype = new Node();
+﻿DataGraphNode.prototype = new Node();
 DataGraphNode.prototype.constructor = DataGraphNode;
 DataGraphNode.prototype.parent = Node.prototype;
-DataGraphNode.authoringToolName = "Data Graph";
-DataGraphNode.authoringToolDescription = "Students enter data values and generate a graph";
+DataGraphNode.authoringToolName = "資料圖表";
+DataGraphNode.authoringToolDescription = "學生輸入資料數值且產生圖表";
 
 /**
  * @constructor

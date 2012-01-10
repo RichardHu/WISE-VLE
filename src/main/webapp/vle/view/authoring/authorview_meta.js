@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Functions specific to the creation, retrieving and updating of metadata
  * 
  * @author patrick lawler
@@ -56,7 +56,7 @@ View.prototype.updateProjectMetaOnServer = function(publish, silent){
 		$('#editProjectMetadataDialog').dialog('close');
 		
 		if(!silent){
-			o.notificationManager.notify('Project metadata saved to project directory.', 3);
+			o.notificationManager.notify('專題後設資料已儲存到專題目錄', 3);
 		}
 		
 		if(publish){
@@ -65,7 +65,7 @@ View.prototype.updateProjectMetaOnServer = function(publish, silent){
 	};
 	
 	var failed = function(text, xml, o){
-		o.notificationManager.notify('Error saving project metadata in directory.', 3);
+		o.notificationManager.notify('專題後設資料儲存錯誤', 3);
 	};
 	
 	if(this.mode == "portal") {
