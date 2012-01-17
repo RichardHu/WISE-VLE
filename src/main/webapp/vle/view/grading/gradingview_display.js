@@ -1,4 +1,4 @@
-
+﻿
 
 
 /**
@@ -341,8 +341,8 @@ View.prototype.displayExportExplanation = function(exportType) {
 		exportExplanationPageHtml += "</table>";
 	} else if(exportType == 'studentNames') {
 		//show the explanation for the student names export
-		exportExplanationPageHtml += "<h3>Export Student Names</h3>";
-		exportExplanationPageHtml += "<p>Export the student names along with their period, workgroup id, wise id, and login</p>";
+		exportExplanationPageHtml += "<h3>匯出學生姓名</h3>";
+		exportExplanationPageHtml += "<p>匯出學生姓名包含班級、組別 id、WISE id與登入名稱</p>";
 		exportExplanationPageHtml += "<table class='exportExplanationTable'>";
 		exportExplanationPageHtml += this.getRunExportExplanations();
 		exportExplanationPageHtml += this.getStudentNamesExportExplanations();
@@ -443,7 +443,7 @@ View.prototype.displayCustomExportPageHelper = function(node) {
 		 */
 		if(this.activityNumber != 0) {
 			//this node is a sequence so we will display a checkbox and label for the current activity
-			displayCustomExportPageHelperHtml += "<tr><td class='chooseStepToGradeActivityTd'><input id='activityCheckBox_" + this.activityNumber + "' class='stepCheckBox' type='checkbox' name='customExportActivityCheckbox' value='" + nodeId + "' onClick='eventManager.fire(\"customActivityCheckBoxClicked\", [\"activityCheckBox_" + this.activityNumber + "\"])' /><h4 style='display:inline'>Activity " + this.activityNumber + ": " + node.getTitle() + "</h4></td></tr>";
+			displayCustomExportPageHelperHtml += "<tr><td class='chooseStepToGradeActivityTd'><input id='activityCheckBox_" + this.activityNumber + "' class='stepCheckBox' type='checkbox' name='customExportActivityCheckbox' value='" + nodeId + "' onClick='eventManager.fire(\"customActivityCheckBoxClicked\", [\"activityCheckBox_" + this.activityNumber + "\"])' /><h4 style='display:inline'>活動 " + this.activityNumber + ": " + node.getTitle() + "</h4></td></tr>";
 		}
 
 		//increment the activity number
@@ -538,7 +538,7 @@ View.prototype.getGradingHeaderTableHtml = function() {
 	}
 	
 	gradingHeaderHtml += "<a onClick=\"eventManager.fire('refreshGradingScreen')\">"+this.getI18NString('grading_button_check_for_new_student_work')+"</a>";
-	gradingHeaderHtml += "<a class='saveButton' onClick=\"notificationManager.notify('Changes have been successfully saved.')\">"+this.getI18NString("grading_button_save_changes")+"</a>";
+	gradingHeaderHtml += "<a class='saveButton' onClick=\"notificationManager.notify('成功儲存變更')\">"+this.getI18NString("grading_button_save_changes")+"</a>";
 	gradingHeaderHtml += "</div></div>";
 	/*getGradingHeaderTableHtml += "<input type='button' value='"+this.getI18NString("grading_button_check_for_new_student_work")+"' onClick=\"eventManager.fire('refreshGradingScreen')\"></input>";
 	getGradingHeaderTableHtml += "<input type='button' value='"+this.getI18NString("grading_button_save_changes")+"' onClick=\"notificationManager.notify('Changes have been successfully saved.')\"></input>";
@@ -734,7 +734,7 @@ View.prototype.displayGradeByTeamSelectPage = function() {
 	//displayGradeByTeamSelectPageHtml += "<div id='gradeStepHeader'>"+this.getI18NString("grading_grade_by_team_header")+"</div>";
 	//display Grade by Team header
 	displayGradeByTeamSelectPageHtml += "<div id='gradeTeamHeader' class='gradingHeader'><span class='instructions'>"+this.getI18NString("grading_grade_by_team_header") + "</span>";
-	displayGradeByTeamSelectPageHtml +=	"<div style='float:right;'>Search for student: <input type='text' id='chooseTeamToGrade_search' /></div><div style='clear:both;'></div></div>";
+	displayGradeByTeamSelectPageHtml +=	"<div style='float:right;'>搜尋學生： <input type='text' id='chooseTeamToGrade_search' /></div><div style='clear:both;'></div></div>";
 	
 	//get the html that will be used to filter workgroups by period
 	//displayGradeByTeamSelectPageHtml += this.getPeriodRadioButtonTableHtml("displayGradeByTeamSelectPage");
@@ -944,7 +944,7 @@ View.prototype.displayGradeByStepSelectPageHelper = function(node) {
 		 */
 		if(this.activityNumber != 0) {
 			//this node is a sequence so we will display the activity number and title
-			displayGradeByStepSelectPageHtml += "<tr><td class='chooseStepToGradeActivityTd'><h4>Activity " + this.activityNumber + ": " + node.getTitle() + "</h4></td><td class='header col2'></td><td class=' header col3'></td><td class='header col4'></td><td class='header col5'></td></tr>";
+			displayGradeByStepSelectPageHtml += "<tr><td class='chooseStepToGradeActivityTd'><h4>活動 " + this.activityNumber + ": " + node.getTitle() + "</h4></td><td class='header col2'></td><td class=' header col3'></td><td class='header col4'></td><td class='header col5'></td></tr>";
 		}
 
 		//increment the activity number
@@ -970,7 +970,7 @@ View.prototype.displayGradeByStepSelectPageHelper = function(node) {
  * @param type
  */
 View.prototype.getGradeByStepSelectPageLinklessHtmlForNode = function(node, position, type){
-	return "<tr><td class='chooseStepToGradeStepTd' colspan='5'><p>Step: " + position + " " + node.getTitle() + " (" + type + ")</p></td></tr>";
+	return "<tr><td class='chooseStepToGradeStepTd' colspan='5'><p>步驟 " + position + ": " + node.getTitle() + " (" + type + ")</p></td></tr>";
 };
 
 /**
@@ -1022,7 +1022,7 @@ View.prototype.getGradeByStepSelectPageLinkedHtmlForNode = function(node, positi
 	var maxScorePermission = this.isWriteAllowed();
 	
 	//the regular link to grade by step, this will show revisions for all steps except MySystemNode and SVGDrawNode
-	var nodeLink = "<a onClick='eventManager.fire(\"displayGradeByStepGradingPage\",[\"" + position + "\", \"" + node.id + "\"])'>Step " + position + ":&nbsp;&nbsp;" + node.getTitle() + "&nbsp;&nbsp;&nbsp;<span class='nodeTypeClass'>(" + type + ")</span></a>";
+	var nodeLink = "<a onClick='eventManager.fire(\"displayGradeByStepGradingPage\",[\"" + position + "\", \"" + node.id + "\"])'>步驟 " + position + ":&nbsp;&nbsp;" + node.getTitle() + "&nbsp;&nbsp;&nbsp;<span class='nodeTypeClass'>(" + type + ")</span></a>";
 	
 	//this is a node that students perform work for so we will display a link
 	return "<tr><td class='chooseStepToGradeStepTd col1'>" + nodeLink + "</td><td class='chooseStepToGradeMaxScoreTd col2 statistic'><input id='maxScore_" + node.id + "' type='text' value='" + maxScore + "' onblur='eventManager.fire(\"saveMaxScore\", [" + this.getConfig().getConfigParam('runId') + ", \"" + node.id + "\"])'" + maxScorePermission + "/></td>" + statisticsForNode + "</tr>";
@@ -1248,7 +1248,7 @@ View.prototype.displayGradeByStepGradingPage = function(stepNumber, nodeId) {
 
 	//show the step title and prompt
 	//gradeByStepGradingPageHtml += "<table class='objectToGradeHeaderTable'><tr><td class='objectToGradeTd'>" + stepNumber + " " + this.getProject().getNodeById(nodeId).getTitle() + "</td>";
-	gradeByStepGradingPageHtml += "<div class='gradingHeader'><span class='instructions'>Current Step: " + stepNumber + " " + this.getProject().getNodeById(nodeId).getTitle() + " <span class='nodeTypeClass'>(" + this.getProject().getNodeById(nodeId).getType() + ")</span></span>";
+	gradeByStepGradingPageHtml += "<div class='gradingHeader'><span class='instructions'>目前步驟： " + stepNumber + " " + this.getProject().getNodeById(nodeId).getTitle() + " <span class='nodeTypeClass'>(" + this.getProject().getNodeById(nodeId).getType() + ")</span></span>";
 	gradeByStepGradingPageHtml += "<div style='float:right;'>";
 	
 	var previousAndNextNodeIds = this.getProject().getPreviousAndNextNodeIds(nodeId);
@@ -2877,7 +2877,7 @@ View.prototype.displayGradeByTeamGradingPage = function(workgroupId) {
 	
 	var userNames = this.getUserNamesByWorkgroupId(workgroupId, 0);
 	
-	gradeByTeamGradingPageHtml += "<div class='gradingHeader'><span class='instructions'>Current Team: " + userNames+ "</span>";
+	gradeByTeamGradingPageHtml += "<div class='gradingHeader'><span class='instructions'>目前組別： " + userNames+ "</span>";
 	gradeByTeamGradingPageHtml += "<div style='float:right;'>";
 	
 	//show the step title and prompt
@@ -3158,7 +3158,7 @@ View.prototype.displayGradeByTeamGradingPageHelper = function(node, vleState) {
 		 */
 		if(this.activityNumber != 0) {
 			//this node is a sequence so we will display the activity number and title
-			displayGradeByTeamGradingPageHtml += "<table class='gradeByTeamGradingPageActivityTable'><tr><td colspan='2' class='chooseStepToGradeActivityTd'><h4>Activity " + this.activityNumber + ": " + node.getTitle() + "</h4></td><td></td></tr></table>";
+			displayGradeByTeamGradingPageHtml += "<table class='gradeByTeamGradingPageActivityTable'><tr><td colspan='2' class='chooseStepToGradeActivityTd'><h4>活動 " + this.activityNumber + ": " + node.getTitle() + "</h4></td><td></td></tr></table>";
 			displayGradeByTeamGradingPageHtml += "";
 		}
 
@@ -3292,7 +3292,7 @@ View.prototype.getPeriodRadioButtonTableHtml = function(displayType) {
 	
 	//create a radio button to display all periods
 	//periodRadioButtonTableHtml += "<div class='periodRadioChoice'><input type='radio' name='choosePeriod' value='all' onClick=\"eventManager.fire('filterStudentRows')\" " + allPeriodsChecked + "> "+this.getI18NString("grading_grade_by_step_all_periods")+"</div>";
-	periodRadioButtonTableHtml += "<span style='margin-right:.5em';>View:</span><a id='all' class='periodChoice " + allPeriodsChecked + "' onClick=\"eventManager.fire('setSelectedPeriod',this)\">"+this.getI18NString("grading_grade_by_step_all_periods")+"</a>";
+	periodRadioButtonTableHtml += "<span style='margin-right:.5em';>視窗：</span><a id='all' class='periodChoice " + allPeriodsChecked + "' onClick=\"eventManager.fire('setSelectedPeriod',this)\">"+this.getI18NString("grading_grade_by_step_all_periods")+"</a>";
 	
 	//loop through the periods
 	for(var p=0; p<periods.length; p++) {
@@ -3308,7 +3308,7 @@ View.prototype.getPeriodRadioButtonTableHtml = function(displayType) {
 		
 		//create a radio button for each period
 		//periodRadioButtonTableHtml += "<div class='periodRadioChoice' ><input type='radio' name='choosePeriod' value='period" + periods[p] + "' onClick=\"eventManager.fire('filterStudentRows')\" " + periodChecked + "> Period " + periods[p] + "</div>";
-		periodRadioButtonTableHtml += "<a id='period" + periods[p] + "' class='periodChoice " + periodChecked + "' onClick=\"eventManager.fire('setSelectedPeriod',this)\">Period " + periods[p] + "</a>";
+		periodRadioButtonTableHtml += "<a id='period" + periods[p] + "' class='periodChoice " + periodChecked + "' onClick=\"eventManager.fire('setSelectedPeriod',this)\">班級 " + periods[p] + "</a>";
 	}
 
 	periodRadioButtonTableHtml += "</div>";

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * A WorkOnXBeforeAdvancingConstraint is an object that represents a constraint specifying
  * that a node or sequence X must have completed work before visiting any other step.
  * 
@@ -45,11 +45,11 @@ function WorkOnXBeforeAdvancingConstraint(opts){
 	} else {
 		if(opts.workCorrect) {
 			//display the message to tell the student they must answer this question correctly in order to move on
-			this.msg = 'You must correctly answer ' + xMsg + ' before moving ahead.';
+			this.msg = '在移動之前您必須正確回答 ' + xMsg ;
 			this.workCorrect = opts.workCorrect;
 		} else {
 			//display the message to tell the student they must complete the work in order to move on
-			this.msg = 'You must complete the work for ' + xMsg + ' before moving ahead. If you are satisfied with your answer, click the "' + buttonName + '" button.';			
+			this.msg = '在移動之前您必須完整實作 ' + xMsg + '。 如果您已經填好答案，點選 "' + buttonName + '" 按鈕。';			
 		}
 	}
 	

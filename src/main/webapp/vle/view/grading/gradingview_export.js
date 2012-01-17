@@ -1,4 +1,4 @@
-
+﻿
 /**
  * Generate the student navigation XLS. This will ask the
  * teacher to save the XLS file.
@@ -257,36 +257,36 @@ View.prototype.getRunExportExplanations = function() {
 	 */
 	var runExportExplanations = [
 		{
-			label:"Teacher Login",
-			explanation:"the login of the teacher who created the run"
+			label:"登入教師",
+			explanation:"建立執行專題的登入教師"
 		},
 		{
-			label:"Project Id",
-			explanation:"the id of the project"
+			label:"專題ID",
+			explanation:"專題的ID"
 		},
 		{
-			label:"Parent Project Id",
-			explanation:"the id of the project that this project was copied from (if applicable)"
+			label:"來源專題ID",
+			explanation:"這個專題複製的來源專題 Id "
 		},
 		{
-			label:"Project Name",
-			explanation:"the name of the project"
+			label:"專題名稱",
+			explanation:"專題的名稱"
 		},
 		{
-			label:"Run Id",
-			explanation:"the id of the run"
+			label:"執行ID",
+			explanation:"執行專題的ID"
 		},
 		{
-			label:"Run Name",
-			explanation:"the name of the run"
+			label:"執行名稱",
+			explanation:"執行專題名稱"
 		},
 		{
-			label:"Start Date",
-			explanation:"the date the run was created"
+			label:"開始日期",
+			explanation:"執行專題建立的日期"
 		},
 		{
-			label:"End Date",
-			explanation:"the date the run was archived (if applicable)"
+			label:"結束日期",
+			explanation:"執行專題歸檔的日期"
 		}
 	];
 	

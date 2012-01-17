@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SessionManager manages sessions
  * The SessionManager will warn the user when the session is about to expire. 
  * The user can choose to ignore the warning or renew the session. 
@@ -89,9 +89,9 @@ SessionManager.prototype.checkSession = function() {
 				// renewSession was requested
 				eventManager.fire('renewSession');
 			};
-			$('#sessionMessageDiv').html("You have been inactive for a long time. If you do not renew your session now, you will be logged out of WISE.");
+			$('#sessionMessageDiv').html("您已經一段時間沒有動作。過久沒有動作會自動登出WISE！");
 			$('#sessionMessageDiv').dialog(
-					{autoOpen:true, draggable:true, modal:true, title:'Session Timeout', width:400, position:['center','top'], buttons: {'STAY LOGGED IN!':renewSessionSubmit}, close:renewSessionClose}
+					{autoOpen:true, draggable:true, modal:true, title:'連線逾時', width:400, position:['center','top'], buttons: {'繼續保持登入!':renewSessionSubmit}, close:renewSessionClose}
 			);
 		} else {
 			// they're fine, within the timeout interval. no need to renew session or logout.
